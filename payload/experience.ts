@@ -3,7 +3,7 @@ import { IExperience } from '../component/experience/IExperience';
 // 기간 안 맞음
 const experience: IExperience.Payload = {
   disable: false,
-  disableTotalPeriod: false,
+  disableTotalPeriod: true, // 기간이 안맞음
   list: [
     {
       title: '폴라리스 오피스',
