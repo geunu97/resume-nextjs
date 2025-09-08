@@ -1,176 +1,159 @@
 import { ISkill } from '../component/skill/ISkill';
 
-const programmingLanguages: ISkill.Skill = {
-  category: 'Programming Languages',
+const frontend: ISkill.Skill = {
+  category: 'Frontend Fundamentals',
   items: [
     {
-      title: 'C',
-      level: 3,
+      title: 'HTML',
     },
     {
-      title: 'Shell Scripting',
-      level: 3,
+      title: 'CSS',
     },
     {
-      title: 'Python',
-      level: 3,
+      title: 'Webpack',
     },
     {
-      title: 'Perl',
-      level: 2,
+      title: 'Javascript',
     },
     {
-      title: 'Golang',
-      level: 2,
-    },
-    {
-      title: 'Rust',
-      level: 1,
+      title: 'Typescript',
     },
   ],
 };
 
-const kernelDevelopment: ISkill.Skill = {
-  category: 'Kernel Development',
+const cssFrameworks: ISkill.Skill = {
+  category: 'CSS Frameworks/CSS Preprocessors',
   items: [
     {
-      title: 'Kernel Programming',
-      level: 3,
+      title: 'Bootstrap',
     },
     {
-      title: 'GNU Debugger',
-      level: 3,
+      title: 'Tailwind CSS',
     },
     {
-      title: 'Memory Management',
-      level: 2,
+      title: 'Sass',
     },
     {
-      title: 'System Call Interface',
-      level: 2,
+      title: 'Styled-Component',
+    },
+    {
+      title: 'Storybook',
     },
   ],
 };
 
-const virtualization: ISkill.Skill = {
-  category: 'Virtualization',
+const javascriptFrameworks: ISkill.Skill = {
+  category: 'Javascript Frameworks/Libraries',
   items: [
     {
-      title: 'Docker',
-      level: 3,
+      title: 'React',
     },
     {
-      title: 'KVM',
-      level: 3,
-    },
-    {
-      title: 'Xen',
-      level: 2,
-    },
-    {
-      title: 'VirtualBox',
-      level: 2,
-    },
-    {
-      title: 'VMware ESXi',
-      level: 1,
+      title: 'Next.js',
     },
   ],
 };
 
-const automation: ISkill.Skill = {
-  category: 'Automation',
+const packageManagers: ISkill.Skill = {
+  category: 'Package Managers',
   items: [
     {
-      title: 'Ansible',
-      level: 3,
+      title: 'npm',
     },
     {
-      title: 'Puppet',
-      level: 3,
+      title: 'yarn',
     },
     {
-      title: 'Chef',
-      level: 2,
-    },
-    {
-      title: 'Jenkins',
-      level: 2,
-    },
-    {
-      title: 'CI/CD Pipelines',
-      level: 1,
-    },
-    {
-      title: 'Infrastructure as Code',
-      level: 1,
+      title: 'pnpm',
     },
   ],
 };
 
-const networkSecurity: ISkill.Skill = {
-  category: 'Network Security',
+const stateManagementLibraries: ISkill.Skill = {
+  category: 'State Management Libraries',
   items: [
     {
-      title: 'iptables',
-      level: 3,
+      title: 'Redux',
     },
     {
-      title: 'OpenSSH',
-      level: 3,
+      title: 'Recoil',
     },
     {
-      title: 'OpenSSL',
-      level: 2,
-    },
-    {
-      title: 'NACLs',
-      level: 2,
-    },
-    {
-      title: 'VPN Technologies',
-      level: 2,
-    },
-    {
-      title: 'Intrusion Detection',
-      level: 1,
+      title: 'React-Query',
     },
   ],
 };
 
-const misc: ISkill.Skill = {
-  category: 'Misc',
+const ciCd: ISkill.Skill = {
+  category: 'CI/CD',
   items: [
     {
-      title: 'Coffee Brewing',
-    },
-    {
-      title: "Rubik's Cube Solving",
-    },
-    {
-      title: 'Table Tennis',
-    },
-    {
-      title: 'Guitar Playing',
-    },
-    {
-      title: 'Joke Telling',
-    },
-    {
-      title: 'Duct Tape Crafting',
+      title: 'GitHub Actions',
     },
   ],
 };
 
+const jest: ISkill.Skill = {
+  category: 'Testing',
+  items: [
+    {
+      title: 'Jest',
+    },
+  ],
+};
+
+const developmentTools: ISkill.Skill = {
+  category: 'Development Tools',
+  items: [
+    {
+      title: 'Git',
+    },
+    {
+      title: 'VSCode',
+    },
+    {
+      title: 'Webpack',
+    },
+    {
+      title: 'Rollup',
+    },
+  ],
+};
+
+const communicationTools: ISkill.Skill = {
+  category: 'Project Management',
+  items: [
+    {
+      title: 'Dooray',
+    },
+    {
+      title: 'Jira',
+    },
+    {
+      title: 'Microsoft Teams',
+    },
+    {
+      title: 'Microsoft Outlook',
+    },
+    {
+      title: 'Microsoft Office365',
+    },
+  ],
+};
+
+// 자신 없으면 과감히 빼도 좋다!
 const skill: ISkill.Payload = {
   disable: false,
   skills: [
-    programmingLanguages,
-    kernelDevelopment,
-    virtualization,
-    automation,
-    networkSecurity,
-    misc,
+    frontend,
+    jest,
+    cssFrameworks,
+    javascriptFrameworks,
+    packageManagers,
+    stateManagementLibraries,
+    ciCd,
+    developmentTools,
+    communicationTools,
   ],
   tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };

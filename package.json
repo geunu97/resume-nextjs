@@ -1,7 +1,7 @@
 {
-  "name": "resume-nextjs",
-  "lastestUpdatedAt": "2025-09-01",
-  "version": "1.3.1",
+  "name": "resume-geunwoo",
+  "lastestUpdatedAt": "2025-09-04",
+  "version": "1.0.0",
   "description": "Static HTML based RESUME made with next.js",
   "main": "index.js",
   "scripts": {
@@ -18,24 +18,24 @@
     "lint": "eslint \"component/**/*\" \"pages/**/*\" \"payload/**/*\" \"*.ts\" --fix",
     "typedoc": "typedoc --excludeExternals"
   },
-  "homepage": "https://uyu423.github.io/resume-nextjs",
+  "homepage": "https://geunu97.github.io/resume-nextjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uyu423/resume-nextjs.git"
+    "url": "git+https://github.com/geunu97/resume-nextjs.git"
   },
   "keywords": [
     "resume",
     "next"
   ],
   "author": {
-    "name": "Yowu Yu",
-    "email": "me@yowu.dev",
-    "url": "https://yowu.dev"
+    "name": "Park Geunwoo",
+    "email": "olo90632951@gmail.com",
+    "url": "https://github.com/geunu97"
   },
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uyu423/resume-nextjs/issues"
+    "url": "https://github.com/geunu97/resume-nextjs/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
