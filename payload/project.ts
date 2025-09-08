@@ -11,8 +11,7 @@ const project: IProject.Payload = {
       where: 'B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
       descriptions: [
         {
-          content:
-            '포맷별 기능 API 개발 및 리포트 이슈 대응을 통해 GS 인증 시험 1등급 획득 [(관련기사/공식 인증서 링크)]',
+          content: '포맷별 기능 API 개발 및 리포트 이슈 대응을 통해 GS 인증 시험 1등급 획득', // [(관련기사/공식 인증서 링크)]
           weight: 'MEDIUM',
         },
         {
@@ -20,7 +19,7 @@ const project: IProject.Payload = {
           descriptions: [
             {
               content:
-                '주요 협력사: 나눔기술(RISE, 전북특별자치도청, 가축위생방역지원본부), 넥스가이드, 래티스, LG Singlex, 엘박스 등 [(파트너사 보도자료/공식 레퍼런스)]',
+                '주요 협력사: 나눔기술(RISE, 전북특별자치도청, 가축위생방역지원본부), 넥스가이드, 래티스, LG Singlex, 엘박스 등', // [(파트너사 보도자료/공식 레퍼런스)]
             },
           ],
         },
@@ -28,7 +27,7 @@ const project: IProject.Payload = {
           content: '외부 파트너사 리포트 이슈 대응 및 기능 개선 (타 오피스 대비 미지원 기능 보완)',
         },
         {
-          content: 'Docusaurus 기반 개발자 가이드 문서 자동화 [(Docs 사이트 링크)]',
+          content: 'Docusaurus 기반 개발자 가이드 문서 자동화', // [(Docs 사이트 링크)]
         },
         {
           content: 'Jira Open API 연동으로 파트너사별 티켓 자동 생성 및 이슈 관리 효율화',
@@ -45,12 +44,10 @@ const project: IProject.Payload = {
           content: 'KT PASS App WebView 연동',
           descriptions: [
             {
-              content:
-                'Intro 페이지 무료가입 플로우 구현 (App-웹 간 Bridge 통신) [(PASS 공식 소개페이지 링크)]',
+              content: 'Intro 페이지 무료가입 플로우 구현 (App-웹 간 Bridge 통신)', // [(PASS 공식 소개페이지 링크)]
             },
             {
-              content:
-                'Chrome Extension 기반 Mock PASS 환경 개발로 테스트 효율성 향상 [(Github/사내 레포 링크)]',
+              content: 'Chrome Extension 기반 Mock PASS 환경 개발로 테스트 효율성 향상', //  [(Github/사내 레포 링크)]
             },
           ],
         },
@@ -58,8 +55,7 @@ const project: IProject.Payload = {
           content: 'KT PASS Web',
           descriptions: [
             {
-              content:
-                '환경별(Webpack) 빌드 분리(staging/production) 및 배포 구조 최적화 [(개발자 블로그/기술 발표자료)]',
+              content: '환경별(Webpack) 빌드 분리(staging/production) 및 배포 구조 최적화', //  [(개발자 블로그/기술 발표자료)]
             },
           ],
         },
@@ -67,8 +63,7 @@ const project: IProject.Payload = {
           content: 'LGU+ PASS Web',
           descriptions: [
             {
-              content:
-                'WebOffice SDK React 연동을 통한 문서 편집기(Web Editor) 제공 [(서비스 소개 링크)]',
+              content: 'WebOffice SDK React 연동을 통한 문서 편집기(Web Editor) 제공', //  [(서비스 소개 링크)]
             },
             {
               content: '로그인 화면 개발',
@@ -79,20 +74,19 @@ const project: IProject.Payload = {
           content: 'LGU+ PASS 소개페이지',
           descriptions: [
             {
-              content: '공지사항, 가입/해지 페이지 개발 [(서비스 페이지 링크)]',
+              content: '공지사항, 가입/해지 페이지 개발', //  [(서비스 페이지 링크)]
             },
           ],
         },
       ],
     },
     {
-      title: '내부 생산성 도구 개발',
+      title: '사내 생산성 도구 개발',
       startedAt: '2024-06',
-      where: '사내 인트라넷 근무시간 계산기 Chrome Extension 개발',
+      where: '',
       descriptions: [
         {
-          content:
-            '인트라넷 근무시간 계산기 Chrome Extension 개발 → 근무시간 집계 자동화 [(Chrome Web Store 링크 또는 사내 배포 문서)]',
+          content: '인트라넷 근무시간 계산기 Chrome Extension 개발', // → 근무시간 집계 자동화 [(Chrome Web Store 링크 또는 사내 배포 문서)]
         },
       ],
     },
@@ -189,6 +183,10 @@ const project: IProject.Payload = {
           content:
             '버전 관리와 배포 과정의 반복 작업을 개선하기 위해 Github Actions를 활용하여 CI/CD 자동화 구축,',
         },
+        {
+          href: 'https://github.com/geunu97/react-design-library',
+          content: 'https://github.com/geunu97/react-design-library',
+        },
       ],
     },
     {
@@ -223,52 +221,81 @@ const project: IProject.Payload = {
           content:
             '지속 가능한 코드와 개발 문화를 만들기 위해 Pull Request을 이용한 코드리뷰 프로세스 도입',
         },
-      ],
-    },
-    {
-      title: '고양이 사진관',
-      startedAt: '2022-03',
-      endedAt: '2022-04',
-      where: '무료 오픈 API를 이용한 고양이 사진 검색 사이트',
-      descriptions: [
         {
-          content: '첫 개발 프로젝트를 통해 프로그래밍 문법과 다양한 기능 구현 방법 습득',
+          href: 'https://github.com/cbnu-sequence/sequence-web-front',
+          content: 'https://github.com/cbnu-sequence/sequence-web-front',
         },
       ],
     },
     {
-      title: 'Single Page Appliaction으로 만든 당근 블로그',
-      startedAt: '2023-12',
-      endedAt: '2023-12',
-      where: '프로그래밍 레벨? 깃허브 알고리즘 url 또는 레벨 Url 첨부?',
+      title: 'Hash Routing 기반 Single Page Application',
+      startedAt: '2024-02',
+      endedAt: '2024-02',
+      where: '해시 라우팅과 커스텀 렌더링 추상화를 적용한 경량 싱글 페이지 애플리케이션',
       descriptions: [
         {
+          content:
+            'Vanilla JS로 hashchange 이벤트 기반 커스텀 라우터 설계, 해시 파싱·라우트 매칭·폴백 처리까지 포함한 경량 SPA 아키텍처 구현',
+        },
+        {
+          content:
+            'MSW(Mock Service Worker)와 더미 데이터 연동으로 API 의존성 제거 및 프론트엔드 중심 개발 환경 구축',
+        },
+        {
+          content: 'Webpack 기반 번들링으로 최적화된 SPA 실행 환경 구현',
+        },
+        {
+          href: 'https://github.com/geunu97/whatever-spa',
           content: 'https://github.com/geunu97/whatever-spa',
         },
       ],
     },
     {
-      title: 'VRIN 클론 코딩',
-      startedAt: '2022-03',
-      endedAt: '2022-04',
-      where: 'https://github.com/geunu97/vrin-clone',
+      title: 'Community Board',
+      startedAt: '2023-03',
+      endedAt: '2023-03',
+      where: '온라인 커뮤니티 게시판 웹 서비스',
       descriptions: [
         {
-          content: 'https://github.com/geunu97/vrin-clone',
+          content: 'Next.js 기반으로 게시글과 댓글의 CRUD 기능을 설계·구현',
         },
-      ],
-    },
-    {
-      title: 'Community',
-      startedAt: '2022-03',
-      endedAt: '2022-04',
-      where: '프로그래밍 레벨? 깃허브 알고리즘 url 또는 레벨 Url 첨부?',
-      descriptions: [
         {
+          content:
+            'SSR·SSG·StaticPaths를 적절히 활용하여 게시판·댓글은 getServerSideProps, 404/Error 페이지는 getStaticProps·getStaticPaths로 구현',
+        },
+        {
+          content: 'TypeScript의 interface 상속과 제네릭 적용으로 타입 안정성과 확장성 확보',
+        },
+        {
+          content: 'rem 단위와 미디어쿼리를 활용한 반응형 폰트 스케일링 적용',
+        },
+        {
+          content: 'statusCode 기반 동적 라우팅으로 일관된 에러 처리 체계 마련',
+        },
+        {
+          content: 'apis, components, hooks, utils 등으로 구조화해 가독성과 생산성 향상',
+        },
+        {
+          href: 'https://github.com/geunu97/community',
           content: 'https://github.com/geunu97/community',
         },
       ],
     },
+    // {
+    //   title: '고양이 사진관',
+    //   startedAt: '2022-03',
+    //   endedAt: '2022-04',
+    //   where: '무료 오픈 API를 이용한 고양이 사진 검색 사이트',
+    //   descriptions: [
+    //     {
+    //       content: '첫 개발 프로젝트를 통해 프로그래밍 문법과 다양한 기능 구현 방법 습득',
+    //     },
+    //     {
+    //       href: 'https://github.com/geunu97/Repository_React_Cat',
+    //       content: 'https://github.com/geunu97/Repository_React_Cat',
+    //     },
+    //   ],
+    // },
   ],
 };
 
