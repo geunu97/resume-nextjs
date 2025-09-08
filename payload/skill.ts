@@ -1,159 +1,162 @@
 import { ISkill } from '../component/skill/ISkill';
 
-const frontend: ISkill.Skill = {
-  category: 'Frontend Fundamentals',
+const frontendCore: ISkill.Skill = {
+  category: 'Frontend Core & Frontend Frameworks',
   items: [
     {
       title: 'HTML',
+      level: 3,
     },
     {
       title: 'CSS',
+      level: 3,
     },
     {
-      title: 'Webpack',
+      title: 'JavaScript',
+      level: 3,
     },
     {
-      title: 'Javascript',
+      title: 'TypeScript',
+      level: 2,
     },
     {
-      title: 'Typescript',
+      title: 'React',
+      level: 3,
+    },
+    {
+      title: 'Next.js',
+      level: 2,
     },
   ],
 };
 
 const cssFrameworks: ISkill.Skill = {
-  category: 'CSS Frameworks/CSS Preprocessors',
+  category: 'CSS Frameworks & Preprocessors',
   items: [
     {
-      title: 'Bootstrap',
-    },
-    {
-      title: 'Tailwind CSS',
+      title: 'Styled Components',
+      level: 2,
     },
     {
       title: 'Sass',
-    },
-    {
-      title: 'Styled-Component',
-    },
-    {
-      title: 'Storybook',
+      level: 1,
     },
   ],
 };
 
-const javascriptFrameworks: ISkill.Skill = {
-  category: 'Javascript Frameworks/Libraries',
-  items: [
-    {
-      title: 'React',
-    },
-    {
-      title: 'Next.js',
-    },
-  ],
-};
-
-const packageManagers: ISkill.Skill = {
-  category: 'Package Managers',
-  items: [
-    {
-      title: 'npm',
-    },
-    {
-      title: 'yarn',
-    },
-    {
-      title: 'pnpm',
-    },
-  ],
-};
-
-const stateManagementLibraries: ISkill.Skill = {
-  category: 'State Management Libraries',
+const stateManagement: ISkill.Skill = {
+  category: 'State Management',
   items: [
     {
       title: 'Redux',
+      level: 2,
     },
     {
       title: 'Recoil',
+      level: 2,
     },
     {
-      title: 'React-Query',
+      title: 'React Query',
+      level: 2,
     },
   ],
 };
 
-const ciCd: ISkill.Skill = {
-  category: 'CI/CD',
+const frontendDesignLibrary: ISkill.Skill = {
+  category: 'UI Component & Documentation Tools',
   items: [
     {
-      title: 'GitHub Actions',
+      title: 'Storybook',
+      level: 1,
+    },
+    {
+      title: 'Docusaurus',
+      level: 1,
     },
   ],
 };
 
-const jest: ISkill.Skill = {
+const buildTools: ISkill.Skill = {
+  category: 'Build Tools & Bundlers',
+  items: [
+    {
+      title: 'Webpack',
+      level: 1,
+    },
+    {
+      title: 'Rollup',
+      level: 1,
+    },
+  ],
+};
+
+const testing: ISkill.Skill = {
   category: 'Testing',
   items: [
     {
       title: 'Jest',
+      level: 1,
+    },
+  ],
+};
+
+const cicd: ISkill.Skill = {
+  category: 'CI/CD & DevOps',
+  items: [
+    {
+      title: 'GitHub Actions',
+      level: 1,
     },
   ],
 };
 
 const developmentTools: ISkill.Skill = {
-  category: 'Development Tools',
+  category: 'Development Tools & Design Tools & Project Management Tools',
   items: [
     {
       title: 'Git',
     },
     {
-      title: 'VSCode',
+      title: 'GitHub',
     },
     {
-      title: 'Webpack',
+      title: 'GitLab',
     },
     {
-      title: 'Rollup',
+      title: 'VS Code',
     },
-  ],
-};
-
-const communicationTools: ISkill.Skill = {
-  category: 'Project Management',
-  items: [
     {
-      title: 'Dooray',
+      title: 'Cursor',
+    },
+    {
+      title: 'Figma',
+    },
+    {
+      title: 'Zeplin',
     },
     {
       title: 'Jira',
     },
     {
-      title: 'Microsoft Teams',
+      title: 'Confluence',
     },
     {
-      title: 'Microsoft Outlook',
-    },
-    {
-      title: 'Microsoft Office365',
+      title: 'Notion',
     },
   ],
 };
 
-// 자신 없으면 과감히 빼도 좋다!
 const skill: ISkill.Payload = {
   disable: false,
   skills: [
-    frontend,
-    jest,
+    frontendCore,
     cssFrameworks,
-    javascriptFrameworks,
-    packageManagers,
-    stateManagementLibraries,
-    ciCd,
+    stateManagement,
+    frontendDesignLibrary,
+    buildTools,
+    testing,
+    cicd,
     developmentTools,
-    communicationTools,
   ],
   tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };

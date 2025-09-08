@@ -161,73 +161,6 @@ const project: IProject.Payload = {
       ],
     },
     {
-      title: 'React Design Library',
-      startedAt: '2023-06',
-      endedAt: '2023-08',
-      where: 'React 기반 UI 컴포넌트 라이브러리',
-      descriptions: [
-        {
-          content:
-            '프로젝트를 진행하면서 자주 사용되는 기능들(예: 페이지네이션, 토스트 알림 등)을 매번 개발하는 데 많은 시간이 소요되었습니다. 이러한 문제를 해결하기 위해, 자주 사용되는 기능들을 미리 개발하여 Storybook기반의 라이브러리로 제공함으로써 일관된 디자인과 개발 시간을 단축하고자 했습니다. 이러한 라이브러리화 경험은 향후 기업에서 사용되는 기능들을 개발할 때 또는 이미 존재하는 라이브러리의 시스템을 이해하는 데에도 도움이 될 것이라고 생각했습니다.',
-        },
-        {
-          content: '개발 서버 환경을 구축하여 배포와 테스트 과정의 비효율성 개선',
-          descriptions: [
-            {
-              content:
-                '초기에는 라이브러리의 변경사항을 테스트하기 위해 매번 메인 서버를 통해 배포한 후, 다른 프로젝트에서 해당 라이브러리 버전을 다운로드하여 테스트하는 방식을 사용했습니다. 그러나, 라이브러리의 변경사항이 충분히 테스트되지 않은 상태에서 메인 서버에 배포되어, 안정성 문제를 일으킬 수 있었습니다. 또한, 테스트를 위해 라이브러리의 버전이 계속해서 올라가면서, 버전 관리가 복잡해졌습니다. 이러한 문제를 해결하기 위해 개발 서버의 필요성을 느끼고, dev 브랜치를 만들어 개발과 테스트를 위한 별도의 환경을 구축했습니다. ',
-            },
-          ],
-        },
-        {
-          content:
-            '버전 관리와 배포 과정의 반복 작업을 개선하기 위해 Github Actions를 활용하여 CI/CD 자동화 구축,',
-        },
-        {
-          href: 'https://github.com/geunu97/react-design-library',
-          content: 'https://github.com/geunu97/react-design-library',
-        },
-      ],
-    },
-    {
-      title: '우아한 프리코스',
-      startedAt: '2023-11',
-      endedAt: '2023-12',
-      where:
-        '우아한 형제들이 주최한 교육 과정에 참여하여, 4주 동안 야구 게임, 레이싱 게임, 로또 게임, 크리스마스 프로모션 등의 주제로 자바스크립트 과제해결',
-      descriptions: [
-        {
-          content:
-            'Jest를 활용하여 100개 이상의 단위 테스트를 작성하여 코드의 안정성을 검증하고 유지보수성 개선',
-        },
-      ],
-    },
-    {
-      title: 'Sequence',
-      startedAt: '2022-04',
-      endedAt: '2022-07',
-      where: '동아리 홍보 및 소개를 목적으로 하는 웹 서비스',
-      descriptions: [
-        {
-          content: '웹 페이지의 SEO 및 로딩 성능 향상을 위해 Next.js 도입',
-          descriptions: [
-            {
-              content:
-                '프로젝트를 처음 시작할 때부터 Next.js를 선택한 것은 웹 페이지의 SEO 최적화와 로딩 성능을 개선하려는 목적에서였습니다. 기존 시스템에서 Next.js로 전환한 배경이 없어, A/B 테스트를 통해 성능을 직접 비교할 기회는 없었습니다. 그러나 Next.js의 서버 사이드 렌더링(SSR) 기능을 통해 초기 로딩 시간을 줄이고 검색 엔진 최적화(SEO)를 강화할 수 있는 잠재적 이점이 있었기에, Next.js를 도입했습니다.',
-            },
-          ],
-        },
-        {
-          content:
-            '지속 가능한 코드와 개발 문화를 만들기 위해 Pull Request을 이용한 코드리뷰 프로세스 도입',
-        },
-        {
-          href: 'https://github.com/cbnu-sequence/sequence-web-front',
-          content: 'https://github.com/cbnu-sequence/sequence-web-front',
-        },
-      ],
-    },
-    {
       title: 'Hash Routing 기반 Single Page Application',
       startedAt: '2024-02',
       endedAt: '2024-02',
@@ -247,6 +180,66 @@ const project: IProject.Payload = {
         {
           href: 'https://github.com/geunu97/whatever-spa',
           content: 'https://github.com/geunu97/whatever-spa',
+        },
+      ],
+    },
+    {
+      title: '우아한테크코스 프리코스',
+      startedAt: '2023-11',
+      endedAt: '2023-12',
+      where: '우아한형제들 주최 교육 과정',
+      descriptions: [
+        {
+          content: 'JavaScript 과제 해결 및 Jest 기반 100+ 단위 테스트 작성',
+        },
+        {
+          content: '크리스마스 프로모션',
+          href: 'https://github.com/geunu97/javascript-christmas-6-geunu97',
+        },
+        {
+          content: '로또게임',
+          href: 'https://github.com/geunu97/javascript-lotto-6/tree/geunu97',
+        },
+        {
+          content: '레이싱게임',
+          href: 'https://github.com/geunu97/javascript-racingcar-6/tree/geunu97',
+        },
+        {
+          content: '야구게임',
+          href: 'https://github.com/geunu97/javascript-baseball-6',
+        },
+      ],
+    },
+    {
+      title: '@geunwoo/react-design-system',
+      startedAt: '2023-06',
+      endedAt: '2023-08',
+      where: 'React 기반 UI 컴포넌트 NPM 라이브러리',
+      descriptions: [
+        {
+          content: 'Storybook으로 문서화하여 재사용성과 접근성 강화',
+        },
+        {
+          content:
+            'Toast, Alert, Pagination, Loading, ProgressBar, Button 등 다양한 UI 컴포넌트 제공으로 개발 시간 단축과 디자인 일관성 확보',
+        },
+        {
+          content:
+            '개발 서버 환경(dev 브랜치) 구축으로 메인 서버 배포 전 안정성 검증과 버전 관리 효율화',
+        },
+        {
+          content: 'Github Actions 기반 CI/CD 자동화로 배포 반복 작업 최소화',
+        },
+        {
+          content: '향후 기업 환경에서 라이브러리 활용과 기존 시스템 이해에 기여할 수 있는 경험',
+        },
+        {
+          href: 'https://www.npmjs.com/package/@geunwoo/react-design-system',
+          content: 'https://www.npmjs.com/package/@geunwoo/react-design-system',
+        },
+        {
+          href: 'https://github.com/geunu97/react-design-library',
+          content: 'https://github.com/geunu97/react-design-library',
         },
       ],
     },
@@ -278,6 +271,24 @@ const project: IProject.Payload = {
         {
           href: 'https://github.com/geunu97/community',
           content: 'https://github.com/geunu97/community',
+        },
+      ],
+    },
+    {
+      title: 'Sequence',
+      startedAt: '2022-04',
+      endedAt: '2022-07',
+      where: '동아리 홍보 및 소개를 목적으로 하는 웹 서비스',
+      descriptions: [
+        {
+          content: 'Next.js의 SSR 기능 도입으로 초기 로딩 속도 개선 및 SEO 강화',
+        },
+        {
+          content: 'React Query 활용 서버 데이터 구조 분리 및 상태 관리',
+        },
+        {
+          href: 'https://github.com/cbnu-sequence/sequence-web-front',
+          content: 'https://github.com/cbnu-sequence/sequence-web-front',
         },
       ],
     },
