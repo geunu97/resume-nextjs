@@ -1,7 +1,7 @@
 import { ISkill } from '../component/skill/ISkill';
 
 const frontendCore: ISkill.Skill = {
-  category: 'Frontend Core & Frontend Frameworks',
+  category: 'Frontend Core',
   items: [
     {
       title: 'HTML',
@@ -19,6 +19,12 @@ const frontendCore: ISkill.Skill = {
       title: 'TypeScript',
       level: 2,
     },
+  ],
+};
+
+const frontendFrameworks: ISkill.Skill = {
+  category: 'Frontend Frameworks & Libraries',
+  items: [
     {
       title: 'React',
       level: 3,
@@ -27,12 +33,6 @@ const frontendCore: ISkill.Skill = {
       title: 'Next.js',
       level: 2,
     },
-  ],
-};
-
-const cssFrameworks: ISkill.Skill = {
-  category: 'CSS Frameworks & Preprocessors',
-  items: [
     {
       title: 'Styled Components',
       level: 2,
@@ -41,12 +41,6 @@ const cssFrameworks: ISkill.Skill = {
       title: 'Sass',
       level: 1,
     },
-  ],
-};
-
-const stateManagement: ISkill.Skill = {
-  category: 'State Management',
-  items: [
     {
       title: 'Redux',
       level: 2,
@@ -59,12 +53,6 @@ const stateManagement: ISkill.Skill = {
       title: 'React Query',
       level: 2,
     },
-  ],
-};
-
-const frontendDesignLibrary: ISkill.Skill = {
-  category: 'UI Component & Documentation Tools',
-  items: [
     {
       title: 'Storybook',
       level: 1,
@@ -77,7 +65,7 @@ const frontendDesignLibrary: ISkill.Skill = {
 };
 
 const buildTools: ISkill.Skill = {
-  category: 'Build Tools & Bundlers',
+  category: 'Frontend Build & Testing',
   items: [
     {
       title: 'Webpack',
@@ -87,12 +75,6 @@ const buildTools: ISkill.Skill = {
       title: 'Rollup',
       level: 1,
     },
-  ],
-};
-
-const testing: ISkill.Skill = {
-  category: 'Testing',
-  items: [
     {
       title: 'Jest',
       level: 1,
@@ -100,8 +82,8 @@ const testing: ISkill.Skill = {
   ],
 };
 
-const cicd: ISkill.Skill = {
-  category: 'CI/CD & DevOps',
+const ciCd: ISkill.Skill = {
+  category: 'CI/CD',
   items: [
     {
       title: 'GitHub Actions',
@@ -111,7 +93,7 @@ const cicd: ISkill.Skill = {
 };
 
 const developmentTools: ISkill.Skill = {
-  category: 'Development Tools & Design Tools & Project Management Tools',
+  category: 'IDE & Tools',
   items: [
     {
       title: 'Git',
@@ -148,16 +130,7 @@ const developmentTools: ISkill.Skill = {
 
 const skill: ISkill.Payload = {
   disable: false,
-  skills: [
-    frontendCore,
-    cssFrameworks,
-    stateManagement,
-    frontendDesignLibrary,
-    buildTools,
-    testing,
-    cicd,
-    developmentTools,
-  ],
+  skills: [frontendCore, frontendFrameworks, buildTools, ciCd, developmentTools],
   tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };
 
