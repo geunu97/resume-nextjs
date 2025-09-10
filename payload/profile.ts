@@ -11,7 +11,7 @@ const profile: IProfile.Payload = {
   // image: 'https://resume.yowu.dev/static/image/profile_2019.png',
   image,
   name: {
-    title: 'Park Geunwoo',
+    title: '박근우 (Park Geunwoo)',
   },
   contact: [
     {
@@ -20,9 +20,9 @@ const profile: IProfile.Payload = {
       icon: faEnvelope,
     },
     {
-      title: 'Please contact me by email',
+      title: '010-9001-1211',
       icon: faPhone,
-      badge: true,
+      // badge: true,
     },
     {
       link: 'https://github.com/geunu97',
@@ -30,7 +30,7 @@ const profile: IProfile.Payload = {
     },
   ],
   notice: {
-    title: '이메일로 연락 부탁드립니다.',
+    title: '휴대전화나 이메일로 연락 부탁드립니다.',
     icon: faBell,
   },
 };
