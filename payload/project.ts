@@ -6,7 +6,7 @@ const project: IProject.Payload = {
     {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
-      where: '(폴라리스 오피스) B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
+      where: '(폴라리스 오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
       descriptions: [
         {
           content: '리포트 이슈 개선을 통한 GS 인증 1등급 획득',
@@ -92,7 +92,7 @@ const project: IProject.Payload = {
       title: 'PASS Office 부가서비스 (KT, LGU+)',
       startedAt: '2024-06',
       where:
-        '(폴라리스 오피스) Polaris Weboffice SDK 기반 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발',
+        '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발',
       descriptions: [
         {
           content: 'LGU+ PASS 2024.11 런칭, KT PASS 2025.10~ 런칭 예정',
@@ -152,8 +152,8 @@ const project: IProject.Payload = {
     {
       title: 'Pickle Sound',
       startedAt: '2024-02',
-      endedAt: '2024-06',
-      where: '(피클사운드) 음원 소유권 분할·투자·정산 음악 투자 플랫폼',
+      endedAt: '2024-05',
+      where: '(피클사운드) 음원 소유권 분할·투자·정산 음악 투자 플랫폼 Web 프론트엔드 개발',
       descriptions: [
         {
           content:
@@ -169,7 +169,8 @@ const project: IProject.Payload = {
       title: 'Fantoo',
       startedAt: '2023-04',
       endedAt: '2023-12',
-      where: '(한류뱅크) K-팝, 드라마, 영화 등 한국 엔터테인먼트 콘텐츠 정보를 제공하는 플랫폼',
+      where:
+        '(한류뱅크) K-팝, 드라마, 영화 등 한국 엔터테인먼트 콘텐츠 정보 제공 플랫폼 Web 프론트엔드 개발',
       descriptions: [
         {
           content: '코드 리팩터링 및 메타데이터 최적화를 통해 Lighthouse SEO 점수 74 -> 86점 향상',
@@ -203,7 +204,7 @@ const project: IProject.Payload = {
       startedAt: '2024-02',
       endedAt: '2024-02',
       where:
-        '(개인 프로젝트) 해시 라우팅과 커스텀 렌더링 추상화를 적용한 경량 싱글 페이지 애플리케이션',
+        '(개인 프로젝트) 해시 라우팅과 커스텀 렌더링 추상화를 적용한 경량 싱글 페이지 애플리케이션 개발',
       descriptions: [
         {
           content:
@@ -226,7 +227,7 @@ const project: IProject.Payload = {
       title: '우아한테크코스 프리코스',
       startedAt: '2023-11',
       endedAt: '2023-12',
-      where: '(개인 프로젝트) 우아한형제들 주최 교육 과정',
+      where: '(개인 프로젝트) 우아한형제들 주최 프론트엔드 교육 과정',
       descriptions: [
         {
           content: 'JavaScript 과제 해결 및 Jest 기반 100+ 단위 테스트 작성',
@@ -253,7 +254,7 @@ const project: IProject.Payload = {
       title: '@geunwoo/react-design-system',
       startedAt: '2023-06',
       endedAt: '2023-08',
-      where: '(개인 프로젝트) React 기반 UI 컴포넌트 NPM 라이브러리',
+      where: '(개인 프로젝트) React 기반 UI 컴포넌트 NPM 라이브러리 개발',
       descriptions: [
         {
           content: 'Storybook으로 문서화하여 재사용성과 접근성 강화',
@@ -286,7 +287,7 @@ const project: IProject.Payload = {
       title: 'Community Board',
       startedAt: '2023-03',
       endedAt: '2023-03',
-      where: '(개인 프로젝트) 온라인 커뮤니티 게시판 웹 서비스',
+      where: '(개인 프로젝트) 온라인 커뮤니티 게시판 Web 서비스 개발',
       descriptions: [
         {
           content: 'Next.js 기반으로 게시글과 댓글의 CRUD 기능 설계·구현',
@@ -317,7 +318,7 @@ const project: IProject.Payload = {
       title: 'Sequence',
       startedAt: '2022-04',
       endedAt: '2022-07',
-      where: '(팀 프로젝트) 동아리 홍보 및 소개를 목적으로 하는 웹 서비스',
+      where: '(팀 프로젝트) 동아리 홍보 및 소개를 목적으로 하는 Web 서비스 개발',
       descriptions: [
         {
           content: 'Next.js의 SSR 기능 도입으로 초기 로딩 속도 개선 및 SEO 강화',
