@@ -106,7 +106,8 @@ const project: IProject.Payload = {
               href: 'https://vf.passoh.io/webview/kt/intro',
             },
             {
-              content: 'Chrome Extension 기반 Mock PASS 환경 개발로 테스트 효율성 향상', //  [(Github/사내 레포 링크)]
+              content: 'Chrome Extension 기반 Mock PASS 환경 개발로 테스트 효율성 향상',
+              href: 'https://github.com/geunu97/pub-po-side/tree/main/mock-kt-pass',
             },
           ],
         },
@@ -140,11 +141,13 @@ const project: IProject.Payload = {
       title: '사내 생산성 도구 개발',
       startedAt: '2024-06',
       where: '(폴라리스 오피스) 사내 인트라넷 근무시간 계산기 Chrome Extension 개발',
-      // descriptions: [
-      //   {
-      //     content: '깃허브',
-      //   },
-      // ],
+      descriptions: [
+        {
+          content: 'Intranet-Working-Hours-Calculator',
+          href:
+            'https://github.com/geunu97/pub-po-side/tree/main/Intranet-Working-Hours-Calculator',
+        },
+      ],
     },
     {
       title: 'Pickle Sound',
