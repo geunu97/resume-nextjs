@@ -1,7 +1,5 @@
 import { IProject } from '../component/project/IProject';
 
-// 링크 첨부할 수 있으면 첨부하기
-// 말 길어서 좋을꺼 없음, 핵심만 전달, 딱 그냥 끊어서 전달
 const project: IProject.Payload = {
   disable: false,
   list: [
@@ -20,7 +18,6 @@ const project: IProject.Payload = {
             },
           ],
         },
-
         {
           content:
             '50여 개 공공기관 및 기업 파트너사 대상 B2B JavaScript SDK 납품 중, 10여 개 주요 업체 담당',
@@ -29,27 +26,65 @@ const project: IProject.Payload = {
               content:
                 '담당 주요 협력사: LG Singlex, 방첩사, 나눔기술(RISE, 전북특별자치도청, 가축위생방역지원본부), 넥스가이드, 래티스, 엘박스 등',
             },
+            {
+              content: '파트너사 리포트 이슈 및 문의 대응을 통한 SDK 안정성 및 서비스 품질 개선',
+            },
+          ],
+        },
+        {
+          content:
+            'C++ 기반 WebAssembly 엔진을 사용하는 React 환경에서 웹오피스 기능 API 개발 및 엔진 통신 대응',
+        },
+        {
+          content: 'HWP/Word/Slide/Sheet 포맷별 기능/UX 개선',
+          descriptions: [
+            {
+              content:
+                'HWP 줄 간격 기능, 입력 기반 단축키(Ctrl+F) 구현, Find/Replace/ReplaceAll API 및 특정 메뉴 비활성화 처리 등 기능 개발',
+            },
+            {
+              content: 'NotoEmoji 폰트 적용으로 이모지 입력 지원',
+            },
+            {
+              content: 'react-i18n 기반 영어/러시아어 다국어 처리',
+            },
+            {
+              content:
+                'Google WebFont(NotoSansKR) 최적화: TTF → WOFF 로컬 저장, 평균 로딩 190ms → 6ms 개선',
+            },
           ],
         },
 
         {
-          content: '파트너사 리포트 이슈 및 문의 대응을 통한 SDK 안정성 및 서비스 품질 개선',
-        },
-
-        {
-          content:
-            'WebAssembly 기반 엔진(Core)이 연동된 프로젝트 환경에서, React 웹오피스에서 기능 API를 활용 가능하도록 구현 및 엔진(C++) 통신 대응',
-        },
-
-        {
-          content: '포맷별(HWP, Word, Slide, Sheet) 문서 편집 API 개발 및 기능 고도화',
-        },
-
-        {
-          content: 'Docusaurus 기반 개발자 가이드 문서 자동화', // [(Docs 사이트 링크)]
+          content: 'Docusaurus 기반 개발자 가이드 POC 구현',
+          descriptions: [
+            {
+              content: 'Polaris WebOffice SDK API 문서 자동화 및 구조화 검증',
+            },
+            {
+              content: 'JSDoc 주석 기반 Markdown 변환 스크립트 개발로 문서 생성 자동화',
+            },
+            {
+              content: 'Markdown 기반 문서 및 버전 관리 설계 경험',
+            },
+          ],
         },
         {
-          content: 'Jira Open API 연동으로 파트너사별 티켓 자동 생성 및 이슈 관리 효율화',
+          content: 'Jira Open API 연동을 통한 배포 이력 자동화 구현',
+          descriptions: [
+            {
+              content: '기존 서버 빌드 자동화 파이프라인에 Jira Open API 연동',
+            },
+            {
+              content: '배포 완료 시점에 해당 프로젝트/버전 기준 티켓 자동 생성 및 이력 기록',
+            },
+            {
+              content: '파트너사별 배포 로그 관리 효율화 및 수동 기록 작업 최소화',
+            },
+          ],
+        },
+        {
+          content: 'GitLab → GitHub 레포지토리 미러링 및 이전 작업 수행',
         },
       ],
     },
@@ -57,13 +92,18 @@ const project: IProject.Payload = {
       title: 'PASS Office 부가서비스 (KT, LGU+)',
       startedAt: '2024-06',
       where:
-        '(폴라리스 오피스) Polaris Weboffice SDK 기반 국내 이동통신사 PASS App/Web/소개페이지에 Polaris WebOffice 기반 부가서비스 프론트엔드 개발',
+        '(폴라리스 오피스) Polaris Weboffice SDK 기반 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발',
       descriptions: [
         {
-          content: 'KT PASS App WebView 연동',
+          content: 'LGU+ PASS 2024.11 런칭, KT PASS 2025.10~ 런칭 예정',
+          weight: 'MEDIUM',
+        },
+        {
+          content: 'KT PASS App',
           descriptions: [
             {
-              content: 'Intro 페이지 무료가입 플로우 구현 (App-웹 간 Bridge 통신)', // [(PASS 공식 소개페이지 링크)]
+              content: 'KT PASS App WebView 연동 및 Intro 페이지 무료가입 플로우 구현',
+              href: 'https://vf.passoh.io/webview/kt/intro',
             },
             {
               content: 'Chrome Extension 기반 Mock PASS 환경 개발로 테스트 효율성 향상', //  [(Github/사내 레포 링크)]
@@ -71,29 +111,26 @@ const project: IProject.Payload = {
           ],
         },
         {
-          content: 'KT PASS Web',
+          content: 'KT/LGU+ PASS Web Editor',
           descriptions: [
             {
-              content: '환경별(Webpack) 빌드 분리(staging/production) 및 배포 구조 최적화', //  [(개발자 블로그/기술 발표자료)]
+              content: '로그인 화면 환경별(Webpack) 빌드 분리(staging/production) 구조 개선',
+              href: 'https://editor.passoh.io/',
+            },
+            {
+              content: '통신사 식별 헤더(pass-oh-telecom)를 기반으로 API 요청 라우팅 구현',
             },
           ],
         },
         {
-          content: 'LGU+ PASS Web',
+          content: 'KT/LGU+ PASS Web Info',
           descriptions: [
             {
-              content: 'WebOffice SDK React 연동을 통한 문서 편집기(Web Editor) 제공', //  [(서비스 소개 링크)]
+              content: '유료 구독 가입/서비스 해지/공지사항 화면 UI 및 API 통합 구현',
+              href: 'https://vf.passoh.io/join',
             },
             {
-              content: '로그인 화면 개발',
-            },
-          ],
-        },
-        {
-          content: 'LGU+ PASS 소개페이지',
-          descriptions: [
-            {
-              content: '공지사항, 가입/해지 페이지 개발', //  [(서비스 페이지 링크)]
+              content: '약관 상세, 이용약관, 개인정보처리방침 화면 Polaris WebOffice SDK 기반 구현',
             },
           ],
         },
@@ -102,12 +139,12 @@ const project: IProject.Payload = {
     {
       title: '사내 생산성 도구 개발',
       startedAt: '2024-06',
-      where: '(폴라리스 오피스) 사내 생산성 도구 개발',
-      descriptions: [
-        {
-          content: '인트라넷 근무시간 계산기 Chrome Extension 개발', // → 근무시간 집계 자동화 [(Chrome Web Store 링크 또는 사내 배포 문서)]
-        },
-      ],
+      where: '(폴라리스 오피스) 사내 인트라넷 근무시간 계산기 Chrome Extension 개발',
+      // descriptions: [
+      //   {
+      //     content: '깃허브',
+      //   },
+      // ],
     },
     {
       title: 'Pickle Sound',

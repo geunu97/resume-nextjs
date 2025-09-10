@@ -41,6 +41,6 @@ export declare namespace IProject {
     /**
      * ### 프로젝트 설명
      */
-    descriptions: IRow.Description[];
+    descriptions?: IRow.Description[];
   }
 }

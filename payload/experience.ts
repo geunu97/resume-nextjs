@@ -1,6 +1,5 @@
 import { IExperience } from '../component/experience/IExperience';
 
-// 기간 안 맞음
 const experience: IExperience.Payload = {
   disable: false,
   disableTotalPeriod: true, // 기간이 안맞음
@@ -36,7 +35,7 @@ const experience: IExperience.Payload = {
           title: '내부 생산성 도구 개발',
           startedAt: '2024-06',
           descriptions: ['사내 인트라넷 근무시간 계산기 Chrome Extension 개발'],
-          skillKeywords: ['Typescript', 'React', 'Redux', 'Sass'],
+          skillKeywords: ['JavaScript'],
         },
       ],
     },
