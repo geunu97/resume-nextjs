@@ -23,26 +23,26 @@ const openSource: IOpenSource.Payload = {
         },
       ],
     },
-    {
-      title: 'Interview_Question_for_Beginner',
-      descriptions: [
-        {
-          content: '문서 내용 수정',
-        },
-        {
-          content: 'Contributor',
-        },
-        {
-          content: 'https://github.com/jbee37142/Interview_Question_for_Beginner/pull/193',
-          href: 'https://github.com/jbee37142/Interview_Question_for_Beginner/pull/193',
-        },
-        {
-          content: 'Github Stars: ',
-          postImage:
-            'https://img.shields.io/github/stars/jbee37142/Interview_Question_for_Beginner.svg?style=popout',
-        },
-      ],
-    },
+    // {
+    //   title: 'Interview_Question_for_Beginner',
+    //   descriptions: [
+    //     {
+    //       content: '문서 내용 수정',
+    //     },
+    //     {
+    //       content: 'Contributor',
+    //     },
+    //     {
+    //       content: 'https://github.com/jbee37142/Interview_Question_for_Beginner/pull/193',
+    //       href: 'https://github.com/jbee37142/Interview_Question_for_Beginner/pull/193',
+    //     },
+    //     {
+    //       content: 'Github Stars: ',
+    //       postImage:
+    //         'https://img.shields.io/github/stars/jbee37142/Interview_Question_for_Beginner.svg?style=popout',
+    //     },
+    //   ],
+    // },
     // {
     //   title: 'ko.javascript.info',
     //   descriptions: [

@@ -21,6 +21,7 @@ const experience: IExperience.Payload = {
           startedAt: '2024-06',
           descriptions: [
             'PASS App-WebView Bridge 통신 구조 설계 및 구현',
+            'PASS Web Editor Polaris WebOffice JavaScript SDK 연동',
             'PASS Web 가입/해지, 공지사항 플로우 화면 개발 및 코드 개선',
           ],
           skillKeywords: ['JavaScript', 'TypeScript', 'React', 'Redux', 'Sass'],

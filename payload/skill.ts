@@ -65,26 +65,16 @@ const frontendFrameworks: ISkill.Skill = {
 };
 
 const buildTools: ISkill.Skill = {
-  category: 'Frontend Build & Testing',
+  category: 'Frontend Tools, etc.',
   items: [
     {
       title: 'Webpack',
       level: 1,
     },
     {
-      title: 'Rollup',
-      level: 1,
-    },
-    {
       title: 'Jest',
       level: 1,
     },
-  ],
-};
-
-const ciCd: ISkill.Skill = {
-  category: 'CI/CD',
-  items: [
     {
       title: 'GitHub Actions',
       level: 1,
@@ -111,12 +101,6 @@ const developmentTools: ISkill.Skill = {
       title: 'Cursor',
     },
     {
-      title: 'Figma',
-    },
-    {
-      title: 'Zeplin',
-    },
-    {
       title: 'Jira',
     },
     {
@@ -130,7 +114,7 @@ const developmentTools: ISkill.Skill = {
 
 const skill: ISkill.Payload = {
   disable: false,
-  skills: [frontendCore, frontendFrameworks, buildTools, ciCd, developmentTools],
+  skills: [frontendCore, frontendFrameworks, buildTools, developmentTools],
   tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };
 

@@ -13,7 +13,7 @@ const etc: IEtc.Payload = {
     {
       title: '우아한테크코스 프리코스 6기',
       subTitle:
-        '우아한형제들 주최 교육 과정 참여, JavaScript 과제 해결 및 Jest 기반 100+ 단위 테스트 작성',
+        '우아한형제들 주최 프론트엔드 교육 과정 참여, JavaScript 과제 해결 및 Jest 기반 100+ 단위 테스트 작성',
       startedAt: '2023-11',
       endedAt: '2023-12',
     },
@@ -23,12 +23,12 @@ const etc: IEtc.Payload = {
         '교내 Solve-Up 프로그래밍 경진대회 10위 입상 및 충청북도 대학생 프로그래밍 경진대회 참가 자격 획득',
       startedAt: '2022-11',
     },
-    {
-      title: '전주대학교',
-      subTitle: ' 성적우수장학생 선발',
-      startedAt: '2020-03',
-      endedAt: '2021-02',
-    },
+    // {
+    //   title: '전주대학교',
+    //   subTitle: ' 성적우수장학생 선발',
+    //   startedAt: '2020-03',
+    //   endedAt: '2021-02',
+    // },
     {
       title: '만기 전역',
       subTitle: '의무경찰 복무 ',

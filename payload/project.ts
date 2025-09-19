@@ -23,8 +23,7 @@ const project: IProject.Payload = {
             '50여 개 공공기관 및 기업 파트너사 대상 B2B JavaScript SDK 납품 중, 10여 개 주요 업체 담당',
           descriptions: [
             {
-              content:
-                '담당 주요 협력사: LG Singlex, 방첩사, 나눔기술(RISE, 전북특별자치도청, 가축위생방역지원본부), 넥스가이드, 래티스, 엘박스 등',
+              content: '담당 주요 협력사: LG Singlex, 방첩사, 나눔기술, 넥스가이드, 엘박스 등',
             },
             {
               content: '파트너사 리포트 이슈 및 문의 대응을 통한 SDK 안정성 및 서비스 품질 개선',
@@ -40,7 +39,7 @@ const project: IProject.Payload = {
           descriptions: [
             {
               content:
-                'HWP 줄 간격 기능, 입력 기반 단축키(Ctrl+F) 구현, Find/Replace/ReplaceAll API 및 특정 메뉴 비활성화 처리 등 기능 개발',
+                'HWP 줄 간격 기능, 입력 기반 단축키(Ctrl+F) 구현, Find/Replace/ReplaceAll API 등 기능 개발',
             },
             {
               content: 'NotoEmoji 폰트 적용으로 이모지 입력 지원',
@@ -92,43 +91,45 @@ const project: IProject.Payload = {
       title: 'PASS Office 부가서비스 (KT, LGU+)',
       startedAt: '2024-06',
       where:
-        '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발',
+        '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10~ 런칭 예정)',
       descriptions: [
         {
-          content: 'LGU+ PASS 2024.11 런칭, KT PASS 2025.10~ 런칭 예정',
-          weight: 'MEDIUM',
-        },
-        {
           content: 'KT PASS App',
+          href: 'https://vf-api.passoh.io/v1/deep-link/pass-kt?id=1',
           descriptions: [
             {
-              content: 'KT PASS App WebView 연동 및 Intro 페이지 무료가입 플로우 구현',
-              href: 'https://vf.passoh.io/webview/kt/intro',
+              content: 'KT PASS 앱 내 WebView 연동을 통해 Intro 페이지에서 무료 가입 절차 구현',
             },
             {
-              content: 'Chrome Extension 기반 Mock PASS 환경 개발로 테스트 효율성 향상',
-              href: 'https://github.com/geunu97/pub-po-side/tree/main/mock-kt-pass',
+              content:
+                'WebView에서 앱과의 통신을 직접 확인하기 어려운 문제를 해결하기 위해, Chrome Extension을 활용한 Mock PASS 환경을 개발하여 KT PASS 무료가입 플로우 테스트의 효율성 향상 경험',
             },
           ],
         },
         {
           content: 'KT/LGU+ PASS Web Editor',
+          href: 'https://editor.passoh.io/',
           descriptions: [
             {
-              content: '로그인 화면 환경별(Webpack) 빌드 분리(staging/production) 구조 개선',
-              href: 'https://editor.passoh.io/',
+              content:
+                'Web Editor에서 새 팝업 기반 로그인 기능을 구현하여, 사용자가 인증에 성공하면 쿠키를 통해 세션을 유지하며 기존 에디터 화면으로 돌아가도록 처리',
             },
             {
-              content: '통신사 식별 헤더(pass-oh-telecom)를 기반으로 API 요청 라우팅 구현',
+              content:
+                'Webpack을 적용하여 로그인 화면의 환경별 빌드(development/staging/production) 구조를 개선하고, 개발/검증/상용 환경의 도메인과 API 서버를 효율적으로 관리',
+            },
+            {
+              content:
+                'PASS Web Editor와 Polaris WebOffice JavaScript SDK를 연동하여 문서 편집 기능을 웹 환경에서 구현',
             },
           ],
         },
         {
           content: 'KT/LGU+ PASS Web Info',
+          href: 'https://vf.passoh.io/join',
           descriptions: [
             {
               content: '유료 구독 가입/서비스 해지/공지사항 화면 UI 및 API 통합 구현',
-              href: 'https://vf.passoh.io/join',
             },
             {
               content: '약관 상세, 이용약관, 개인정보처리방침 화면 Polaris WebOffice SDK 기반 구현',
@@ -142,6 +143,13 @@ const project: IProject.Payload = {
       startedAt: '2024-06',
       where: '(폴라리스 오피스) 사내 인트라넷 근무시간 계산기 Chrome Extension 개발',
       descriptions: [
+        {
+          content:
+            '유연근무제 환경에서 직원별 근무시간을 기준 시간(8시간)과 비교하여 초과/미달 시간을 자동 계산',
+        },
+        {
+          content: 'Chrome Extension으로 구현하여, 브라우저에서 간편하게 근무시간 확인 가능',
+        },
         {
           content: 'Intranet-Working-Hours-Calculator',
           href:
@@ -209,13 +217,6 @@ const project: IProject.Payload = {
         {
           content:
             'Vanilla JS로 hashchange 이벤트 기반 커스텀 라우터 설계, 해시 파싱·라우트 매칭·폴백 처리까지 포함한 경량 SPA 아키텍처 구현',
-        },
-        {
-          content:
-            'MSW(Mock Service Worker)와 더미 데이터 연동으로 API 의존성 제거 및 프론트엔드 중심 개발 환경 구축',
-        },
-        {
-          content: 'Webpack 기반 번들링으로 최적화된 SPA 실행 환경 구현',
         },
         {
           href: 'https://github.com/geunu97/whatever-spa',
