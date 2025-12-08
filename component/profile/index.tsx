@@ -62,6 +62,10 @@ function createProfileContactMap(contacts: Payload['contact']) {
 }
 
 function createNoticeArea(notice: Payload['notice']) {
+  if (!notice) {
+    return null;
+  }
+
   return (
     <EmptyRowCol>
       <Alert color="secondary" role="alert" className="mt-3">

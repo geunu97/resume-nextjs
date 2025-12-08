@@ -91,9 +91,9 @@ export default function ExperienceRow({
             )}
           </Col>
           <Col sm={12} md={9}>
-            <i style={Style.gray}>{position.title}</i>
+            <i style={{ ...Style.gray, whiteSpace: 'pre-line' }}>{position.title}</i>
             <ul className="pt-2">
-              {position.descriptions.map((description, descIndex) => (
+              {position.descriptions?.map((description, descIndex) => (
                 <li key={descIndex.toString()}>{description}</li>
               ))}
               {createSkillKeywords(position.skillKeywords)}

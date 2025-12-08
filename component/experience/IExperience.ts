@@ -25,7 +25,7 @@ export declare namespace IExperience {
 
   export interface Position {
     /** ### (직장)역할 명 (or Subtitle) */
-    title: string;
+    title?: string;
 
     /**
      * ### (직장)경험 시작 일
@@ -51,7 +51,7 @@ export declare namespace IExperience {
      * @todo `IRow.Description[]` 으로 변경
      */
 
-    descriptions: string[];
+    descriptions?: string[];
     /**
      * ### (직장)경험의 키워드
      *
