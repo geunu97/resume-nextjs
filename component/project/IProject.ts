@@ -42,5 +42,12 @@ export declare namespace IProject {
      * ### 프로젝트 설명
      */
     descriptions?: IRow.Description[];
+
+    /**
+     * ### 프로젝트에 사용한 기술 키워드
+     *
+     * @description Experience 섹션과 동일한 Skill Keywords UI 를 재사용한다.
+     */
+    skillKeywords?: string[];
   }
 }

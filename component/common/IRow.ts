@@ -29,6 +29,13 @@ export declare namespace IRow {
     content: string;
 
     /**
+     * ### 스킬 키워드 뱃지 목록
+     *
+     * @description Skill Keywords UI를 재사용하기 위한 필드
+     */
+    skillKeywords?: string[];
+
+    /**
      * ### 폰트 두께 설정이 필요할 경우
      *
      * @default 'DEFAULT'

@@ -1,7 +1,9 @@
+import { Badge } from 'reactstrap';
 import { CSSProperties, PropsWithChildren } from 'react';
 
 import { HrefTargetBlank } from '.';
 import { IRow } from './IRow';
+import { Style } from './Style';
 
 /** Description Recusion Generator */
 export function CommonDescription({
@@ -61,9 +63,28 @@ function DescriptionRecursion({
 }
 
 function Description({ description }: PropsWithChildren<{ description: IRow.Description }>) {
-  const { content, href, postImage, postHref, weight } = description;
+  const { content, href, postImage, postHref, weight, skillKeywords } = description;
 
   const component = (() => {
+    if (skillKeywords) {
+      return (
+        <li>
+          <strong>{content}</strong>
+          <div>
+            {skillKeywords.map((keyword, index) => (
+              <Badge
+                style={Style.skillKeywordBadge}
+                key={index.toString()}
+                color="secondary"
+                className="mr-1"
+              >
+                {keyword}
+              </Badge>
+            ))}
+          </div>
+        </li>
+      );
+    }
     if (href && postImage) {
       return (
         <li style={getFontWeight(weight)}>

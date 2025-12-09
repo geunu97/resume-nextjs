@@ -7,6 +7,7 @@ const project: IProject.Payload = {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
       where: '(폴라리스 오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
+      skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Styled Components'],
       descriptions: [
         {
           content: '제품 소개',
@@ -158,6 +159,7 @@ const project: IProject.Payload = {
       startedAt: '2024-06',
       where:
         '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭)',
+      skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled Components'],
       descriptions: [
         {
           content: '제품 소개',
@@ -262,6 +264,7 @@ const project: IProject.Payload = {
       title: '사내 생산성 도구 개발',
       startedAt: '2024-06',
       where: '(폴라리스 오피스) 사내 인트라넷 근무시간 계산기 Chrome Extension 개발',
+      skillKeywords: ['JavaScript'],
       descriptions: [
         {
           content:
@@ -298,6 +301,7 @@ const project: IProject.Payload = {
       startedAt: '2023-04',
       endedAt: '2023-12',
       where: '(한류뱅크) 한국 엔터테인먼트 콘텐츠 정보 제공 플랫폼 Web 프론트엔드 개발',
+      skillKeywords: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'React Query', 'Sass'],
       descriptions: [
         {
           content: '제품 소개',
@@ -353,6 +357,7 @@ const project: IProject.Payload = {
       startedAt: '2023-11',
       endedAt: '2023-12',
       where: '(개인 프로젝트) 우아한형제들 주최 프론트엔드 교육 과정',
+      skillKeywords: ['JavaScript', 'Jest'],
       descriptions: [
         {
           content: '소개',
@@ -396,6 +401,7 @@ const project: IProject.Payload = {
       startedAt: '2023-06',
       endedAt: '2023-08',
       where: '(개인 프로젝트) React 기반 UI 컴포넌트 NPM 라이브러리 개발',
+      skillKeywords: ['TypeScript', 'React', 'Storybook'],
       descriptions: [
         {
           content: '소개',
@@ -445,6 +451,7 @@ const project: IProject.Payload = {
       startedAt: '2022-04',
       endedAt: '2022-07',
       where: '(팀 프로젝트) 동아리 홍보 및 소개 Web 서비스 개발',
+      skillKeywords: ['TypeScript', 'React', 'Next.js', 'React Query'],
       descriptions: [
         {
           content: '소개',

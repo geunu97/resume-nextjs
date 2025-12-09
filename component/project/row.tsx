@@ -38,7 +38,16 @@ function serialize(payload: IProject.Item): IRow.Payload {
     right: {
       title: payload.title,
       subTitle: payload.where,
-      descriptions: payload.descriptions,
+      descriptions: (() => {
+        const descriptions = payload.descriptions ?? [];
+        if (payload.skillKeywords && payload.skillKeywords.length > 0) {
+          return [
+            ...descriptions,
+            { content: 'Skill Keywords', skillKeywords: payload.skillKeywords },
+          ];
+        }
+        return descriptions;
+      })(),
     },
   };
 }
