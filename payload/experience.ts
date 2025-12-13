@@ -9,7 +9,7 @@ const experience: IExperience.Payload = {
       positions: [
         {
           title:
-            'WebOffice JavaScript SDK 프론트엔드 개발 \n WebOffice SDK 기반 PASS Office 부가서비스 (KT, LGU+) 프론트엔드 개발',
+            'WebOffice JavaScript SDK 프론트엔드 개발 \n WebOffice SDK 기반 PASS Office 부가서비스 (KT, LGU+) 프론트엔드 개발 \n 오피스 소프트웨어 기업 (150~170명)',
           startedAt: '2024-06',
           descriptions: [],
         },
