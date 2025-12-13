@@ -73,17 +73,34 @@ const sideProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'Toast, Alert, Pagination, Loading, ProgressBar, Button 등 UI 컴포넌트 제공',
+              content: '재사용 가능한 UI 컴포넌트 라이브러리 설계 및 개발',
+              descriptions: [
+                {
+                  content:
+                    '프로젝트마다 비슷한 UI 컴포넌트를 반복 구현하는 비효율성을 경험하고, 일관된 디자인 시스템과 재사용 가능한 컴포넌트 라이브러리의 필요성을 느낌',
+                },
+                {
+                  content:
+                    'TypeScript를 활용하여 타입 안정성을 확보하고, Toast, Alert, Pagination, Loading, ProgressBar, Button 등 UI 컴포넌트를 개발. 각 컴포넌트는 props 인터페이스를 명확히 정의하여 사용자가 쉽게 커스터마이징할 수 있도록 설계',
+                },
+                {
+                  content:
+                    'Storybook을 도입하여 컴포넌트의 다양한 상태와 사용 예제를 시각적으로 문서화. 개발자가 코드를 보지 않고도 컴포넌트의 동작을 확인하고 바로 사용할 수 있도록 개선하여 라이브러리 사용성 향상',
+                },
+              ],
             },
             {
-              content: 'Storybook 문서화 및 디자인 가이드 구축',
-            },
-            {
-              content:
-                '개발 서버 환경(dev 브랜치) 구축으로 메인 서버 배포 전 안정성 검증과 버전 관리 효율화',
-            },
-            {
-              content: 'Github Actions 기반 CI/CD 자동화로 배포 반복 작업 최소화',
+              content: 'CI/CD 파이프라인 구축을 통한 배포 프로세스 자동화',
+              descriptions: [
+                {
+                  content:
+                    '초기에는 수동으로 빌드하고 npm에 배포하는 과정이 번거로웠으며, 실수로 잘못된 버전을 배포하거나 테스트 없이 배포하는 위험이 있었음',
+                },
+                {
+                  content:
+                    'Github Actions를 활용하여 CI/CD 파이프라인을 구축. 코드 푸시 시 dev 브랜치에서 안정성 검증 후 메인 브랜치로 병합하는 워크플로우를 설계하여 배포 전 품질 검증 프로세스 확립',
+                },
+              ],
             },
             {
               href: 'https://www.npmjs.com/package/@geunwoo/react-design-system',

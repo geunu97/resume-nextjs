@@ -45,84 +45,75 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '기업 파트너사 대상 B2B JavaScript SDK 납품 중 10여 개 주요 업체 담당',
+              content: 'B2B 파트너사 SDK 납품 및 기술 지원을 통한 고객사 확대 기여',
               descriptions: [
                 {
                   content:
-                    '담당 주요 협력사: LG Singlex, 한화오션, 테크빌교육, 방첩사, 나눔기술, 넥스가이드, 엘박스 등',
+                    '10여 개 주요 파트너사(LG Singlex, 한화오션, 테크빌교육, 방첩사, 나눔기술, 넥스가이드, 엘박스 등)의 WebOffice SDK 연동 프로젝트를 담당하며, 각 고객사의 기술 스택과 요구사항에 맞춘 커스터마이징 및 통합 지원',
                 },
               ],
             },
             {
-              content: 'WebOffice SDK 기술 지원 및 품질 개선',
+              content: 'WebAssembly 엔진과 React UI 레이어 간 이슈 분리 및 해결 프로세스 구축',
               descriptions: [
                 {
                   content:
-                    '고객사의 WebOffice 연동 과정에서 발생하는 기술적 문의·문서 호환성·렌더링 오류 등 CS 이슈 대응',
-                },
-                {
-                  content: 'GS 인증 획득을 위한 제품 기능 검수 및 발견 이슈 전면 수정',
+                    'C++ 기반 WebAssembly 엔진과 React UI가 결합된 아키텍처에서 발생하는 이슈의 원인을 정확히 파악하기 어려운 문제가 있었음. 엔진 레벨 이슈인지 UI 레벨 이슈인지 빠르게 판단할 수 있는 Triage 프로세스를 수립',
                 },
                 {
                   content:
-                    'C++ 기반 WebAssembly 엔진 + React UI 구조에 대해, 엔진 이슈/UI 이슈 원인 분석(Triage)',
-                },
-                {
-                  content:
-                    '엔진 이슈 발생 시 API 동작 분석 → 엔진팀과 커뮤니케이션 → 패치 요청 및 검증',
-                },
-                {
-                  content: 'UI 이슈는 React 레이어에서 직접 수정 및 기능 개선',
-                  descriptions: [
-                    {
-                      content:
-                        '단축키확대지원, 누름틀추가, Find/Replace/ReplaceAll API 등 기능 개발',
-                    },
-                    {
-                      content:
-                        'Google WebFont(NotoSansKR) 최적화: TTF → WOFF 로컬 저장, 평균 로딩 190ms → 6ms 개선',
-                    },
-                    {
-                      content: '해외 고객사 대응을 위해 영문·러시아어 다국어 지원(i18n) 적용',
-                    },
-                  ],
+                    'API 호출 시퀀스와 데이터 흐름을 추적하여 이슈 발생 지점을 식별하고, 엔진 이슈는 엔진팀과의 명확한 커뮤니케이션 프로토콜을 통해 패치 요청 및 검증 프로세스를 정립. UI 이슈는 React 레이어에서 직접 수정하여 응답 속도 개선',
                 },
               ],
             },
             {
-              content: 'SDK 기술 문서화·도구 개발',
+              content: '폰트 로딩 병목 현상 해결을 통한 사용자 경험 개선',
               descriptions: [
                 {
-                  content: '기술 문의를 정리·단일화하기 위한 SDK MCP 제작',
-                  descriptions: [
-                    {
-                      content: '월 CS 문의 50+건 → 30건, 약 40% 감소',
-                      weight: 'MEDIUM',
-                    },
-                  ],
+                  content:
+                    'Google WebFont(NotoSansKR)를 CDN에서 동적으로 로드하는 방식으로 인해 평균 190ms의 로딩 지연이 발생하여, 특히 초기 렌더링 시 텍스트 깜빡임(FOUT) 현상이 사용자 경험을 저해',
                 },
                 {
-                  content: 'Docusaurus 기반 개발자 가이드 POC 구현',
-                  descriptions: [
-                    {
-                      content: 'JSDoc 주석 기반 Markdown 변환 스크립트 개발로 문서 생성 자동화',
-                    },
-                  ],
+                  content:
+                    'TTF 포맷을 WOFF로 변환하여 파일 크기를 30% 감소시키고, 로컬 저장소에 캐싱하는 방식으로 전환. 폰트가 필요한 시점에 이미 로드되어 있어 추가 네트워크 요청이 없도록 개선',
                 },
                 {
-                  content: 'Jira Open API 연동을 통한 배포 이력 자동화 구현',
-                  descriptions: [
-                    {
-                      content: '기존 서버 빌드 자동화 파이프라인에 Jira Open API 연동',
-                    },
-                    {
-                      content:
-                        '배포 완료 시점에 해당 프로젝트/버전 기준 티켓 자동 생성 및 이력 기록',
-                    },
-                    {
-                      content: '파트너사별 배포 로그 관리 효율화 및 수동 기록 작업 최소화',
-                    },
-                  ],
+                  content:
+                    '결과적으로 폰트 로딩 시간을 190ms에서 6ms로 약 97% 개선(31배 향상)하여 초기 렌더링 성능을 크게 향상',
+                },
+              ],
+            },
+            {
+              content: '데이터 기반 CS 문의 감소를 위한 SDK MCP 도구 개발',
+              descriptions: [
+                {
+                  content:
+                    '월 50건 이상의 반복적인 기술 문의가 발생하여 개발팀의 업무 효율성이 저하되고 있었음. 문의 내용을 분석한 결과, 대부분이 SDK 사용법과 API 호출 방식에 대한 질문이었으며, 기존 문서가 분산되어 있어 찾기 어려운 구조였음',
+                },
+                {
+                  content:
+                    'SDK MCP(Model Context Protocol) 도구를 개발하여 Cursor, Claude 등 IDE와 MCP 설정을 통해 연동하고, 프롬프트 방식으로 SDK API 사용 예제와 설명을 즉시 확인할 수 있도록 개선. 개발자가 코드 작성 중 IDE 내에서 직접 SDK 문서를 참조하여 문서 검색 시간을 단축',
+                },
+                {
+                  content:
+                    '도구 도입 후 월 CS 문의가 50건에서 30건으로 40% 감소하여, 개발팀이 신규 기능 개발에 더 집중할 수 있는 환경을 조성',
+                },
+              ],
+            },
+            {
+              content: '배포 이력 관리 자동화를 통한 운영 효율성 향상',
+              descriptions: [
+                {
+                  content:
+                    '10여 개 파트너사에 대한 배포 이력을 수동으로 Jira에 기록하는 작업이 매 배포마다 반복되어 시간이 소모되고 누락 위험이 있었음. 특히 배포 버전과 이슈 추적 간의 연결이 명확하지 않아 문제 발생 시 원인 파악이 어려웠음',
+                },
+                {
+                  content:
+                    '기존 CI/CD 파이프라인에 Jira Open API를 연동하여 배포 완료 시점에 자동으로 프로젝트/버전 기준 티켓을 생성하고 배포 이력을 기록하도록 구현. 배포 로그와 Jira 이슈를 자동으로 연결하여 추적성 확보',
+                },
+                {
+                  content:
+                    '수동 작업 시간을 배포당 평균 15분에서 0분으로 단축하고, 배포 이력 누락을 완전히 방지하여 파트너사별 배포 로그 관리의 정확성과 효율성을 크게 향상',
                 },
               ],
             },
@@ -168,15 +159,15 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'KT PASS App',
-              href: 'https://api.passoh.io/v1/deep-link/pass-kt?id=1',
+              content: 'KT PASS App WebView 연동 및 개발 생산성 향상을 위한 Mock 환경 구축',
               descriptions: [
                 {
-                  content: 'KT PASS 앱 내 WebView 연동을 통해 Intro 페이지에서 무료 가입 절차 구현',
+                  content:
+                    'KT PASS 앱 내 WebView를 통한 무료 가입 플로우를 구현하는 과정에서, 앱과 WebView 간의 네이티브 브릿지 통신을 테스트하기 위해 매번 실제 PASS 앱을 설치하고 실행해야 하는 불편함이 있었음',
                 },
                 {
                   content:
-                    'WebView에서 앱과의 통신을 직접 확인하기 어려운 문제를 해결하기 위해, Chrome Extension을 활용한 Mock PASS 환경을 개발하여 KT PASS 무료가입 플로우 테스트의 효율성 향상 경험',
+                    'Chrome Extension을 활용하여 PASS 앱의 네이티브 API를 모킹하는 개발 환경을 구축. WebView에서 호출하는 브릿지 메서드를 Extension에서 인터셉트하여 실제 앱 없이도 전체 플로우를 검증할 수 있도록 개선',
                 },
               ],
             },
@@ -192,22 +183,15 @@ const companyProject: IProject.Payload = {
                   content:
                     'Webpack을 적용하여 로그인 화면의 환경별 빌드(development/staging/production) 구조를 개선하고, 개발/검증/상용 환경의 도메인과 API 서버를 효율적으로 관리',
                 },
-                {
-                  content:
-                    'PASS Web Editor와 Polaris WebOffice JavaScript SDK를 연동하여 문서 편집 기능을 웹 환경에서 구현',
-                },
               ],
             },
             {
-              content: 'KT/LGU+ PASS Web Info',
+              content: 'PASS Web Info 유료 구독 및 약관 확인 화면 구현',
               href: 'https://passoh.io/join',
               descriptions: [
                 {
-                  content: '유료 구독 가입/서비스 해지/공지사항 화면 UI 및 API 통합 구현',
-                },
-                {
                   content:
-                    '약관 상세, 이용약관, 개인정보처리방침 화면 Polaris WebOffice SDK 기반 구현',
+                    '유료 구독 가입/서비스 해지/공지사항 화면을 구현하며, 사용자가 서비스 약관을 쉽게 확인할 수 있도록 Polaris WebOffice SDK를 활용하여 약관 상세, 이용약관, 개인정보처리방침 화면을 문서 뷰어 형태로 제공',
                 },
               ],
             },
@@ -222,13 +206,26 @@ const companyProject: IProject.Payload = {
       skillKeywords: ['JavaScript'],
       descriptions: [
         {
-          content:
-            '유연근무제 환경에서 직원별 근무시간을 기준 시간(8시간)과 비교하여 초과/미달 시간을 자동 계산하는 Chrome Extension',
-        },
-        {
-          content: 'Intranet-Working-Hours-Calculator',
-          href:
-            'https://github.com/geunu97/pub-po-side/tree/main/Intranet-Working-Hours-Calculator',
+          content: '사내 인트라넷 근무시간 계산 자동화를 통한 업무 효율성 개선',
+          descriptions: [
+            {
+              content:
+                '유연근무제 환경에서 직원들이 매일 인트라넷에서 근무시간을 확인하고 수동으로 계산하는 과정이 번거로웠으며, 기준 시간(8시간) 대비 초과/미달 시간을 정확히 파악하기 어려운 문제가 있었음',
+            },
+            {
+              content:
+                'Chrome Extension을 개발하여 인트라넷 페이지의 근무시간 데이터를 자동으로 파싱하고, 기준 시간과 비교하여 초과/미달 시간을 실시간으로 계산하여 표시. 매일 반복되는 수동 계산 작업을 자동화',
+            },
+            {
+              content:
+                '사내 직원들의 근무시간 관리 효율성을 향상시키고, 계산 오류를 방지하여 정확한 근무시간 파악이 가능하도록 개선',
+            },
+            {
+              content: 'Intranet-Working-Hours-Calculator',
+              href:
+                'https://github.com/geunu97/pub-po-side/tree/main/Intranet-Working-Hours-Calculator',
+            },
+          ],
         },
       ],
     },
@@ -270,19 +267,30 @@ const companyProject: IProject.Payload = {
               ],
             },
             {
-              content: '에러 핸들링 로직 중앙화로 코드 복잡성 개선 및 유지보수성 향상',
+              content: '에러 핸들링 중앙화를 통한 코드 품질 및 유지보수성 개선',
               descriptions: [
                 {
                   content:
-                    'react-query의 useErrorBoundary 옵션을 활용해 ErrorBoundary를 적용하여 상위 컴포넌트에서 에러를 일괄 관리, 하위 컴포넌트 예외를 효과적으로 처리하고 중복 로직을 제거해 코드의 간결성과 유지보수성 향상',
+                    '각 컴포넌트에서 개별적으로 에러를 처리하는 방식으로 인해 중복 코드가 많고, 에러 처리 로직이 일관되지 않아 유지보수가 어려웠음. 또한 사용자에게 표시되는 에러 메시지도 통일되지 않아 UX가 저하됨',
+                },
+                {
+                  content:
+                    'react-query의 useErrorBoundary 옵션을 활용하여 ErrorBoundary 패턴을 도입. API 호출 실패 시 상위 ErrorBoundary에서 일괄 처리하도록 구조화하고, 각 컴포넌트의 중복된 try-catch 로직을 제거하여 코드 복잡성을 감소',
+                },
+                {
+                  content:
+                    '에러 처리 로직을 중앙화하여 코드 라인 수를 감소시키고, 에러 발생 시 일관된 사용자 경험을 제공하며, 새로운 에러 케이스 추가 시 한 곳에서만 수정하면 되도록 유지보수성 크게 향상',
                 },
               ],
             },
             {
-              content: 'Figma 디자인을 기반으로 반응형 UI 퍼블리싱 및 다양한 뷰포트 대응',
-            },
-            {
-              content: 'Swagger 명세 기반 CRUD 작업을 위한 API 연동',
+              content: '웹 사용자 서비스 및 백오피스 시스템 개발',
+              descriptions: [
+                {
+                  content:
+                    'Figma 디자인을 기반으로 반응형 UI를 구현하여 다양한 뷰포트에서 일관된 사용자 경험을 제공하고, Swagger 명세를 기반으로 API 연동을 체계적으로 진행하여 타입 안정성과 개발 효율성 확보',
+                },
+              ],
             },
           ],
         },
