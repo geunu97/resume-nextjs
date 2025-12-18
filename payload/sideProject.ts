@@ -25,7 +25,21 @@ const sideProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'JavaScript 과제 해결 및 Jest 기반 100+ 단위 테스트 작성',
+              content: 'JavaScript 문제 해결 능력 향상 및 테스트 코드 작성 역량 강화',
+              descriptions: [
+                {
+                  content:
+                    'JavaScript 기반 애플리케이션 개발 시 테스트 코드 작성 경험이 부족하여 코드 품질 검증이 어려웠고, 문제 해결 능력을 체계적으로 검증할 수 있는 환경이 필요했음',
+                },
+                {
+                  content:
+                    '크리스마스 프로모션, 로또게임, 레이싱게임, 야구게임 등 4개의 JavaScript 과제를 해결하고, Jest 기반 100개 이상의 단위 테스트를 작성하여 코드 안정성과 품질을 검증',
+                },
+                {
+                  content:
+                    '테스트 코드 작성 역량을 강화하고, 문제 해결 능력을 체계적으로 검증하여 안정적인 애플리케이션 개발 기반 마련',
+                },
+              ],
             },
             {
               content: '크리스마스 프로모션',
@@ -99,6 +113,10 @@ const sideProject: IProject.Payload = {
                 {
                   content:
                     'Github Actions를 활용하여 CI/CD 파이프라인을 구축. 코드 푸시 시 dev 브랜치에서 안정성 검증 후 메인 브랜치로 병합하는 워크플로우를 설계하여 배포 전 품질 검증 프로세스 확립',
+                },
+                {
+                  content:
+                    '배포 프로세스를 자동화하여 수동 작업 시간을 단축하고, 배포 전 자동 검증을 통해 잘못된 버전 배포 위험을 방지하여 라이브러리 품질 관리 효율성 향상',
                 },
               ],
             },

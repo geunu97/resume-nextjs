@@ -273,17 +273,26 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content: '웹 사용자 서비스(FE) 및 백오피스(Admin) Web 시스템 UI/기능 개발',
+              descriptions: [
+                {
+                  content: 'Figma 디자인과 Swagger 명세를 기반으로 UI/UX 개선 및 API 연동 진행',
+                },
+              ],
             },
             {
-              content: 'next-i18next 기반 URL Path 자동 언어 전환 구현(한국어·영어·일본어 지원)',
-            },
-            {
-              content:
-                '코드 리팩터링 및 메타데이터 최적화를 통해 Lighthouse SEO 점수 74 -> 86점 향상',
+              content: '메타데이터 최적화를 통한 Lighthouse SEO 점수 향상',
               descriptions: [
                 {
                   content:
-                    'Lighthouse 경고·주의 메시지를 반영해 <meta>, <title>, <description>을 최적화하고, 모든 이미지에 alt 속성을 적용하여 검색엔진 인식도와 웹 접근성 강화',
+                    'Lighthouse SEO 점수가 74점으로 낮아 검색엔진 최적화가 부족했음. <meta>, <title>, <description> 태그가 최적화되지 않았고, 이미지에 alt 속성이 누락되어 검색엔진 인식도와 웹 접근성이 저하됨',
+                },
+                {
+                  content:
+                    'Lighthouse 경고·주의 메시지를 반영하여 <meta>, <title>, <description>을 최적화하고, 모든 이미지에 alt 속성을 적용하여 검색엔진 인식도와 웹 접근성 강화',
+                },
+                {
+                  content:
+                    'Lighthouse SEO 점수를 74점에서 86점으로 향상시켜 검색엔진 최적화와 웹 접근성 개선',
                 },
               ],
             },
@@ -296,20 +305,11 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    'react-query의 useErrorBoundary 옵션을 활용하여 ErrorBoundary 패턴을 도입. API 호출 실패 시 상위 ErrorBoundary에서 일괄 처리하도록 구조화하고, 각 컴포넌트의 중복된 try-catch 로직을 제거하여 코드 복잡성을 감소',
+                    'react-query의 useErrorBoundary 옵션을 활용하여 ErrorBoundary 패턴을 도입. API 호출 실패 시 상위 ErrorBoundary에서 일괄 처리하도록 구조화하고, 각 컴포넌트의 중복된 try-catch 로직을 제거하여 코드 복잡성 감소',
                 },
                 {
                   content:
-                    '에러 처리 로직을 중앙화하여 코드 라인 수를 감소시키고, 에러 발생 시 일관된 사용자 경험을 제공하며, 새로운 에러 케이스 추가 시 한 곳에서만 수정하면 되도록 유지보수성 크게 향상',
-                },
-              ],
-            },
-            {
-              content: '웹 사용자 서비스 및 백오피스 시스템 개발',
-              descriptions: [
-                {
-                  content:
-                    'Figma 디자인을 기반으로 반응형 UI를 구현하여 다양한 뷰포트에서 일관된 사용자 경험을 제공하고, Swagger 명세를 기반으로 API 연동을 체계적으로 진행하여 타입 안정성과 개발 효율성 확보',
+                    '에러 처리 로직을 중앙화하여 코드 라인 수를 감소시키고, 에러 발생 시 일관된 사용자 경험을 제공하며, 새로운 에러 케이스 추가 시 한 곳에서만 수정하면 되도록 유지보수성 향상',
                 },
               ],
             },
