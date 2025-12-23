@@ -49,7 +49,7 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '10여 개 주요 파트너사(LG Singlex, 한화오션, 테크빌교육, 방첩사, 나눔기술, 넥스가이드, 엘박스 등)의 WebOffice SDK 연동 프로젝트를 담당하며, 각 고객사의 기술 스택과 요구사항에 맞춘 커스터마이징 및 통합 지원',
+                    '10여 개 주요 파트너사(LGCNS, 한화오션, 방첩사, 자산관리공사, 한국도로공사 등)의 WebOffice SDK 연동 프로젝트를 담당하며, 각 고객사의 기술 스택과 요구사항에 맞춘 커스터마이징 및 통합 지원',
                 },
               ],
             },
