@@ -28,6 +28,9 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
+              content: '2025년 연간 사내 프로젝트 평가에서 최우수 프로젝트 선정',
+            },
+            {
               content: '웹오피스 상용화 레퍼런스 확대 - 60여개 고객사 납품 및 상용화',
             },
             {
