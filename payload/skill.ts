@@ -57,10 +57,6 @@ const frontendFrameworks: ISkill.Skill = {
       title: 'Storybook',
       // level: 1,
     },
-    {
-      title: 'Docusaurus',
-      // level: 1,
-    },
   ],
 };
 
@@ -113,7 +109,7 @@ const developmentTools: ISkill.Skill = {
 };
 
 const skill: ISkill.Payload = {
-  disable: false,
+  disable: true,
   skills: [frontendCore, frontendFrameworks, buildTools, developmentTools],
   // tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };

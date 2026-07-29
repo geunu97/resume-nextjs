@@ -6,7 +6,7 @@ const education: IEducation.Payload = {
   list: [
     {
       title: '충북대학교',
-      subTitle: '정보통신공학과 / 학사 졸업 ',
+      subTitle: '정보통신공학과 / 편입, 학사 졸업',
       startedAt: '2021-03',
       endedAt: '2023-02',
     },

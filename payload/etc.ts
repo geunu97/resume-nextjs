@@ -5,9 +5,15 @@ const etc: IEtc.Payload = {
 
   list: [
     {
+      title: 'RootKey',
+      subTitle: '프리랜서 프론트엔드 개발 (피클사운드, 음원 투자 플랫폼)',
+      startedAt: '2024-02',
+      endedAt: '2024-06',
+    },
+    {
       title: '왓에버',
       subTitle: 'JavaScript 및 React 심화 학습 및 프로젝트 수행',
-      startedAt: '2024-12',
+      startedAt: '2023-12',
       endedAt: '2024-05',
     },
     {
@@ -17,12 +23,12 @@ const etc: IEtc.Payload = {
       startedAt: '2023-11',
       endedAt: '2023-12',
     },
-    {
-      title: '충북대학교',
-      subTitle:
-        '교내 Solve-Up 프로그래밍 경진대회 10위 입상 및 충청북도 대학생 프로그래밍 경진대회 참가 자격 획득',
-      startedAt: '2022-11',
-    },
+    // {
+    //   title: '충북대학교',
+    //   subTitle:
+    //     '교내 Solve-Up 프로그래밍 경진대회 10위 입상 및 충청북도 대학생 프로그래밍 경진대회 참가 자격 획득',
+    //   startedAt: '2022-11',
+    // },
     // {
     //   title: '전주대학교',
     //   subTitle: ' 성적우수장학생 선발',
