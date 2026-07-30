@@ -7,7 +7,7 @@ const companyProject: IProject.Payload = {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
       where: '(폴라리스 오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
-      skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Styled Components'],
+      skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Sass'],
       descriptions: [
         {
           content: '제품 소개',
@@ -52,7 +52,11 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '10여 개 주요 파트너사(LGCNS, 한화오션, 방첩사, 자산관리공사, 한국도로공사 등)의 WebOffice SDK 연동 프로젝트를 담당하며, 각 고객사의 기술 스택과 요구사항에 맞춘 커스터마이징 및 통합 지원',
+                    '나눔기술(전북·삼성생명·RISE·가축위생방역본부 등), 방첩사, 래티스, 넥스가이드, 엘박스, 아이스크림미디어, 비인텍, 커리어넷, 한국도로공사(러너스하이), 법무법인 지평, 브레인벤쳐스, 가온아이(감사원 차세대 오아시스), LGU+ 웹하드/웍스, MG새마을금고, 천재교육, 외교부, 지엔기술(교육부), 전기안전공사(와이즈넛), 국가철도공단, 장애인체육회, IBK기업은행, 메일플러그 등 20여 개 고객사를 직접 담당해 기술 지원과 라이센스 갱신·관리를 수행',
+                },
+                {
+                  content:
+                    '방첩사·천재교육·MG새마을금고·나눔기술(삼성생명)·전기안전공사 등 주요 고객사는 기술 미팅과 현장 방문 지원을 직접 진행하며 관계를 관리',
                 },
               ],
             },
@@ -83,6 +87,32 @@ const companyProject: IProject.Payload = {
                 {
                   content:
                     '문서화를 통해 메모리 누수 관련 이슈를 사전에 방지하고, 이슈 및 패치 검증 속도를 향상시켜 팀/파트너 간 협업 효율성 증대',
+                },
+                {
+                  content:
+                    '수립한 원칙을 실제로 적용해, 문서 인스턴스화 완료 후 더 이상 필요 없는 원본 WASM 바이너리(hwp 기준 약 22MB)를 ArrayBuffer.transfer()로 detach시켜 강제 회수하는 로직을 구현. 모듈 변수와 Emscripten 글루 코드가 동일 버퍼를 계속 참조해 단순 참조 제거만으로는 GC되지 않는 문제를 버퍼 자체 detach로 해결했으며, 재인스턴스화 시 바이너리를 다시 읽어야 하는 스레드(pthread) 빌드는 예외 처리해 안전성을 확보',
+                },
+              ],
+            },
+            {
+              content: 'UI 레이어 기능 확장 및 해외 고객사 대응 다국어 지원',
+              descriptions: [
+                {
+                  content:
+                    '단축키 확대 지원, 누름틀 추가, Find/Replace/ReplaceAll API 등 React UI 레이어 기능을 직접 개발해 SDK 완성도를 높임',
+                },
+                {
+                  content:
+                    '해외 고객사 대응을 위해 영문·러시아어 다국어(i18n)를 적용해 비한국어권 고객사에서도 SDK를 도입할 수 있도록 지원',
+                },
+              ],
+            },
+            {
+              content: 'Docusaurus 기반 개발자 가이드 POC 구현',
+              descriptions: [
+                {
+                  content:
+                    'JSDoc 주석을 Markdown으로 변환하는 스크립트를 개발해, 코드에 작성한 주석만으로 Docusaurus 기반 개발자 문서를 자동 생성하는 파이프라인을 검증(SDK MCP 도구 이전 단계의 문서화 접근)',
                 },
               ],
             },
@@ -137,15 +167,32 @@ const companyProject: IProject.Payload = {
                 },
               ],
             },
+            {
+              content: '커밋 메시지 기반 시맨틱 버저닝 및 릴리즈 노트 자동화 구축',
+              descriptions: [
+                {
+                  content:
+                    'PR 머지 시 버전을 수동으로 결정하고, 파트너사에 전달할 릴리즈 노트를 별도로 작성해 배포해야 해서 버전 관리 기준이 일관되지 않고 릴리즈 노트 작성이 누락되거나 지연되는 경우가 있었음',
+                },
+                {
+                  content:
+                    'PR 머지 커밋 제목의 prefix(feat/fix/hotfix/patch/perf/refactor, BREAKING CHANGE)로 semver(major/minor/patch)를 자동 결정하고, 커밋 본문에 필수로 작성하는 public: 라인을 고객사향 릴리즈 노트 텍스트로 자동 추출해 GitHub Actions로 SharePoint 릴리즈 노트 문서에 게시하는 파이프라인을 구축',
+                },
+                {
+                  content:
+                    '버전 결정과 릴리즈 노트 작성·배포가 커밋 컨벤션만 지키면 자동으로 처리되도록 해, 개발자는 별도 버전 태깅이나 문서 작성 없이 코드 작업에 집중할 수 있게 되었고 파트너사도 항상 최신 릴리즈 노트를 확인할 수 있게 됨',
+                },
+              ],
+            },
           ],
         },
       ],
     },
     {
-      title: 'PASS Office 부가서비스 (KT, LGU+)',
+      title: 'PASS Office 부가서비스 (KT, LGU+, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭)',
+        '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled Components'],
       descriptions: [
         {
@@ -154,10 +201,11 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                'KT/LGU+ 이동통신사 사용자 대상 문서 뷰어·편집 기반 B2C 부가서비스로, 하나의 PASS 계정으로 웹/모바일 환경에서 문서를 열람·편집 가능',
+                'KT/LGU+/SKT 이동통신사 사용자 대상 문서 뷰어·편집 기반 B2C 부가서비스로, 하나의 PASS 계정으로 웹/모바일 환경에서 문서를 열람·편집 가능',
             },
             {
-              content: 'PASS App, PASS Web Editor, PASS Info-site 3개 채널로 운영',
+              content:
+                'PASS App(모바일 앱)·PASS Web Editor(문서 편집)·PASS Info-site(가입·약관) 3개 서비스로 구성',
             },
           ],
         },
@@ -166,11 +214,10 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content:
-                '오피스도우미 LGU+ 유료 출시 후, 8개월 만에 유료 구독 30,000명 확보(월 매출 1.5억 수준)',
+              content: '오피스도우미 LGU+ 유료 출시 후, 8개월 만에 유료 구독 30,000명 확보',
             },
             {
-              content: 'SKT 2026년 상반기 오픈 일정 논의 중',
+              content: 'KT·LGU+에 이어 SKT PASS까지 2026년 6월 오픈하며 이동통신 3사 채널 확보',
             },
           ],
         },
@@ -179,7 +226,59 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'KT PASS App WebView 연동 및 개발 생산성 향상을 위한 Mock 환경 구축',
+              content: '앱-웹 브릿지 프로토콜 설계',
+              descriptions: [
+                {
+                  content:
+                    '호스트 → 웹뷰는 JSON 메시지를 cmd/body 형태로, 웹뷰 → 호스트는 Android(window.Native[handler])/iOS(window.webkit.messageHandlers[handler].postMessage) 두 플랫폼을 하나의 인터페이스로 추상화한 브릿지 계층을 직접 설계하고 명세 문서화, 앱 개발 담당자와 지속적으로 협의하며 완성',
+                },
+                {
+                  content:
+                    '웹뷰 초기화 완료를 알리는 initComplete 핸드셰이크를 도입해 앱이 리스너 등록 전에 메시지를 보내 유실되는 레이스 컨디션을 방지하고, 플랫폼별로 특정 브릿지 API 지원 여부를 먼저 확인한 뒤에만 호출하는 가드(isBridgeApiAvailable)를 두어 미지원 환경에서의 예외를 방지',
+                },
+                {
+                  content:
+                    '로그인 토큰은 최초 발급(reqLoginToken/resLoginToken)과 만료 후 재발급(reReqLoginToken/reResLoginToken) 흐름을 분리해 설계하고, KT 추가로 페이로드가 string에서 {token, telecom} 객체로 바뀌는 과정에서 LG 구버전 SDK가 여전히 string으로 응답하는 상황을 런타임 타입 체크로 분기 처리해, 신규 스펙과 구버전 클라이언트를 함께 지원',
+                },
+                {
+                  content:
+                    '세션 검증처럼 응답이 필요한 비동기 브릿지 호출은 요청마다 고유 ID를 발급해 콜백 레지스트리에 등록해두고, 앱이 해당 ID와 함께 응답을 보내면 매칭되는 콜백을 찾아 실행하는 구조로 설계해, 여러 요청이 동시에 나가도 응답이 뒤섞이지 않도록 처리',
+                },
+              ],
+            },
+            {
+              content: 'User-Agent 기반 통신사·앱 버전별 기능 게이팅 설계',
+              descriptions: [
+                {
+                  content:
+                    '웹은 배포 즉시 반영되지만 앱은 스토어 심사와 사용자 업데이트로 버전 보급 속도가 느려, 검증되지 않은 구버전 앱에 신규 기능이 그대로 노출되는 문제가 있었음',
+                },
+                {
+                  content:
+                    '앱이 플랫폼·통신사·버전 정보를 __pass_office_{platform}_{telecom}_{version} 형식으로 User-Agent에 실어 전달하도록 설계하고, 웹에서 이를 파싱해 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현(예: LGU+ PASS 자동연결 해제 안내 팝업의 "자동 해제" 버튼은 Android 0.0.24 이상에서만 노출). 통신사·버전 값은 선택 항목으로 설계해, 조건이 없거나 맞지 않아도 나머지 기능은 정상 동작하도록 안전하게 처리',
+                },
+              ],
+            },
+            {
+              content: 'KT 유료가입 전 취약계층 확인 프로세스 개발',
+              descriptions: [
+                {
+                  content:
+                    '통신 복지 정책상 취약계층 사용자는 유료가입 전 별도 확인 절차가 필요해, 전용 브릿지(reqCheckVulnerableGroups/resCheckVulnerableGroups)로 앱에 취약계층 여부를 조회한 뒤 결과에 따라 가입 플로우를 분기하도록 구현',
+                },
+              ],
+            },
+            {
+              content: 'SKT PASS 신규 서비스 런칭',
+              descriptions: [
+                {
+                  content:
+                    'KT·LGU+ 경험을 바탕으로 SKT 최초 런칭 단계부터 참여해, 딥링크 QR 진입, 웹 가입/해지, 유·무료 가입용 인트로 및 약관 상세 웹뷰 페이지까지 신규 화면 전체를 구현하고 SKT 환경에서의 Editor 로그인 검증 이슈에 대응해 3번째 이동통신사 채널을 확보',
+                },
+              ],
+            },
+            {
+              content: 'KT PASS WebView 브릿지 테스트용 Mock 환경 구축',
               descriptions: [
                 {
                   content:
@@ -188,6 +287,16 @@ const companyProject: IProject.Payload = {
                 {
                   content:
                     'Chrome Extension을 활용하여 PASS 앱의 네이티브 API를 모킹하는 개발 환경을 구축. WebView에서 호출하는 브릿지 메서드를 Extension에서 인터셉트하여 실제 앱 없이도 전체 플로우를 검증할 수 있도록 개선',
+                },
+              ],
+            },
+            {
+              content: 'PASS Web Editor 팝업 기반 로그인 및 세션 유지 구현',
+              href: 'https://editor.passoh.io/',
+              descriptions: [
+                {
+                  content:
+                    '별도 팝업 창에서 로그인을 진행하고, 인증에 성공하면 쿠키로 세션을 유지한 채 기존 에디터 화면으로 자동 복귀하도록 구현해 편집 중이던 문서 컨텍스트를 끊지 않고 로그인을 처리',
                 },
               ],
             },
@@ -202,10 +311,6 @@ const companyProject: IProject.Payload = {
                 {
                   content:
                     'Webpack을 적용하여 환경별 빌드 구조를 체계화하고, development/staging/production 환경에 따라 도메인과 API 서버를 자동으로 설정하도록 개선',
-                },
-                {
-                  content:
-                    '환경별 빌드 관리를 자동화하여 배포 실수 위험을 감소시키고, 개발/검증/상용 환경의 도메인과 API 서버를 효율적으로 관리',
                 },
               ],
             },
@@ -224,25 +329,26 @@ const companyProject: IProject.Payload = {
       ],
     },
     {
-      title: '사내 생산성 도구 개발',
+      title: '사내 근무시간 계산기 Chrome Extension 개발',
       startedAt: '2024-06',
-      where: '(폴라리스 오피스) 사내 인트라넷 근무시간 계산기 Chrome Extension 개발',
+      where: '(폴라리스 오피스) 업무 외 개인 시간을 활용한 사내용 Chrome Extension 개발',
       skillKeywords: ['JavaScript'],
       descriptions: [
         {
-          content: '사내 인트라넷 근무시간 계산 자동화를 통한 업무 효율성 개선',
+          content: '배경 및 구현',
+          weight: 'MEDIUM',
           descriptions: [
             {
               content:
-                '유연근무제 환경에서 직원들이 매일 인트라넷에서 근무시간을 확인하고 수동으로 계산하는 과정이 번거로웠으며, 기준 시간(8시간) 대비 초과/미달 시간을 정확히 파악하기 어려운 문제가 있었음',
+                '유연근무제 환경에서 매일 인트라넷 페이지에서 근무시간을 확인하고 기준 시간(8시간) 대비 초과/미달을 수동으로 계산하는 번거로움을 직접 느껴, 업무 외 개인 시간을 활용해 Chrome Extension을 제작',
             },
             {
               content:
-                'Chrome Extension을 개발하여 인트라넷 페이지의 근무시간 데이터를 자동으로 파싱하고, 기준 시간과 비교하여 초과/미달 시간을 실시간으로 계산하여 표시. 매일 반복되는 수동 계산 작업을 자동화',
+                '인트라넷 페이지의 근무시간 데이터를 자동으로 파싱해 기준 시간과 비교한 초과/미달 시간을 실시간으로 계산·표시',
             },
             {
               content:
-                '사내 직원들의 근무시간 관리 효율성을 향상시키고, 계산 오류를 방지하여 정확한 근무시간 파악이 가능하도록 개선',
+                '본인의 반복적인 수동 계산 작업을 없애고, 같은 불편을 겪던 주변 동료 몇 명에게 공유해 함께 사용',
             },
             {
               content: 'Intranet-Working-Hours-Calculator',
@@ -253,11 +359,27 @@ const companyProject: IProject.Payload = {
         },
       ],
     },
+    // {
+    //   title: 'Pickle Sound',
+    //   startedAt: '2024-02',
+    //   endedAt: '2024-05',
+    //   where: '(피클사운드) 음원 소유권 분할·투자·정산 음악 투자 플랫폼 Web 프론트엔드 개발',
+    //   descriptions: [
+    //     {
+    //       content:
+    //         'next-i18next 도입하여 URL 경로 기반 자동 언어 전환 구현, 한국어·영어·일본어 다국어 지원',
+    //     },
+    //     {
+    //       content:
+    //         'Swagger 명세 기반 상품 리스트 및 상세, 댓글, 마이페이지 CRUD 작업을 위한 API 연동',
+    //     },
+    //   ],
+    // },
     {
       title: 'Fantoo',
       startedAt: '2023-04',
       endedAt: '2023-12',
-      where: '(한류뱅크) 한국 엔터테인먼트 콘텐츠 정보 제공 플랫폼 Web 프론트엔드 개발',
+      where: '(한류뱅크) 175개국 출시 글로벌 K-POP 팬덤 플랫폼 Web 프론트엔드 개발',
       skillKeywords: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'React Query', 'Sass'],
       descriptions: [
         {
@@ -266,7 +388,24 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                'K-팝, 드라마, 영화 등 한류 콘텐츠의 최신 소식·영상·커뮤니티 기능을 통합 제공하는 글로벌 서비스',
+                'K-POP 아티스트와 전세계 한류 팬을 잇는 글로벌 팬덤 플랫폼으로, 175개국에 출시되어 해외 한류 팬을 대상으로 실시간 번역·다국어 채팅·커뮤니티 기능을 제공',
+            },
+            {
+              content:
+                '한국 엔터테인먼트 콘텐츠(K-팝, 드라마, 영화 등)의 최신 소식·영상·커뮤니티 기능을 통합 제공',
+            },
+          ],
+        },
+        {
+          content: '제품 주요 성과',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: '운영사 한류홀딩스(HRYU), 국내 스타트업 최초 나스닥 직상장 성공',
+            },
+            {
+              content: "재직 기간 중 '대한민국 문화연예대상' K-POP 해외 공로상 수상",
+              href: 'http://www.e2news.com/news/articleView.html?idxno=303553',
             },
           ],
         },
@@ -275,10 +414,11 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '웹 사용자 서비스(FE) 및 백오피스(Admin) Web 시스템 UI/기능 개발',
+              content: 'next-i18next 기반 다국어 지원 구현',
               descriptions: [
                 {
-                  content: 'Figma 디자인과 Swagger 명세를 기반으로 UI/UX 개선 및 API 연동 진행',
+                  content:
+                    'URL Path 기준으로 언어를 구분하는 next-i18next를 도입해 한국어·영어·일본어 3개 언어를 지원하고, 접속 경로에 따라 자동으로 언어가 전환되도록 구현해 175개국 대상 글로벌 서비스의 다국어 요구사항을 충족',
                 },
               ],
             },
@@ -312,7 +452,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '에러 처리 로직을 중앙화하여 코드 라인 수를 감소시키고, 에러 발생 시 일관된 사용자 경험을 제공하며, 새로운 에러 케이스 추가 시 한 곳에서만 수정하면 되도록 유지보수성 향상',
+                    '에러 처리 로직을 중앙화해 컴포넌트마다 반복되던 try-catch 코드를 제거하고, 에러 발생 시 일관된 사용자 경험을 제공하며, 새로운 에러 케이스 추가 시 한 곳에서만 수정하면 되도록 유지보수성 향상',
                 },
               ],
             },

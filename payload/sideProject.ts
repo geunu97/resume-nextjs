@@ -20,6 +20,24 @@ const sideProject: IProject.Payload = {
         'Sentry',
         'PostHog',
         'AWS EC2',
+        'AWS S3',
+        'AWS CloudFront',
+        'AWS Route53',
+        'GitHub Actions',
+        'Kakao Map',
+        'OAuth',
+        'JWT',
+        'FCM',
+        'Axios',
+        'PM2',
+        'react-error-boundary',
+        'Yarn Berry',
+        'Cursor',
+        'Claude Code',
+        'Vite',
+        'Shadcn/ui',
+        'Tailwind CSS',
+        'Nginx',
       ],
       descriptions: [
         {
@@ -54,15 +72,11 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: 'Google/Kakao OAuth 인증 상태 관리 설계',
+              content: 'Google/Kakao OAuth 인증 플로우 구현',
               descriptions: [
                 {
                   content:
-                    'OAuth 콜백 페이지에서 백엔드 로그인/회원가입 API를 직접 호출해 JWT를 발급받고, Zustand + persist(localStorage)로 저장해 Authorization 헤더에 포함하는 구조로 설계',
-                },
-                {
-                  content:
-                    'Axios 인터셉터에서 401 응답 중 ACCESS_TOKEN_INVALID 메시지인 경우에만 로그아웃 처리하도록 조건을 구성하고, WebView 환경에서는 별도 로그아웃 브릿지가 없어 FCM 토큰 삭제 요청 브릿지를 재사용해 호출한 뒤, Flutter의 비동기 콜백 응답을 받은 시점에 로컬 토큰을 제거하도록 구현',
+                    '소셜 로그인 버튼 클릭 시 Google/Kakao 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현. 발급받은 토큰은 아래(인증 상태 Zustand 스토어)에서 설계한 스토어에 저장해 이후 요청의 Authorization 헤더에 포함',
                 },
               ],
             },
@@ -72,10 +86,6 @@ const sideProject: IProject.Payload = {
                 {
                   content:
                     '앱에서 발급한 FCM 토큰을 로그인/로그아웃 시점에 네이티브 브릿지로 전달해 서버에 등록·삭제하도록 구현하고, 네이티브 콜백이 인증 상태 변경 전후로 도착할 수 있는 타이밍 이슈를 막기 위해 콜백 수신 시 인증 상태를 재검증한 뒤에만 처리하도록 가드를 추가',
-                },
-                {
-                  content:
-                    '타입이 보장되지 않는 브릿지 페이로드이므로 토큰·디바이스 ID 값의 존재 여부와 형식을 방어적으로 검증한 뒤 서버로 전달',
                 },
               ],
             },
@@ -157,8 +167,12 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '무한 스크롤 페이지 경계 중복 데이터 처리',
+              content: '무한 스크롤 공통 처리 - 관찰자 훅 재사용 및 경계 데이터 정합성',
               descriptions: [
+                {
+                  content:
+                    'IntersectionObserver로 목록 하단 도달을 감지해 다음 페이지를 불러오는 훅을 만들어 좋아요·리뷰·채팅·주문·최근 본 상품 등 8곳 이상에서 재사용',
+                },
                 {
                   content:
                     '커서 기반 페이지네이션 중 서버에 새 아이템이 추가되어 페이지 경계에서 항목이 밀리는 경우를 대비해, InfiniteData의 여러 페이지를 평탄화한 뒤 id 기준으로 중복 제거하는 유틸을 구현',
@@ -251,6 +265,10 @@ const sideProject: IProject.Payload = {
                   content:
                     '사업자등록번호 진위확인 API → 통신판매업 등록상세 조회 API → 스토어 정보 입력으로 이어지는 3단계 폼을 설계하고, 각 단계에서 조회한 값은 상태로 보존해 뒤로가기·재시도 시에도 다시 입력하지 않도록 처리. 두 외부 정부 API가 반환하는 서로 다른 실패 코드(등록번호 불일치, 폐업 상태, 조회 결과 없음 등)는 백엔드가 사용자용 메시지로 매핑해 내려주고, 프론트는 이를 그대로 노출',
                 },
+                {
+                  content:
+                    '마지막 단계인 스토어 정보 입력에는 카카오 우편번호 검색 API를 연동해 도로명·지번 주소와 위도·경도를 함께 저장하도록 구성, 이후 사용자 웹의 거리 표시·지역 필터가 참조하는 위치 데이터의 원천으로 사용',
+                },
               ],
             },
             {
@@ -290,17 +308,32 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: 'IntersectionObserver 기반 무한 스크롤 훅 재사용',
+              content:
+                'PostHog를 연동해 페이지뷰 기반 분석 환경을 마련(전환 퍼널 등 커스텀 이벤트 트래킹은 아직 미구현)',
+            },
+          ],
+        },
+        {
+          content: '기여 내용 - 프론트엔드 (기술 스택 선택 · 마이그레이션)',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: 'User/Seller 프레임워크 이원화 - Next.js vs Vite',
               descriptions: [
                 {
                   content:
-                    'IntersectionObserver로 목록 하단 도달을 감지해 다음 페이지를 불러오는 훅을 만들어 좋아요·리뷰·채팅·주문·최근 본 상품 등 8곳 이상에서 재사용',
+                    '사용자 웹은 SEO·초기 로딩 성능이 중요해 Next.js(App Router, SSR)로, 판매자 관리 웹은 로그인 후에만 접근하는 내부 도구라 SEO가 불필요해 Vite 기반 React SPA로 의도적으로 프레임워크를 분리. 관리자 도구는 SSR 없이 HMR 기반 개발 속도와 빌드 단순함을 우선하는 트레이드오프를 선택',
                 },
               ],
             },
             {
-              content:
-                'Sentry로 에러 모니터링 환경을 구축하고, PostHog를 연동해 페이지뷰 기반 분석 환경을 마련(전환 퍼널 등 커스텀 이벤트 트래킹은 아직 미구현)',
+              content: 'Material-UI → Shadcn/ui 전면 마이그레이션',
+              descriptions: [
+                {
+                  content:
+                    '판매자 웹의 UI 라이브러리를 npm 패키지 방식인 Material-UI에서, 컴포넌트 코드를 프로젝트에 직접 복사해 소유권을 갖는 Shadcn/ui(Radix UI + Tailwind CSS)로 전면 교체. 자유로운 커스터마이징과 번들 크기 최적화를 목표로 29개 컴포넌트·페이지(23개 파일, 52회 import)를 마이그레이션 완료',
+                },
+              ],
             },
           ],
         },
@@ -315,6 +348,15 @@ const sideProject: IProject.Payload = {
             {
               content:
                 'NestJS + Prisma + PostgreSQL 기반 Consumer/Seller/Admin 3-way API 서버(인증·상품·주문·채팅·알림 등 25개 도메인 모듈)와 AWS(EC2, S3, CloudFront, Route53) 인프라를 구성',
+            },
+            {
+              content: 'Yarn Berry PnP → node_modules 방식 전환',
+              descriptions: [
+                {
+                  content:
+                    'Yarn Berry의 PnP 모드로 모노레포를 시작했으나 Prisma generate가 postinstall 시점에 실패하고 IDE 타입 인식도 불안정해지는 호환성 문제를 겪어, nodeLinker를 node-modules 방식으로 전환. Workspace Hoisting으로 공통 의존성은 루트에, 앱별 고유 의존성은 각 워크스페이스에 설치되도록 정리해 개발 도구 호환성과 빌드 안정성을 확보',
+                },
+              ],
             },
           ],
         },
@@ -438,6 +480,52 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
+            {
+              content: '채팅 하이브리드 아키텍처 - WebSocket 전송 + REST 영속성',
+              descriptions: [
+                {
+                  content:
+                    '메시지 전송은 WebSocket으로 처리해 실시간성을 확보하되, 저장은 반드시 서버에서 DB 커밋 후 브로드캐스트하도록 설계해 연결이 끊겨도 메시지가 유실되지 않도록 함. 목록 조회·페이지네이션은 REST API로 분리해, 재연결 시 REST로 이전 메시지를 복구할 수 있도록 안정성과 실시간성을 함께 확보',
+                },
+                {
+                  content:
+                    '현재는 서버 인스턴스 1대로 운영 중이라 커넥션 정보를 인메모리 Map으로 관리하지만, 인스턴스를 2대 이상으로 확장하면 서버 간 WebSocket 세션 공유와 메시지 브로드캐스트가 끊기는 문제가 발생한다는 점을 미리 파악해, Redis Pub/Sub 기반 Socket.io Adapter 도입 시점과 방식을 사전에 설계 문서로 정리',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          content: '기여 내용 - 백엔드 · 인프라 (에러 모니터링 · 로깅)',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: 'responseId 기반 에러 추적 체계',
+              descriptions: [
+                {
+                  content:
+                    '모든 에러 응답에 고유 responseId를 부여해 클라이언트 응답과 Sentry 태그에 동일한 값을 함께 실어 보내도록 설계. 사용자 문의가 들어오면 화면에 노출된 responseId 하나만으로 Sentry 대시보드에서 해당 에러를 바로 검색·추적할 수 있도록 구성',
+                },
+              ],
+            },
+            {
+              content: '민감정보 자동 마스킹 유틸(SensitiveDataUtil)',
+              descriptions: [
+                {
+                  content:
+                    '로그·Sentry로 전송되기 전에 이메일·전화번호·인증 토큰 등을 정규식 기반으로 자동 마스킹하는 유틸을 전역 예외 필터에 적용해, 에러 리포팅 과정에서 개인정보가 그대로 노출되지 않도록 구성',
+                },
+              ],
+            },
+            {
+              content: '환경별 로깅 · Sentry 전송 전략 차등 적용',
+              descriptions: [
+                {
+                  content:
+                    'development는 콘솔 로깅만, staging은 콘솔 로깅+Sentry, production은 콘솔 로깅을 꺼서 성능을 최적화하고 Sentry로만 에러를 확인하도록 환경별로 동작을 분리. Sentry는 tracesSampleRate를 0으로 설정해 Transaction 추적은 비활성화하고 에러 이벤트만 전송하도록 구성해 비용을 절감',
+                },
+              ],
+            },
           ],
         },
         {
@@ -458,11 +546,24 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
+              content: 'Nginx 리버스 프록시 - WebSocket 업그레이드 · 헬스체크 분리',
+              descriptions: [
+                {
+                  content:
+                    'EC2 앞단에 Nginx를 두어 80/443 포트로 요청을 받아 백엔드로 프록시하도록 구성. Socket.IO 경로는 별도 location 블록으로 분리해 Upgrade/Connection 헤더와 장시간 타임아웃을 전용 설정하고, 헬스체크 경로는 접근 로그에서 제외해 배포 파이프라인의 상태 확인 트래픽이 로그를 채우지 않도록 함',
+                },
+              ],
+            },
+            {
               content: 'staging/production 환경 분리 및 웹 3개 서비스 CI/CD',
               descriptions: [
                 {
                   content:
                     'GitHub Actions 기반 태그 트리거 CI/CD로 백엔드(EC2)·3개 웹 서비스(Vercel)의 staging/production 배포를 환경별로 분리해 자동화',
+                },
+                {
+                  content:
+                    'Vercel의 기본 Git 연동 자동배포는 비활성화하고, GitHub Actions가 태그 푸시 시 Vercel Deploy Hook(웹훅)을 호출하는 방식으로 전환해 웹 3개 서비스의 배포 트리거를 백엔드와 동일한 태그 기반 흐름으로 통일',
                 },
               ],
             },
