@@ -7,10 +7,10 @@ const companyProject: IProject.Payload = {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
       where: '(폴라리스 오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
-      skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Sass'],
+      skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Sass', 'MCP'],
       descriptions: [
         {
-          content: '제품 소개',
+          content: '소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -24,7 +24,7 @@ const companyProject: IProject.Payload = {
           ],
         },
         {
-          content: '제품 주요 성과',
+          content: '주요 성과',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -134,7 +134,8 @@ const companyProject: IProject.Payload = {
               ],
             },
             {
-              content: '데이터 기반 CS 문의 감소를 위한 SDK MCP 도구 개발',
+              content:
+                'SDK MCP 도구 개발로 CS 문의 40% 감소, Outlook 연동으로 파트너사 문의 대응까지 자동화 확장',
               descriptions: [
                 {
                   content:
@@ -142,11 +143,23 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    'SDK MCP(Model Context Protocol) 도구를 개발하여 Cursor, Claude 등 IDE와 MCP 설정을 통해 연동하고, 프롬프트 방식으로 SDK API 사용 예제와 설명을 즉시 확인할 수 있도록 개선. 개발자가 코드 작성 중 IDE 내에서 직접 SDK 문서를 참조하여 문서 검색 시간을 단축',
+                    'SDK 가이드 문서를 SDK MCP(Model Context Protocol) 도구로 개발하여 Cursor, Claude 등 IDE와 MCP 설정을 통해 연동하고, 프롬프트 방식으로 SDK API 사용 예제와 설명을 즉시 확인할 수 있도록 개선. 개발자가 코드 작성 중 IDE 내에서 직접 SDK 문서를 참조하여 문서 검색 시간을 단축',
                 },
                 {
                   content:
                     '도구 도입 후 월 CS 문의가 50건에서 30건으로 40% 감소하여, 개발팀이 신규 기능 개발에 더 집중할 수 있는 환경 조성',
+                },
+                {
+                  content:
+                    'IDE 연동 이후에도 파트너사의 SDK 관련 문의는 Outlook 메일로 별도 접수되어, 이슈 신고면 메일 확인 후 정해진 양식에 맞춰 Jira 이슈를 수동으로 등록하고 코드 레벨에서 직접 원인을 파악해 수정·커밋하고, 단순 사용법 문의면 직접 답변을 작성해야 해서 대응 과정 전체가 여전히 수작업으로 남아있었음',
+                },
+                {
+                  content:
+                    'Claude MCP로 Outlook과 코드 저장소를 연동하고, 문의 대응 절차를 Skill로 정의해 문의 유형에 따라 분기 처리하도록 구성: 이슈 신고는 프롬프트 입력만으로 정해진 양식에 맞춰 Jira 이슈를 등록하고 원인을 파악해 코드를 수정한 뒤 Outlook 회신 초안까지 작성하고, 단순 사용법 문의는 기존 SDK 가이드 MCP 문서를 참고해 회신 초안만 작성',
+                },
+                {
+                  content:
+                    '메일 확인 → 이슈 유형 판단 → (Jira 이슈 등록 및 코드 수정 또는 가이드 확인) → 회신 작성으로 개별적으로 처리하던 대응 과정을 프롬프트 기반 워크플로우 하나로 통합해, 반복적인 수작업 없이 파트너사 문의 대응이 가능한 환경을 구축',
                 },
               ],
             },
@@ -192,11 +205,11 @@ const companyProject: IProject.Payload = {
       title: 'PASS Office 부가서비스 (KT, LGU+, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스 오피스) Weboffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
+        '(폴라리스 오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled Components'],
       descriptions: [
         {
-          content: '제품 소개',
+          content: '소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -210,7 +223,7 @@ const companyProject: IProject.Payload = {
           ],
         },
         {
-          content: '제품 주요 성과',
+          content: '주요 성과',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -292,7 +305,6 @@ const companyProject: IProject.Payload = {
             },
             {
               content: 'PASS Web Editor 팝업 기반 로그인 및 세션 유지 구현',
-              href: 'https://editor.passoh.io/',
               descriptions: [
                 {
                   content:
@@ -302,7 +314,6 @@ const companyProject: IProject.Payload = {
             },
             {
               content: 'Webpack 환경별 빌드 구조 개선을 통한 개발 효율성 향상',
-              href: 'https://editor.passoh.io/',
               descriptions: [
                 {
                   content:
@@ -316,13 +327,26 @@ const companyProject: IProject.Payload = {
             },
             {
               content: 'PASS Web Info 유료 구독 및 약관 확인 화면 구현',
-              href: 'https://passoh.io/join',
               descriptions: [
                 {
                   content:
                     '유료 구독 가입/서비스 해지/공지사항 화면을 구현하며, 사용자가 서비스 약관을 쉽게 확인할 수 있도록 Polaris WebOffice SDK를 활용하여 약관 상세, 이용약관, 개인정보처리방침 화면을 문서 뷰어 형태로 제공',
                 },
               ],
+            },
+          ],
+        },
+        {
+          content: '관련 링크',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: 'PASS Web Editor',
+              href: 'https://editor.passoh.io/',
+            },
+            {
+              content: 'PASS Web Info',
+              href: 'https://passoh.io/join',
             },
           ],
         },
@@ -335,13 +359,19 @@ const companyProject: IProject.Payload = {
       skillKeywords: ['JavaScript'],
       descriptions: [
         {
-          content: '배경 및 구현',
+          content: '소개',
           weight: 'MEDIUM',
           descriptions: [
             {
               content:
                 '유연근무제 환경에서 매일 인트라넷 페이지에서 근무시간을 확인하고 기준 시간(8시간) 대비 초과/미달을 수동으로 계산하는 번거로움을 직접 느껴, 업무 외 개인 시간을 활용해 Chrome Extension을 제작',
             },
+          ],
+        },
+        {
+          content: '기여 내용',
+          weight: 'MEDIUM',
+          descriptions: [
             {
               content:
                 '인트라넷 페이지의 근무시간 데이터를 자동으로 파싱해 기준 시간과 비교한 초과/미달 시간을 실시간으로 계산·표시',
@@ -350,8 +380,14 @@ const companyProject: IProject.Payload = {
               content:
                 '본인의 반복적인 수동 계산 작업을 없애고, 같은 불편을 겪던 주변 동료 몇 명에게 공유해 함께 사용',
             },
+          ],
+        },
+        {
+          content: '관련 링크',
+          weight: 'MEDIUM',
+          descriptions: [
             {
-              content: 'Intranet-Working-Hours-Calculator',
+              content: 'GitHub 저장소',
               href:
                 'https://github.com/geunu97/pub-po-side/tree/main/Intranet-Working-Hours-Calculator',
             },
@@ -383,7 +419,7 @@ const companyProject: IProject.Payload = {
       skillKeywords: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'React Query', 'Sass'],
       descriptions: [
         {
-          content: '제품 소개',
+          content: '소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -397,7 +433,7 @@ const companyProject: IProject.Payload = {
           ],
         },
         {
-          content: '제품 주요 성과',
+          content: '주요 성과',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -405,7 +441,7 @@ const companyProject: IProject.Payload = {
             },
             {
               content: "재직 기간 중 '대한민국 문화연예대상' K-POP 해외 공로상 수상",
-              href: 'http://www.e2news.com/news/articleView.html?idxno=303553',
+              href: 'https://www.e2news.com/news/articleView.html?idxno=303553',
             },
           ],
         },

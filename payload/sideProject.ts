@@ -34,6 +34,7 @@ const sideProject: IProject.Payload = {
         'Yarn Berry',
         'Cursor',
         'Claude Code',
+        'MCP',
         'Vite',
         'Shadcn/ui',
         'Tailwind CSS',
@@ -54,7 +55,49 @@ const sideProject: IProject.Payload = {
             },
             {
               content:
-                '프론트엔드 개발자 1명과 3개 웹 서비스(User/Seller/Admin)를 분담 개발하고, 백엔드와 AWS 인프라 설계·구축은 전담하며 전체 커밋의 80% 이상을 작성',
+                '프론트엔드 개발자 1명과 3개 웹 서비스(User/Seller/Admin)를 정해진 담당 구분 없이 그때그때 남은 작업을 맡아 함께 개발하고, 백엔드와 AWS 인프라 설계·구축은 전담하며 전체 커밋의 80% 이상을 작성',
+            },
+          ],
+        },
+        {
+          content: '기여 내용 - AI 코딩 에이전트 (Claude Code) 활용',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: 'MCP(Model Context Protocol) 서버 연동으로 에이전트 작업 범위 확장',
+              descriptions: [
+                {
+                  content:
+                    'PostHog, Vercel, Sentry, AWS, Firebase, Kakao, GCP, Solapi(알림톡), Google Sheets/Docs 등 팀이 사용하는 9개 외부 서비스를 .mcp.json으로 연동해, AI 에이전트가 대화 중에 대시보드·로그·인프라 상태를 직접 조회하고 조작할 수 있도록 구성',
+                },
+              ],
+            },
+            {
+              content: '반복 업무를 저장소 전용 Skill(슬래시 커맨드)로 정의해 워크플로우 표준화',
+              descriptions: [
+                {
+                  content:
+                    '커밋 컨벤션 검증, 태그 기반 배포(직전 태그 조회 → 버전 자동 산정 → 사용자 확인 후 태그 push), PR 생성(브랜치·담당자를 매번 사용자에게 확인한 뒤 diff를 분석해 제목·본문 자동 작성), 소셜 로그인·카카오 알림톡 템플릿 등 기존 패턴 재사용, 앱 딥링크 설정까지 7개 skill을 직접 설계해, 팀원 누구나 같은 절차로 반복 작업을 수행하도록 표준화',
+                },
+              ],
+            },
+            {
+              content: '코드 변경 시 문서 자동 동기화 파이프라인 설계',
+              descriptions: [
+                {
+                  content:
+                    '기능 개발·버그 수정 작업을 마칠 때마다 별도 요청 없이도 변경 내용과 관련된 README/docs를 에이전트가 스스로 찾아 최신화하는 docs-sync skill과, 특정 변경과 무관하게 문서 전체를 코드베이스 기준으로 재점검하는 docs-refresh skill을 분리 설계해 문서와 코드 간 드리프트를 최소화',
+                },
+              ],
+            },
+            {
+              content: '행동 데이터 + DB 데이터를 통합하는 AI 리포팅 워크플로우 구축',
+              descriptions: [
+                {
+                  content:
+                    'PostHog(페이지뷰·전환 퍼널 등 행동 데이터)와 백엔드 관리자 통계 API(회원·주문·매출 등 DB 데이터)를 하나의 요청으로 함께 조회해 대시보드로 시각화하는 data-report skill을 설계. 예약·회원가입·검색 등 8개 핵심 전환 퍼널의 이벤트 순서를 정의하고, 실제 수집된 이벤트와 DB 지표를 상호 대조해 트래킹 누락 가능성을 자동으로 짚어주는 검증 로직까지 포함',
+                },
+              ],
             },
           ],
         },
@@ -343,7 +386,7 @@ const sideProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                '프론트엔드가 핵심 역할이라, 백엔드·인프라는 AI 코딩 에이전트(Cursor, Claude Code)를 적극 활용해 아키텍처·데이터 모델·운영 정책 등 방향성 결정에 집중하고 세부 구현은 AI로 진행. 팀 AI 에이전트 협업 규칙(AGENTS.md)을 직접 정의해 코드 일관성을 관리. 아래 항목들은 그 판단 기준과 설계 의도를 정리한 것',
+                '프론트엔드가 핵심 역할이라, 백엔드·인프라는 AI 코딩 에이전트(Cursor, Claude Code)를 적극 활용해 아키텍처·데이터 모델·운영 정책 등 방향성 결정에 집중하고 세부 구현은 AI로 진행(AI 에이전트 활용 방식 자체는 위 "AI 코딩 에이전트 (Claude Code) 활용" 참고). 아래 항목들은 그 판단 기준과 설계 의도를 정리한 것',
             },
             {
               content:
@@ -699,13 +742,19 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
+          ],
+        },
+        {
+          content: '관련 링크',
+          weight: 'MEDIUM',
+          descriptions: [
             {
+              content: 'npm 패키지',
               href: 'https://www.npmjs.com/package/@geunwoo/react-design-system',
-              content: 'https://www.npmjs.com/package/@geunwoo/react-design-system',
             },
             {
+              content: 'GitHub 저장소',
               href: 'https://github.com/geunu97/react-design-library',
-              content: 'https://github.com/geunu97/react-design-library',
             },
           ],
         },

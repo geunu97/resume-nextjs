@@ -13,7 +13,7 @@ const openSource: IOpenSource.Payload = {
           content: 'Contributor',
         },
         {
-          content: 'https://github.com/facebookexperimental/Recoil/pull/2002',
+          content: '관련 PR',
           href: 'https://github.com/facebookexperimental/Recoil/pull/2002',
         },
         {

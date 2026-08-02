@@ -9,7 +9,7 @@ const experience: IExperience.Payload = {
       positions: [
         {
           title:
-            'WebOffice JavaScript SDK 프론트엔드 개발 \n WebOffice SDK 기반 PASS Office 부가서비스 (KT, LGU+) 프론트엔드 개발 \n 오피스 소프트웨어 기업 (150~170명)',
+            'WebOffice JavaScript SDK 프론트엔드 개발 \n WebOffice SDK 기반 PASS Office 부가서비스 (KT, LGU+, SKT) 프론트엔드 개발 \n 오피스 소프트웨어 기업 (160~180명)',
           startedAt: '2024-06',
           descriptions: [],
         },
@@ -42,7 +42,7 @@ const experience: IExperience.Payload = {
     //     {
     //       title: '프리랜서 프론트엔드 개발자',
     //       startedAt: '2024-02',
-    //       endedAt: '2024-05',
+    //       endedAt: '2024-06',
     //       descriptions: [
     //         '음원 투자 플랫폼 (5~10명)',
     //         '상품 리스트·상세, 댓글, 마이페이지 프론트엔드 개발',

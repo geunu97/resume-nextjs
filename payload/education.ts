@@ -12,7 +12,7 @@ const education: IEducation.Payload = {
     },
     {
       title: '전주대학교',
-      subTitle: '스마트미디어학과 / 편입',
+      subTitle: '스마트미디어학과',
       startedAt: '2016-03',
       endedAt: '2021-02',
     },
