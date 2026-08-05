@@ -77,7 +77,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '커밋 컨벤션 검증, 태그 기반 배포(직전 태그 조회 → 버전 자동 산정 → 사용자 확인 후 태그 push), PR 생성(브랜치·담당자를 매번 사용자에게 확인한 뒤 diff를 분석해 제목·본문 자동 작성), 소셜 로그인·카카오 알림톡 템플릿 등 기존 패턴 재사용, 앱 딥링크 설정까지 7개 skill을 직접 설계해, 팀원 누구나 같은 절차로 반복 작업을 수행하도록 표준화',
+                    '커밋 컨벤션 검증, 태그 기반 배포(직전 태그 조회 → 버전 자동 산정 → 사용자 확인 후 태그 push), PR 생성(브랜치·담당자를 매번 사용자에게 확인한 뒤 diff를 분석해 제목·본문 자동 작성), 소셜 로그인·카카오 알림톡 템플릿 등 기존 패턴 재사용, 앱 딥링크 설정, 법적 고지사항(약관·사업자정보) 반영, iOS 앱스토어 심사 대응까지 8개 skill을 직접 설계해, 팀원 누구나 같은 절차로 반복 작업을 수행하도록 표준화',
                 },
               ],
             },
@@ -115,11 +115,29 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: 'Google/Kakao OAuth 인증 플로우 구현',
+              content: 'Google/Kakao/Apple OAuth 인증 플로우 구현',
               descriptions: [
                 {
                   content:
-                    '소셜 로그인 버튼 클릭 시 Google/Kakao 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현. 발급받은 토큰은 아래(인증 상태 Zustand 스토어)에서 설계한 스토어에 저장해 이후 요청의 Authorization 헤더에 포함',
+                    '소셜 로그인 버튼 클릭 시 Google/Kakao/Apple 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현. 발급받은 토큰은 아래(인증 상태 Zustand 스토어)에서 설계한 스토어에 저장해 이후 요청의 Authorization 헤더에 포함',
+                },
+                {
+                  content:
+                    'Apple 로그인은 Google/Kakao와 인증 방식이 달라 별도 구현이 필요했음. client_secret이 고정 문자열이 아니라 매 요청 직전 서버가 직접 서명하는 JWT(ES256)라는 점, access_token으로 별도 사용자 정보를 조회하는 대신 토큰 교환 응답에 함께 오는 id_token(JWT)을 Apple JWKS로 검증해 사용자 식별값·이메일을 추출한다는 점이 Google/Kakao와 달라, 이 차이를 반영해 별도 서비스로 분리 구현. 회원 탈퇴 시 Apple 가이드라인(5.1.1(v))이 요구하는 토큰 revoke 호출을 위해 refresh_token을 암호화해 별도 보관',
+                },
+              ],
+            },
+            {
+              content:
+                'App Store 심사 반려 대응 - Apple 로그인 이름 재입력 요구·상품 없는 지역 노출 버그 원인 진단 및 수정',
+              descriptions: [
+                {
+                  content:
+                    '"Apple 로그인 후 인증 프레임워크가 이미 제공한 이름을 다시 입력하도록 요구한다"는 가이드라인 4 반려에 대해, OAuth authorize URL이 scope=email만 요청해 Apple의 user(이름) 객체를 아예 받지 못한 것이 원인임을 특정. scope를 name email로 변경하고, Apple이 최초 인가 1회 한정으로 form_post 바디에 실어 보내는 user JSON을 콜백 Route Handler에서 파싱해 회원가입 화면까지 전달하도록 수정해 이름 필드를 미리 채우도록 개선',
+                },
+                {
+                  content:
+                    '"데모 계정에 미리 채워진 콘텐츠가 없어 앱을 확인할 수 없다"는 가이드라인 2.1(a) 반려에 대해, 실기기로 재현해 어느 지역을 선택해도 상품 목록이 비어 있는 것을 확인. 지역 활성 여부를 판정하는 백엔드 로직이 노출 가능한 상품 존재 여부는 확인하지 않고 스토어 등록 여부만으로 판정하고 있던 것이 원인임을 찾아, 노출 중인 상품이 1개 이상인 스토어가 있어야만 지역이 활성으로 집계되도록 조건을 추가해 프론트엔드 지역 선택 목록·GPS 자동 매칭 양쪽에 반영',
                 },
               ],
             },
@@ -133,15 +151,20 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '카카오 알림톡 → 앱 딥링크(Universal Links/Digital Asset Links) 연동',
+              content:
+                '카카오 알림톡 → 앱 딥링크 연동 (Android: Digital Asset Links / iOS: 커스텀 URL 스킴으로 전환)',
               descriptions: [
                 {
                   content:
-                    '주문 상세보기·리뷰 작성하기 등 알림톡 버튼 클릭 시 앱으로 바로 진입하도록, Android는 assetlinks.json(Digital Asset Links)과 intent-filter autoVerify로, iOS는 apple-app-site-association(AASA)과 Associated Domains capability로 각각 검증 파일을 구성. AASA는 Next.js Route Handler로 환경별 JSON을 응답하도록 구현하고, Apple Team ID를 아직 전달받지 못한 시점에는 빈 배열을 반환해 실제 값이 채워지기 전까지는 안전하게 아무 동작도 하지 않는 상태로 먼저 배포',
+                    '주문 상세보기·리뷰 작성하기 등 알림톡 버튼 클릭 시 앱으로 바로 진입하도록, Android는 assetlinks.json(Digital Asset Links)과 intent-filter autoVerify로 검증 파일을 구성해 실제 값까지 채워 적용 완료',
                 },
                 {
                   content:
-                    'Android는 실제 값을 채워 적용을 완료했고, iOS는 Apple Team ID를 앱 개발자에게 아직 전달받지 못해 안전한 빈 상태로 배포해둔 채 최종 연동을 앞두고 있음. 알림톡 버튼이 가리키는 실제 경로(주문 상세/취소, 리뷰 작성, 주문 목록)는 앱 딥링크 라우팅 대상과 미리 맞춰둠',
+                    'iOS는 최초 apple-app-site-association(AASA) 기반 Universal Links로 구현했으나, Universal Links로 앱이 열린 직후 웹뷰 네비게이션 시점에 iOS가 앱을 백그라운드로 내리고 Safari를 다시 띄우는 자체 동작이 있음을 확인해 AASA를 빈 값으로 되돌려 Universal Links를 비활성화',
+                },
+                {
+                  content:
+                    '대신 /order/*, /mypage/order, /mypage/reviews/write 진입 시 마운트되는 브릿지 컴포넌트를 추가해 현재 경로+쿼리를 커스텀 스킴(picake://)으로 즉시 리다이렉트하도록 전환. iOS 사파리가 iframe을 통한 커스텀 스킴 호출은 차단하지만 location.href 방식은 허용한다는 점을 확인해 이 방식을 채택했고, 앱 미설치 기기에서는 navigation이 조용히 무시되고 기존 웹페이지가 그대로 남아 에러 없이 폴백',
                 },
               ],
             },
@@ -214,7 +237,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'IntersectionObserver로 목록 하단 도달을 감지해 다음 페이지를 불러오는 훅을 만들어 좋아요·리뷰·채팅·주문·최근 본 상품 등 8곳 이상에서 재사용',
+                    'IntersectionObserver로 목록 하단 도달을 감지해 다음 페이지를 불러오는 훅을 만들어 좋아요·리뷰·채팅·주문·최근 본 상품 등 12곳에서 재사용',
                 },
                 {
                   content:
@@ -351,8 +374,17 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content:
-                'PostHog를 연동해 페이지뷰 기반 분석 환경을 마련(전환 퍼널 등 커스텀 이벤트 트래킹은 아직 미구현)',
+              content: 'PostHog 이벤트 텍소노미 정리 및 URL 민감정보 자동 제거',
+              descriptions: [
+                {
+                  content:
+                    'engage_(진입·조작)/success_(완료) 접두어로 이벤트명 규칙을 통일하고, 홈·검색과 지도가 공유하던 필터 이벤트(success_filter_apply, engage_filter_open)를 지도 전용 이벤트(success_map_filter_apply, engage_map_filter_open)로 분리 — 지도는 정렬(sort_type) 개념이 없어 같은 이벤트명 아래 서로 다른 스키마가 섞이는 문제를 방지',
+                },
+                {
+                  content:
+                    'posthog-js가 모든 이벤트에 $current_url/$referrer를 자동으로 붙여, 페이지뷰 캡처 호출만 고쳐서는 OAuth 콜백·가입 화면에 머무는 동안 발생하는 다른 커스텀 이벤트의 URL까지는 막을 수 없다는 점을 확인. before_send 훅으로 전송 직전 모든 이벤트를 가로채 OAuth code·이메일 등 민감 쿼리파라미터를 제거하고 /auth/* 경로는 쿼리스트링 전체를 제거하도록 구성했고, 해당 경로 진입 중에는 세션 리플레이도 함께 비활성화',
+                },
+              ],
             },
           ],
         },
@@ -606,7 +638,7 @@ const sideProject: IProject.Payload = {
                 },
                 {
                   content:
-                    'Vercel의 기본 Git 연동 자동배포는 비활성화하고, GitHub Actions가 태그 푸시 시 Vercel Deploy Hook(웹훅)을 호출하는 방식으로 전환해 웹 3개 서비스의 배포 트리거를 백엔드와 동일한 태그 기반 흐름으로 통일',
+                    'Vercel의 기본 Git 연동 자동배포는 비활성화하고, GitHub Actions에서 Vercel CLI(vercel pull → vercel build --prod → vercel deploy --prebuilt --prod)를 태그 푸시 시 직접 실행하는 방식으로 전환해 웹 3개 서비스의 배포 트리거를 백엔드와 동일한 태그 기반 흐름으로 통일. 모노레포 구조상 앱 서브디렉토리에서 CLI를 실행하면 rootDirectory 경로가 중복되어 빌드가 실패하는 문제를 겪어, 저장소 루트에서 실행하도록 조정',
                 },
               ],
             },
@@ -615,7 +647,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'Rate Limit 가드를 점검 모드 가드 다음 순서로 배치하고, 주문·좋아요·소셜 계정 연동 등 여러 단계로 이뤄지는 쓰기 작업 16개 파일(26곳)에 Prisma 트랜잭션을 적용해 부분 실패를 방지. 헬스체크 엔드포인트는 인증·인터셉터를 우회하도록 별도 등록해 배포 파이프라인의 상태 확인에 안정적으로 응답하도록 구성',
+                    'Rate Limit 가드를 점검 모드 가드 다음 순서로 배치하고, 주문·좋아요·소셜 계정 연동 등 여러 단계로 이뤄지는 쓰기 작업 17개 파일(29곳)에 Prisma 트랜잭션을 적용해 부분 실패를 방지. 헬스체크 엔드포인트는 인증·인터셉터를 우회하도록 별도 등록해 배포 파이프라인의 상태 확인에 안정적으로 응답하도록 구성',
                 },
               ],
             },
