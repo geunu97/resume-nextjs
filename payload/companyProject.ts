@@ -353,6 +353,93 @@ const companyProject: IProject.Payload = {
       ],
     },
     {
+      title: 'FindBack — 전사 AI 바이브코딩 공모전 최우수상(1위)',
+      startedAt: '2026-04',
+      where:
+        '(폴라리스오피스) 전사 AI 바이브코딩 공모전 개인 출품작 (자유주제, 임직원 전원 1인 1서비스 필수 제출)',
+      skillKeywords: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'AI 코딩 에이전트'],
+      descriptions: [
+        {
+          content: '소개',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content:
+                '분실 직후 흐릿해진 기억을 대화형 AI가 질문을 통해 되살려주고, 사진 한 장으로 등록하면 AI가 분실물과 습득물을 자동으로 매칭해주는 통합 플랫폼',
+            },
+            {
+              content:
+                '2주간(2026.04.20~04.30) 진행된 폴라리스오피스 전사 AI 바이브코딩 공모전에 자유주제로 개인 출품(팀 참여 불가, 1인 1서비스 필수 제출 규정)',
+            },
+          ],
+        },
+        {
+          content: '주요 성과',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content:
+                '전사 임직원 전원이 참가한 공모전에서 1차 심사(상위 10개 선정)와 2차 PT 심사를 통과해 최우수상(1위) 수상, 상금 100만원',
+            },
+            {
+              content: '실제 서비스로 배포해 공개 운영 중',
+            },
+            {
+              content: '사내 공식 유튜브 채널 쇼츠로 수상 소감 소개',
+            },
+          ],
+        },
+        {
+          content: '기여 내용',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content:
+                '"분실은 사용자가 가장 인지적으로 취약해지는 순간"이라는 문제 인식으로 대화형 AI 인터뷰 기반 기억 복원 컨셉을 기획',
+              descriptions: [
+                {
+                  content:
+                    '경찰청 통계 기준 전국에서 하루 평균 2,000건 이상의 유실물이 접수되지만 주인에게 돌아가는 비율은 약 60%에 그치는데, 기존 분실물 시스템(LOST112, 지하철 유실물센터 등)은 이용자가 직접 게시판을 검색해야 하는 단방향 구조이고 습득자에게는 신고할 유인이 없어 분실자·습득자 모두에게 불편한 구조라는 점을 문제로 정의',
+                },
+                {
+                  content:
+                    '검색 결과를 곧바로 보여주는 대신, 대화형 AI가 질문을 하나씩 던져 분실 당시의 동선과 기억을 스스로 복원하도록 만드는 진입 지점을 설계해, 심사 기준 중 가장 비중이 큰 "문제정의/차별성"(40%) 항목에서 높은 평가로 이어짐',
+                },
+              ],
+            },
+            {
+              content:
+                'AI 코딩 에이전트(Claude, Cursor)를 활용해 약 1주일 만에 Next.js·Supabase·OpenAI API 기반 풀스택 서비스를 프로덕션 수준으로 완성',
+              descriptions: [
+                {
+                  content:
+                    '사진 한 장으로 제목·카테고리·태그를 자동 채우는 이미지 분석, 소유자만 답할 수 있는 인증 질문 자동 생성, 제목 50%·태그 35%·설명 15% 가중치의 텍스트 유사도로 분실물·습득물을 자동 매칭하는 알림까지 5종의 AI 기능을 모두 실제 동작하는 API로 구현',
+                },
+                {
+                  content:
+                    'AI가 매칭·인증 질문까지는 자동 생성하되, 실제 본인 확인(정답 검증)은 게시글 작성자가 답변 내용을 직접 확인해 승인하도록 설계해, AI 판단만으로 소유권을 인정하지 않는 안전장치를 둠',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          content: '관련 링크',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: 'FindBack 서비스',
+              href: 'https://findback-swart.vercel.app/',
+            },
+            {
+              content: '수상 소감 유튜브 쇼츠',
+              href: 'https://youtube.com/shorts/0HRJuQGnL3E',
+            },
+          ],
+        },
+      ],
+    },
+    {
       title: '사내 근무시간 계산기 Chrome Extension 개발',
       startedAt: '2024-06',
       where: '(폴라리스 오피스) 업무 외 개인 시간을 활용한 사내용 Chrome Extension 개발',
