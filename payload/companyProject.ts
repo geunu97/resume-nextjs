@@ -1,4 +1,5 @@
 import { IProject } from '../component/project/IProject';
+import findbackAward from '../asset/findback-award.jpg';
 
 const companyProject: IProject.Payload = {
   disable: false,
@@ -434,6 +435,10 @@ const companyProject: IProject.Payload = {
             {
               content: '수상 소감 유튜브 쇼츠',
               href: 'https://youtube.com/shorts/0HRJuQGnL3E',
+            },
+            {
+              content: '수상 인증샷 (최우수상 상장)',
+              href: findbackAward,
             },
           ],
         },
