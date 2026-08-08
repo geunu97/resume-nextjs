@@ -136,7 +136,7 @@ const companyProject: IProject.Payload = {
             },
             {
               content:
-                'SDK MCP 도구 개발로 CS 문의 40% 감소, Claude Code 스킬 기반 자동화로 문의 대응·코드 수정·라이선스 발급/배포 운영까지 13개 스킬 체계로 확장',
+                'SDK MCP 도구와 Claude Code 스킬 기반 자동화로 문의 대응·코드 수정·라이선스 발급/배포 운영까지 13개 스킬 체계로 확장',
               descriptions: [
                 {
                   content:
@@ -148,7 +148,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '도구 도입 후 월 CS 문의가 50건에서 30건으로 40% 감소하여, 개발팀이 신규 기능 개발에 더 집중할 수 있는 환경 조성',
+                    '도구 도입 후 반복적인 SDK 사용법 문의 대응 부담이 눈에 띄게 줄어, 개발팀이 신규 기능 개발에 더 집중할 수 있는 환경 조성',
                 },
                 {
                   content:
