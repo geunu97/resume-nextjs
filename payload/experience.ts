@@ -5,7 +5,7 @@ const experience: IExperience.Payload = {
   disableTotalPeriod: false,
   list: [
     {
-      title: '폴라리스 오피스',
+      title: '폴라리스오피스',
       positions: [
         {
           title:

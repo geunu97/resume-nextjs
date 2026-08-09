@@ -7,7 +7,7 @@ const companyProject: IProject.Payload = {
     {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
-      where: '(폴라리스 오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
+      where: '(폴라리스오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
       skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Sass', 'MCP'],
       descriptions: [
         {
@@ -206,7 +206,7 @@ const companyProject: IProject.Payload = {
       title: 'PASS Office 부가서비스 (KT, LGU+, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스 오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
+        '(폴라리스오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled Components'],
       descriptions: [
         {
@@ -447,7 +447,7 @@ const companyProject: IProject.Payload = {
     {
       title: '사내 근무시간 계산기 Chrome Extension 개발',
       startedAt: '2024-06',
-      where: '(폴라리스 오피스) 업무 외 개인 시간을 활용한 사내용 Chrome Extension 개발',
+      where: '(폴라리스오피스) 업무 외 개인 시간을 활용한 사내용 Chrome Extension 개발',
       skillKeywords: ['JavaScript'],
       descriptions: [
         {
