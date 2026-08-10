@@ -207,10 +207,10 @@ const companyProject: IProject.Payload = {
       ],
     },
     {
-      title: 'PASS Office 부가서비스 (KT, LGU+, SKT)',
+      title: 'PASS Office 부가서비스 (LGU+, KT, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스 App/Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
+        '(폴라리스오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled Components'],
       descriptions: [
         {
@@ -219,11 +219,10 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                'KT/LGU+/SKT 이동통신사 사용자 대상 문서 뷰어·편집 기반 B2C 부가서비스로, 하나의 PASS 계정으로 웹/모바일 환경에서 문서를 열람·편집 가능',
+                'LGU+·KT·SKT 이동통신사 사용자 대상 문서 열람·편집 기반 B2C 부가서비스로, PASS 계정 하나로 웹/모바일 환경에서 동일하게 이용 가능',
             },
             {
-              content:
-                'PASS App(모바일 앱)·PASS Web Editor(문서 편집)·PASS Info-site(가입·약관) 3개 서비스로 구성',
+              content: 'PASS App(모바일 앱)과 PASS Web Editor(웹)로 구성',
             },
           ],
         },
@@ -232,10 +231,10 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '오피스도우미 LGU+ 유료 출시 후, 8개월 만에 유료 구독 30,000명 확보',
+              content: 'LGU+ PASS 유료 출시 후, 8개월 만에 유료 구독 30,000명 확보',
             },
             {
-              content: 'KT·LGU+에 이어 SKT PASS까지 2026년 6월 오픈하며 이동통신 3사 채널 확보',
+              content: 'LGU+·KT에 이어 SKT PASS까지 2026년 6월 오픈하며 이동통신 3사 채널 확보',
             },
           ],
         },
@@ -248,22 +247,23 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '호스트 → 웹뷰는 JSON 메시지를 cmd/body 형태로, 웹뷰 → 호스트는 Android(window.Native[handler])/iOS(window.webkit.messageHandlers[handler].postMessage) 두 플랫폼을 하나의 인터페이스로 추상화한 브릿지 계층을 직접 설계하고 명세 문서화, 앱 개발 담당자와 지속적으로 협의하며 완성',
+                    '호스트 → 웹뷰는 cmd/body 구조의 JSON 메시지로 전달하고, 웹뷰 → 호스트는 Android(window.Native[handler])와 iOS(window.webkit.messageHandlers[handler].postMessage)를 하나의 인터페이스로 추상화한 브릿지 계층을 통해 호출하도록 설계. 이 명세를 문서화하고 앱 개발 담당자와 지속적으로 협의하며 완성',
                 },
                 {
                   content:
-                    '웹뷰 초기화 완료를 알리는 initComplete 핸드셰이크를 도입해 앱이 리스너 등록 전에 메시지를 보내 유실되는 레이스 컨디션을 방지하고, 플랫폼별로 특정 브릿지 API 지원 여부를 먼저 확인한 뒤에만 호출하는 가드(isBridgeApiAvailable)를 두어 미지원 환경에서의 예외를 방지',
-                },
-                {
-                  content:
-                    '로그인 토큰은 최초 발급(reqLoginToken/resLoginToken)과 만료 후 재발급(reReqLoginToken/reResLoginToken) 흐름을 분리해 설계하고, KT 추가로 페이로드가 string에서 {token, telecom} 객체로 바뀌는 과정에서 LG 구버전 SDK가 여전히 string으로 응답하는 상황을 런타임 타입 체크로 분기 처리해, 신규 스펙과 구버전 클라이언트를 함께 지원',
-                },
-                {
-                  content:
-                    '세션 검증처럼 응답이 필요한 비동기 브릿지 호출은 요청마다 고유 ID를 발급해 콜백 레지스트리에 등록해두고, 앱이 해당 ID와 함께 응답을 보내면 매칭되는 콜백을 찾아 실행하는 구조로 설계해, 여러 요청이 동시에 나가도 응답이 뒤섞이지 않도록 처리',
+                    '웹뷰 초기화 완료를 앱에 알리는 핸드셰이크를 도입해 앱이 리스너 등록 전에 메시지를 보내 유실되는 레이스 컨디션을 방지하고, 플랫폼별 브릿지 API 지원 여부를 먼저 확인한 뒤에만 호출하도록 가드를 두어 미지원 환경에서의 예외를 방지',
                 },
               ],
             },
+            // {
+            //   content: 'KT 유료가입 전 취약계층 확인 프로세스 개발',
+            //   descriptions: [
+            //     {
+            //       content:
+            //         '통신 복지 정책상 취약계층 사용자는 유료가입 전 별도 확인 절차가 필요해, 전용 브릿지(reqCheckVulnerableGroups/resCheckVulnerableGroups)로 앱에 취약계층 여부를 조회한 뒤 결과에 따라 가입 플로우를 분기하도록 구현',
+            //     },
+            //   ],
+            // },
             {
               content: 'User-Agent 기반 통신사·앱 버전별 기능 게이팅 설계',
               descriptions: [
@@ -273,25 +273,20 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '앱이 플랫폼·통신사·버전 정보를 __pass_office_{platform}_{telecom}_{version} 형식으로 User-Agent에 실어 전달하도록 설계하고, 웹에서 이를 파싱해 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현(예: LGU+ PASS 자동연결 해제 안내 팝업의 "자동 해제" 버튼은 Android 0.0.24 이상에서만 노출). 통신사·버전 값은 선택 항목으로 설계해, 조건이 없거나 맞지 않아도 나머지 기능은 정상 동작하도록 안전하게 처리',
+                    '앱이 플랫폼·통신사·버전 정보를 User-Agent에 실어 전달하는 규약을 설계하고, 웹에서 이를 파싱해 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현(예: LGU+ PASS 자동연결 해제 안내 팝업은 해당 기능이 검증된 Android 앱 버전 이상에서만 노출). 통신사·버전 값은 선택 항목으로 설계해, 조건이 없거나 맞지 않아도 나머지 기능은 정상 동작하도록 안전하게 처리',
                 },
               ],
             },
             {
-              content: 'KT 유료가입 전 취약계층 확인 프로세스 개발',
+              content: 'PASS Web Editor 팝업 기반 로그인 및 세션 유지 구현',
               descriptions: [
                 {
                   content:
-                    '통신 복지 정책상 취약계층 사용자는 유료가입 전 별도 확인 절차가 필요해, 전용 브릿지(reqCheckVulnerableGroups/resCheckVulnerableGroups)로 앱에 취약계층 여부를 조회한 뒤 결과에 따라 가입 플로우를 분기하도록 구현',
+                    '로그인 도메인과 에디터 도메인이 달라 쿠키(세션)를 공유할 수 없는 환경이라, 에디터 화면에서 그대로 로그인을 처리할 수 없었음',
                 },
-              ],
-            },
-            {
-              content: 'SKT PASS 신규 서비스 런칭',
-              descriptions: [
                 {
                   content:
-                    'KT·LGU+ 경험을 바탕으로 SKT 최초 런칭 단계부터 참여해, 딥링크 QR 진입, 웹 가입/해지, 유·무료 가입용 인트로 및 약관 상세 웹뷰 페이지까지 신규 화면 전체를 구현하고 SKT 환경에서의 Editor 로그인 검증 이슈에 대응해 3번째 이동통신사 채널을 확보',
+                    '에디터 화면에서 별도 팝업으로 로그인 페이지를 띄우고, 로그인 완료 후 postMessage로 토큰을 에디터 도메인에 전달. 전달받은 토큰으로 서버 검증 API를 호출하고 결과를 쿠키에 저장해 세션을 유지하도록 구현하며, 검증 완료 후 팝업을 닫고 원래 열람하려던 에디터 화면으로 자동 진입하도록 처리',
                 },
               ],
             },
@@ -309,36 +304,23 @@ const companyProject: IProject.Payload = {
               ],
             },
             {
-              content: 'PASS Web Editor 팝업 기반 로그인 및 세션 유지 구현',
+              content: 'SKT PASS 신규 채널 런칭 대응',
               descriptions: [
                 {
                   content:
-                    '별도 팝업 창에서 로그인을 진행하고, 인증에 성공하면 쿠키로 세션을 유지한 채 기존 에디터 화면으로 자동 복귀하도록 구현해 편집 중이던 문서 컨텍스트를 끊지 않고 로그인을 처리',
+                    'LGU+·KT에서 구축한 브릿지 프로토콜·User-Agent 게이팅·팝업 로그인 구조를 그대로 재사용해, 별도 아키텍처 설계 없이 웹 가입/해지·인트로/약관 웹뷰 구현과 통신사 선택 분기만으로 SKT PASS 신규 채널을 빠르게 확보',
                 },
               ],
             },
-            {
-              content: 'Webpack 환경별 빌드 구조 개선을 통한 개발 효율성 향상',
-              descriptions: [
-                {
-                  content:
-                    '로그인 화면의 환경별 빌드(development/staging/production) 구조가 명확하지 않아, 개발/검증/상용 환경의 도메인과 API 서버를 수동으로 관리해야 하며 빌드 시 실수로 잘못된 환경 설정을 배포할 위험이 있었음',
-                },
-                {
-                  content:
-                    'Webpack을 적용하여 환경별 빌드 구조를 체계화하고, development/staging/production 환경에 따라 도메인과 API 서버를 자동으로 설정하도록 개선',
-                },
-              ],
-            },
-            {
-              content: 'PASS Web Info 유료 구독 및 약관 확인 화면 구현',
-              descriptions: [
-                {
-                  content:
-                    '유료 구독 가입/서비스 해지/공지사항 화면을 구현하며, 사용자가 서비스 약관을 쉽게 확인할 수 있도록 Polaris WebOffice SDK를 활용하여 약관 상세, 이용약관, 개인정보처리방침 화면을 문서 뷰어 형태로 제공',
-                },
-              ],
-            },
+            // {
+            //   content: 'PASS Web Info 유료 구독 및 약관 확인 화면 구현',
+            //   descriptions: [
+            //     {
+            //       content:
+            //         '유료 구독 가입/서비스 해지/공지사항 화면을 구현하며, 사용자가 서비스 약관을 쉽게 확인할 수 있도록 Polaris WebOffice SDK를 활용하여 약관 상세, 이용약관, 개인정보처리방침 화면을 문서 뷰어 형태로 제공',
+            //     },
+            //   ],
+            // },
           ],
         },
         {
@@ -348,10 +330,6 @@ const companyProject: IProject.Payload = {
             {
               content: 'PASS Web Editor',
               href: 'https://editor.passoh.io/',
-            },
-            {
-              content: 'PASS Web Info',
-              href: 'https://passoh.io/join',
             },
           ],
         },
