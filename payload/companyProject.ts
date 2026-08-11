@@ -336,10 +336,10 @@ const companyProject: IProject.Payload = {
       ],
     },
     {
-      title: 'FindBack — 전사 AI 바이브코딩 공모전 최우수상(1위)',
+      title: 'FindBack',
       startedAt: '2026-04',
       where: '(폴라리스오피스) 전사 AI 바이브코딩 공모전 개인 출품작 (자유주제)',
-      skillKeywords: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'AI 코딩 에이전트'],
+      skillKeywords: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API'],
       descriptions: [
         {
           content: '소개',
@@ -390,11 +390,11 @@ const companyProject: IProject.Payload = {
                   content:
                     '사진 한 장으로 제목·카테고리·태그를 자동 채우는 이미지 분석, 소유자만 답할 수 있는 인증 질문 자동 생성, 제목 50%·태그 35%·설명 15% 가중치의 텍스트 유사도로 분실물·습득물을 자동 매칭하는 알림까지 5종의 AI 기능을 모두 실제 동작하는 API로 구현',
                 },
-                {
-                  content:
-                    'AI가 매칭·인증 질문까지는 자동 생성하되, 실제 본인 확인(정답 검증)은 게시글 작성자가 답변 내용을 직접 확인해 승인하도록 설계해, AI 판단만으로 소유권을 인정하지 않는 안전장치를 둠',
-                },
               ],
+            },
+            {
+              content:
+                'AI가 매칭·인증 질문까지는 자동 생성하되, 실제 본인 확인(정답 검증)은 게시글 작성자가 답변 내용을 직접 확인해 승인하도록 설계해, AI 판단만으로 소유권을 인정하지 않는 안전장치를 둠',
             },
           ],
         },
