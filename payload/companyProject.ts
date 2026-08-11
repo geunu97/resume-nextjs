@@ -338,8 +338,7 @@ const companyProject: IProject.Payload = {
     {
       title: 'FindBack — 전사 AI 바이브코딩 공모전 최우수상(1위)',
       startedAt: '2026-04',
-      where:
-        '(폴라리스오피스) 전사 AI 바이브코딩 공모전 개인 출품작 (자유주제, 임직원 전원 1인 1서비스 필수 제출)',
+      where: '(폴라리스오피스) 전사 AI 바이브코딩 공모전 개인 출품작 (자유주제)',
       skillKeywords: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'AI 코딩 에이전트'],
       descriptions: [
         {
@@ -352,7 +351,7 @@ const companyProject: IProject.Payload = {
             },
             {
               content:
-                '2주간(2026.04.20~04.30) 진행된 폴라리스오피스 전사 AI 바이브코딩 공모전에 자유주제로 개인 출품(팀 참여 불가, 1인 1서비스 필수 제출 규정)',
+                '2주간(2026.04.20~04.30) 진행된 폴라리스오피스 전사 AI 바이브코딩 공모전에 자유주제로 개인 출품',
             },
           ],
         },
@@ -361,14 +360,7 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content:
-                '전사 임직원 전원이 참가한 공모전에서 1차 심사(상위 10개 선정)와 2차 PT 심사를 통과해 최우수상(1위) 수상, 상금 100만원',
-            },
-            {
-              content: '실제 서비스로 배포해 공개 운영 중',
-            },
-            {
-              content: '사내 공식 유튜브 채널 쇼츠로 수상 소감 소개',
+              content: '전사 임직원 160여 명이 참가한 공모전에서 최우수상(1위) 수상',
             },
           ],
         },
@@ -386,13 +378,13 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '검색 결과를 곧바로 보여주는 대신, 대화형 AI가 질문을 하나씩 던져 분실 당시의 동선과 기억을 스스로 복원하도록 만드는 진입 지점을 설계해, 심사 기준 중 가장 비중이 큰 "문제정의/차별성"(40%) 항목에서 높은 평가로 이어짐',
+                    '검색 결과를 곧바로 보여주는 대신, 대화형 AI가 질문을 하나씩 던져 분실 당시의 동선과 기억을 스스로 복원하도록 만드는 진입 지점을 설계',
                 },
               ],
             },
             {
               content:
-                'AI 코딩 에이전트(Claude, Cursor)를 활용해 약 1주일 만에 Next.js·Supabase·OpenAI API 기반 풀스택 서비스를 프로덕션 수준으로 완성',
+                'AI 코딩 에이전트(Claude, Cursor)를 활용해 약 1주일 만에 Next.js·Supabase·OpenAI API 기반 풀스택 서비스를 프로덕션 수준으로 완성해 실제 배포까지 진행',
               descriptions: [
                 {
                   content:
@@ -410,10 +402,6 @@ const companyProject: IProject.Payload = {
           content: '관련 링크',
           weight: 'MEDIUM',
           descriptions: [
-            {
-              content: 'FindBack 서비스',
-              href: 'https://findback-swart.vercel.app/',
-            },
             {
               content: '수상 소감 유튜브 쇼츠',
               href: 'https://youtube.com/shorts/0HRJuQGnL3E',
