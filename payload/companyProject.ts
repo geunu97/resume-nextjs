@@ -440,7 +440,7 @@ const companyProject: IProject.Payload = {
             },
             {
               content:
-                '본인의 반복적인 수동 계산 작업을 없애고, 같은 불편을 겪던 주변 동료 몇 명에게 공유해 함께 사용',
+                '반복적인 수동 계산 작업을 없애고, 같은 불편을 겪던 주변 동료들에게 공유해 함께 사용',
             },
           ],
         },
@@ -477,8 +477,15 @@ const companyProject: IProject.Payload = {
       title: 'Fantoo',
       startedAt: '2023-04',
       endedAt: '2023-12',
-      where: '(한류뱅크) 175개국 출시 글로벌 K-POP 팬덤 플랫폼 Web 프론트엔드 개발',
-      skillKeywords: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'React Query', 'Sass'],
+      where: '(한류뱅크) 글로벌 K-POP 팬덤 플랫폼 Web 프론트엔드 개발',
+      skillKeywords: [
+        'JavaScript',
+        'TypeScript',
+        'React',
+        'Next.js',
+        'React Query',
+        'styled-components',
+      ],
       descriptions: [
         {
           content: '소개',
@@ -486,11 +493,7 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                'K-POP 아티스트와 전세계 한류 팬을 잇는 글로벌 팬덤 플랫폼으로, 175개국에 출시되어 해외 한류 팬을 대상으로 실시간 번역·다국어 채팅·커뮤니티 기능을 제공',
-            },
-            {
-              content:
-                '한국 엔터테인먼트 콘텐츠(K-팝, 드라마, 영화 등)의 최신 소식·영상·커뮤니티 기능을 통합 제공',
+                'K-POP 아티스트와 전세계 한류 팬을 잇는 글로벌 팬덤 플랫폼으로, 175개국에 출시되어 한국 엔터테인먼트 콘텐츠(K-팝, 드라마, 영화 등)의 최신 소식과 영상을 제공',
             },
           ],
         },
@@ -502,7 +505,7 @@ const companyProject: IProject.Payload = {
               content: '운영사 한류홀딩스(HRYU), 국내 스타트업 최초 나스닥 직상장 성공',
             },
             {
-              content: "재직 기간 중 '대한민국 문화연예대상' K-POP 해외 공로상 수상",
+              content: "'대한민국 문화연예대상' K-POP 해외 공로상 수상",
               href: 'https://www.e2news.com/news/articleView.html?idxno=303553',
             },
           ],
@@ -516,24 +519,16 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'URL Path 기준으로 언어를 구분하는 next-i18next를 도입해 한국어·영어·일본어 3개 언어를 지원하고, 접속 경로에 따라 자동으로 언어가 전환되도록 구현해 175개국 대상 글로벌 서비스의 다국어 요구사항을 충족',
+                    'URL Path 기준으로 언어를 구분하는 next-i18next를 도입해 접속 경로에 따라 자동으로 언어가 전환되도록 구현해 글로벌 서비스의 다국어 요구사항을 충족',
                 },
               ],
             },
             {
-              content: '메타데이터 최적화를 통한 Lighthouse SEO 점수 향상',
+              content: '메타데이터 최적화를 통한 Lighthouse SEO 점수 향상 (74점 → 86점)',
               descriptions: [
                 {
                   content:
-                    'Lighthouse SEO 점수가 74점으로 낮아 검색엔진 최적화가 부족했음. <meta>, <title>, <description> 태그가 최적화되지 않았고, 이미지에 alt 속성이 누락되어 검색엔진 인식도와 웹 접근성이 저하됨',
-                },
-                {
-                  content:
-                    'Lighthouse 경고·주의 메시지를 반영하여 <meta>, <title>, <description>을 최적화하고, 모든 이미지에 alt 속성을 적용하여 검색엔진 인식도와 웹 접근성 강화',
-                },
-                {
-                  content:
-                    'Lighthouse SEO 점수를 74점에서 86점으로 향상시켜 검색엔진 최적화와 웹 접근성 개선',
+                    '<meta>, <title>, <description> 태그 미최적화와 이미지 alt 속성 누락으로 낮았던 SEO 점수를, 태그 최적화와 전체 이미지 alt 속성 적용으로 개선해 검색엔진 인식도와 웹 접근성을 강화',
                 },
               ],
             },
@@ -542,15 +537,7 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '각 컴포넌트에서 개별적으로 에러를 처리하는 방식으로 인해 중복 코드가 많고, 에러 처리 로직이 일관되지 않아 유지보수가 어려웠음. 또한 사용자에게 표시되는 에러 메시지도 통일되지 않아 UX가 저하됨',
-                },
-                {
-                  content:
-                    'react-query의 useErrorBoundary 옵션을 활용하여 ErrorBoundary 패턴을 도입. API 호출 실패 시 상위 ErrorBoundary에서 일괄 처리하도록 구조화하고, 각 컴포넌트의 중복된 try-catch 로직을 제거하여 코드 복잡성 감소',
-                },
-                {
-                  content:
-                    '에러 처리 로직을 중앙화해 컴포넌트마다 반복되던 try-catch 코드를 제거하고, 에러 발생 시 일관된 사용자 경험을 제공하며, 새로운 에러 케이스 추가 시 한 곳에서만 수정하면 되도록 유지보수성 향상',
+                    '컴포넌트마다 개별 try-catch로 에러를 처리해 중복 코드와 일관되지 않은 에러 UX가 발생하던 것을, react-query의 useErrorBoundary를 활용한 ErrorBoundary 패턴으로 중앙화해 중복 코드를 제거하고 일관된 에러 경험과 유지보수성을 확보',
                 },
               ],
             },
