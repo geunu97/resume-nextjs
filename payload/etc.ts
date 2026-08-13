@@ -10,16 +10,15 @@ const etc: IEtc.Payload = {
       startedAt: '2024-02',
       endedAt: '2024-06',
     },
-    {
-      title: '왓에버',
-      subTitle: 'JavaScript 및 React 심화 학습 및 프로젝트 수행',
-      startedAt: '2023-12',
-      endedAt: '2024-05',
-    },
+    // {
+    //   title: '왓에버',
+    //   subTitle: 'JavaScript 및 React 심화 학습 및 프로젝트 수행',
+    //   startedAt: '2023-12',
+    //   endedAt: '2024-05',
+    // },
     {
       title: '우아한테크코스 프리코스 6기',
-      subTitle:
-        '우아한형제들 주최 프론트엔드 교육 과정 참여, JavaScript 과제 해결 및 Jest 기반 100+ 단위 테스트 작성',
+      subTitle: '우아한형제들 주최 프론트엔드 교육 과정 참여',
       startedAt: '2023-11',
       endedAt: '2023-12',
     },

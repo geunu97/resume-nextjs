@@ -3,9 +3,13 @@ import { Row, Col } from 'reactstrap';
 import { EmptyRowCol } from '.';
 import { Style } from './Style';
 
-export function CommonSection({ title, children }: PropsWithChildren<{ title: string }>) {
+export function CommonSection({
+  title,
+  pageBreakBefore,
+  children,
+}: PropsWithChildren<{ title: string; pageBreakBefore?: boolean }>) {
   return (
-    <div className="mt-5">
+    <div className={`mt-5${pageBreakBefore ? ' print-page-break' : ''}`}>
       <EmptyRowCol>
         <Row className="pb-3">
           <Col>

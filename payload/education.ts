@@ -10,12 +10,12 @@ const education: IEducation.Payload = {
       startedAt: '2021-03',
       endedAt: '2023-02',
     },
-    {
-      title: '전주대학교',
-      subTitle: '스마트미디어학과',
-      startedAt: '2016-03',
-      endedAt: '2021-02',
-    },
+    // {
+    //   title: '전주대학교',
+    //   subTitle: '스마트미디어학과',
+    //   startedAt: '2016-03',
+    //   endedAt: '2021-02',
+    // },
   ],
 };
 
