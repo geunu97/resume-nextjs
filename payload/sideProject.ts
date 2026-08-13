@@ -757,7 +757,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'TypeScript로 Button·Label·Loading·ProgressBar(atoms), Toast·Alert·Pagination(molecules), Header(organisms) 등 UI 컴포넌트를 개발하고 Storybook으로 문서화. 각 컴포넌트는 props 인터페이스를 명확히 정의해 커스터마이징이 쉽도록 설계',
+                    'TypeScript로 Button·Label·Loading·ProgressBar(atoms), Toast·Alert·Pagination(molecules), Header(organisms) 등 UI 컴포넌트를 개발하고 Storybook으로 문서화. 각 컴포넌트는 props 인터페이스를 정의해 커스터마이징이 쉽도록 설계',
                 },
                 {
                   content:
@@ -770,7 +770,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'GitHub Actions에 semantic-release를 연동해 Conventional Commits 기반으로 버전을 자동 산정하고 CHANGELOG·GitHub Release 작성·npm 배포까지 자동화(main=정식 버전, dev=@dev 프리릴리즈). 이 자동화 파이프라인을 통해 v2.2.7까지 버전을 배포했고, 최근 1년 1,300+ 다운로드를 기록',
+                    'GitHub Actions에 semantic-release를 연동해 Conventional Commits 기반으로 버전을 자동 산정하고 npm 배포까지 자동화(main=정식 버전, dev=@dev 프리릴리즈). 이 자동화 파이프라인을 통해 v2.2.7까지 버전을 배포했고, 최근 1년 1,300+ 다운로드를 기록',
                 },
               ],
             },
