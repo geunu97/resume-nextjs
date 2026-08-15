@@ -58,7 +58,8 @@ const sideProject: IProject.Payload = {
                 '프론트엔드 개발자 1명과 3개 웹 서비스(User/Seller/Admin)를 역할 구분 없이 유동적으로 분담해 함께 개발',
             },
             {
-              content: '백엔드·AWS 인프라 설계·구축은 전담하며 전체 커밋의 80% 이상을 작성',
+              content:
+                'AI 코딩 에이전트를 적극 활용해 백엔드·AWS 인프라 설계·구축을 전담하며 전체 커밋의 80% 이상을 작성',
             },
           ],
         },
@@ -204,7 +205,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'Alert·Confirm 모달을 Zustand 스토어로 만들어 어느 컴포넌트에서도 props 전달 없이 호출할 수 있도록 구성하고, Axios 인터셉터·Socket 서비스처럼 React 컴포넌트가 아닌 코드에서는 getState()로 직접 접근해 다이얼로그를 띄우도록 통일',
+                    'Alert·Confirm 모달을 Zustand 스토어로 만들어 어느 컴포넌트에서도 props 전달 없이 호출할 수 있도록 구성하고, 위 인증 스토어와 동일하게 React 컴포넌트가 아닌 코드에서는 getState() 패턴으로 다이얼로그를 띄우도록 통일',
                 },
               ],
             },
@@ -614,7 +615,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'Rate Limit 가드를 점검 모드 가드 다음 순서로 배치하고, 주문·좋아요·소셜 계정 연동 등 여러 단계로 이뤄지는 쓰기 작업 17개 파일(29곳)에 Prisma 트랜잭션을 적용해 부분 실패를 방지. 헬스체크 엔드포인트는 인증·인터셉터를 우회하도록 별도 등록해 배포 파이프라인의 상태 확인에 안정적으로 응답하도록 구성',
+                    '주문·좋아요·소셜 계정 연동 등 여러 단계로 이뤄지는 쓰기 작업 17개 파일(29곳)에 Prisma 트랜잭션을 적용해 부분 실패를 방지. 헬스체크 엔드포인트는 인증·인터셉터를 우회하도록 별도 등록해 배포 파이프라인의 상태 확인에 안정적으로 응답하도록 구성',
                 },
               ],
             },
