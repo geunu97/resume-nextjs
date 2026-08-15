@@ -85,11 +85,11 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '코드 변경 시 문서 자동 동기화 파이프라인 설계',
+              content: '코드베이스 기준 문서 재점검 파이프라인 설계',
               descriptions: [
                 {
                   content:
-                    '기능 개발·버그 수정 작업을 마칠 때마다 별도 요청 없이도 변경 내용과 관련된 README/docs를 에이전트가 스스로 찾아 최신화하는 docs-sync skill과, 특정 변경과 무관하게 문서 전체를 코드베이스 기준으로 재점검하는 docs-refresh skill을 분리 설계해 문서와 코드 간 드리프트를 최소화',
+                    '특정 변경과 무관하게 문서 전체를 코드베이스 기준으로 재점검·최신화하는 docs-refresh skill을 설계해 문서와 코드 간 드리프트를 최소화',
                 },
               ],
             },
@@ -177,15 +177,6 @@ const sideProject: IProject.Payload = {
                 {
                   content:
                     'WebView 환경에서는 네이티브 브릿지로 위치를 요청하고 일반 브라우저에서는 navigator.geolocation을 직접 호출하는 이중 경로를 구현. 사용자가 직접 위치 버튼을 눌러 요청한 경우에만 권한 거부 안내 모달을 노출하고, 백그라운드 자동 요청은 실패 시 조용히 기본 위치(서울 강남구)로 폴백',
-                },
-              ],
-            },
-            {
-              content: '커스텀 URL 스킴으로 외부 앱 딥링크 연동',
-              descriptions: [
-                {
-                  content:
-                    '카카오맵·네이버맵·토스 같은 외부 앱 스킴(kakaomap://, nmap://, supertoss://)은 WebView 안에서 일반 링크로 열면 실패해, Flutter WebView의 URL 인터셉터가 인식하도록 apps:// 접두사로 감싸는 유틸을 구현. 현재는 QA 페이지에서 지도 좌표 기반 외부 앱 실행을 검증한 상태',
                 },
               ],
             },
@@ -312,15 +303,6 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
-            {
-              content: 'next.config 레벨 배포·성능 트레이드오프 조정',
-              descriptions: [
-                {
-                  content:
-                    'Sentry 소스맵 업로드는 별도 auth token 설정이 필요해 우선 비활성화해두고, remotePatterns로 허용 이미지 호스트를 제한하며, SVGR 웹팩 설정을 추가해 SVG를 컴포넌트처럼 import해 사용하도록 구성',
-                },
-              ],
-            },
           ],
         },
         {
@@ -346,24 +328,6 @@ const sideProject: IProject.Payload = {
                 {
                   content:
                     '4xx 에러는 사용자 입력에 의한 정상적인 분기로 보고 Sentry에 보내지 않고, 5xx·네트워크 오류만 리포팅하도록 필터링해 노이즈를 줄이고, 이 기준을 백엔드 정책과 동일하게 맞춰 프론트-백엔드 모니터링 일관성을 유지',
-                },
-              ],
-            },
-            {
-              content: 'Axios 인터셉터에서 업로드 관련 엣지케이스 처리',
-              descriptions: [
-                {
-                  content:
-                    'FormData로 파일을 업로드할 때 Content-Type을 수동 설정하면 multipart boundary가 누락되는 문제가 있어, FormData 요청에서는 헤더를 제거해 브라우저가 boundary를 포함한 Content-Type을 자동 설정하도록 인터셉터에서 처리',
-                },
-              ],
-            },
-            {
-              content: '에러 메시지 정규화 유틸',
-              descriptions: [
-                {
-                  content:
-                    '백엔드 응답이 data.data.message / data.message / message 등 여러 형태로 오는 것을 하나의 헬퍼로 정규화해, 거의 모든 mutation의 onError에서 재사용',
                 },
               ],
             },
