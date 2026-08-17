@@ -54,12 +54,11 @@ const sideProject: IProject.Payload = {
                 '기획 1명, 디자이너 1명, 프론트엔드 개발자 1명, 앱 개발자 1명과 함께한 5인 사이드 프로젝트로, 출시를 앞두고 앱 심사 진행 중',
             },
             {
-              content:
-                '프론트엔드 개발자 1명과 3개 웹 서비스(User/Seller/Admin)를 역할 구분 없이 유동적으로 분담해 함께 개발',
+              content: '3개 웹 서비스(User/Seller/Admin)의 프론트엔드를 분담해 함께 개발',
             },
             {
               content:
-                'AI 코딩 에이전트를 적극 활용해 백엔드·AWS 인프라 설계·구축을 전담하며 전체 커밋의 80% 이상을 작성',
+                'AI 코딩 에이전트를 활용해 백엔드·AWS 인프라 설계·구축을 전담하며 전체 커밋의 약 75%를 작성',
             },
           ],
         },
@@ -68,38 +67,11 @@ const sideProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'MCP(Model Context Protocol) 서버 연동으로 에이전트 작업 범위 확장',
+              content: 'MCP 서버 연동과 반복 업무 Skill화로 AI 에이전트 활용 범위 확장',
               descriptions: [
                 {
                   content:
-                    'PostHog, Vercel, Sentry, AWS, Firebase, Kakao, GCP, Solapi(알림톡), Google Sheets/Docs 등 팀이 사용하는 9개 외부 서비스를 .mcp.json으로 연동해, AI 에이전트가 대화 중에 대시보드·로그·인프라 상태를 직접 조회하고 조작할 수 있도록 구성',
-                },
-              ],
-            },
-            {
-              content: '반복 업무를 저장소 전용 Skill(슬래시 커맨드)로 정의해 워크플로우 표준화',
-              descriptions: [
-                {
-                  content:
-                    '커밋 컨벤션 검증, 태그 기반 배포(직전 태그 조회 → 버전 자동 산정 → 사용자 확인 후 태그 push), PR 생성(브랜치·담당자를 매번 사용자에게 확인한 뒤 diff를 분석해 제목·본문 자동 작성), 소셜 로그인·카카오 알림톡 템플릿 등 기존 패턴 재사용, 앱 딥링크 설정, 법적 고지사항(약관·사업자정보) 반영, iOS 앱스토어 심사 대응까지 8개 skill을 직접 설계해, 팀원 누구나 같은 절차로 반복 작업을 수행하도록 표준화',
-                },
-              ],
-            },
-            {
-              content: '코드베이스 기준 문서 재점검 파이프라인 설계',
-              descriptions: [
-                {
-                  content:
-                    '특정 변경과 무관하게 문서 전체를 코드베이스 기준으로 재점검·최신화하는 docs-refresh skill을 설계해 문서와 코드 간 드리프트를 최소화',
-                },
-              ],
-            },
-            {
-              content: '행동 데이터 + DB 데이터를 통합하는 AI 리포팅 워크플로우 구축',
-              descriptions: [
-                {
-                  content:
-                    'PostHog(페이지뷰·전환 퍼널 등 행동 데이터)와 백엔드 관리자 통계 API(회원·주문·매출 등 DB 데이터)를 하나의 요청으로 함께 조회해 대시보드로 시각화하는 data-report skill을 설계. 예약·회원가입·검색 등 8개 핵심 전환 퍼널의 이벤트 순서를 정의하고, 실제 수집된 이벤트와 DB 지표를 상호 대조해 트래킹 누락 가능성을 자동으로 짚어주는 검증 로직까지 포함',
+                    'PostHog, Vercel, Sentry, AWS, Firebase, Solapi(알림톡) 등 외부 서비스를 .mcp.json으로 연동해, 반복 업무는 저장소 전용 Skill(슬래시 커맨드)로 표준화해 팀원 누구나 같은 절차로 수행하도록 구성',
                 },
               ],
             },
@@ -127,21 +99,7 @@ const sideProject: IProject.Payload = {
                 },
                 {
                   content:
-                    'Apple 로그인은 Google/Kakao와 인증 방식이 달라 별도 구현이 필요했음. client_secret이 고정 문자열이 아니라 매 요청 직전 서버가 직접 서명하는 JWT(ES256)라는 점, access_token으로 별도 사용자 정보를 조회하는 대신 토큰 교환 응답에 함께 오는 id_token(JWT)을 Apple JWKS로 검증해 사용자 식별값·이메일을 추출한다는 점이 Google/Kakao와 달라, 이 차이를 반영해 별도 서비스로 분리 구현. 회원 탈퇴 시 Apple 가이드라인(5.1.1(v))이 요구하는 토큰 revoke 호출을 위해 refresh_token을 암호화해 별도 보관',
-                },
-              ],
-            },
-            {
-              content:
-                'App Store 심사 반려 대응 - Apple 로그인 이름 재입력 요구·상품 없는 지역 노출 버그 원인 진단 및 수정',
-              descriptions: [
-                {
-                  content:
-                    '"Apple 로그인 후 인증 프레임워크가 이미 제공한 이름을 다시 입력하도록 요구한다"는 가이드라인 4 반려에 대해, OAuth authorize URL이 scope=email만 요청해 Apple의 user(이름) 객체를 아예 받지 못한 것이 원인임을 특정. scope를 name email로 변경하고, Apple이 최초 인가 1회 한정으로 form_post 바디에 실어 보내는 user JSON을 콜백 Route Handler에서 파싱해 회원가입 화면까지 전달하도록 수정해 이름 필드를 미리 채우도록 개선',
-                },
-                {
-                  content:
-                    '"데모 계정에 미리 채워진 콘텐츠가 없어 앱을 확인할 수 없다"는 가이드라인 2.1(a) 반려에 대해, 실기기로 재현해 어느 지역을 선택해도 상품 목록이 비어 있는 것을 확인. 지역 활성 여부를 판정하는 백엔드 로직이 노출 가능한 상품 존재 여부는 확인하지 않고 스토어 등록 여부만으로 판정하고 있던 것이 원인임을 찾아, 노출 중인 상품이 1개 이상인 스토어가 있어야만 지역이 활성으로 집계되도록 조건을 추가해 프론트엔드 지역 선택 목록·GPS 자동 매칭 양쪽에 반영',
+                    '소셜 로그인은 이메일이 아닌 휴대폰 번호를 계정 식별 기준으로 사용해, Kakao/Google/Apple 중 이미 다른 수단으로 가입된 번호로 재가입을 시도하면 백엔드가 409로 기존 가입 수단·이름·번호를 반환하고, 프론트는 이를 파싱해 원래 가입한 소셜 계정으로 바로 로그인할 수 있는 안내 화면을 노출',
                 },
               ],
             },
@@ -150,34 +108,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '앱에서 발급한 FCM 토큰을 로그인/로그아웃 시점에 네이티브 브릿지로 전달해 서버에 등록·삭제하도록 구현하고, 네이티브 콜백이 인증 상태 변경 전후로 도착할 수 있는 타이밍 이슈를 막기 위해 콜백 수신 시 인증 상태를 재검증한 뒤에만 처리하도록 가드를 추가',
-                },
-              ],
-            },
-            {
-              content:
-                '카카오 알림톡 → 앱 딥링크 연동 (Android: Digital Asset Links / iOS: 커스텀 URL 스킴으로 전환)',
-              descriptions: [
-                {
-                  content:
-                    '주문 상세보기·리뷰 작성하기 등 알림톡 버튼 클릭 시 앱으로 바로 진입하도록, Android는 assetlinks.json(Digital Asset Links)과 intent-filter autoVerify로 검증 파일을 구성해 실제 값까지 채워 적용 완료',
-                },
-                {
-                  content:
-                    'iOS는 최초 apple-app-site-association(AASA) 기반 Universal Links로 구현했으나, Universal Links로 앱이 열린 직후 웹뷰 네비게이션 시점에 iOS가 앱을 백그라운드로 내리고 Safari를 다시 띄우는 자체 동작이 있음을 확인해 AASA를 빈 값으로 되돌려 Universal Links를 비활성화',
-                },
-                {
-                  content:
-                    '대신 /order/*, /mypage/order, /mypage/reviews/write 진입 시 마운트되는 브릿지 컴포넌트를 추가해 현재 경로+쿼리를 커스텀 스킴(picake://)으로 즉시 리다이렉트하도록 전환. iOS 사파리가 iframe을 통한 커스텀 스킴 호출은 차단하지만 location.href 방식은 허용한다는 점을 확인해 이 방식을 채택했고, 앱 미설치 기기에서는 navigation이 조용히 무시되고 기존 웹페이지가 그대로 남아 에러 없이 폴백',
-                },
-              ],
-            },
-            {
-              content: '위치 정보 요청 - 네이티브 브릿지 · 브라우저 API 이중 구현',
-              descriptions: [
-                {
-                  content:
-                    'WebView 환경에서는 네이티브 브릿지로 위치를 요청하고 일반 브라우저에서는 navigator.geolocation을 직접 호출하는 이중 경로를 구현. 사용자가 직접 위치 버튼을 눌러 요청한 경우에만 권한 거부 안내 모달을 노출하고, 백그라운드 자동 요청은 실패 시 조용히 기본 위치(서울 강남구)로 폴백',
+                    '앱에서 발급한 FCM 토큰을 로그인/로그아웃 시점에 네이티브 브릿지로 전달해 서버에 등록·삭제하도록 구현. 로그아웃 직후 등 인증 상태 변경 전후로 네이티브 콜백이 도착할 수 있어, 콜백 핸들러 내부에서 인증 상태를 재검증한 뒤에만 API를 호출하도록 가드를 추가해 인증되지 않은 상태의 불필요한 API 호출을 방지',
                 },
               ],
             },
@@ -251,6 +182,10 @@ const sideProject: IProject.Payload = {
                   content:
                     'Kakao 역지오코딩으로 사용자 현재 위치를 지역과 자동 매칭하고, 매칭되는 후보가 없으면 Haversine 공식으로 사용자 좌표와 후보 지역 중심 좌표 간 거리를 계산해 가장 가까운 지역을 추천하는 폴백 로직을 구현. 최종 선택된 지역을 TanStack Query 캐시 키에 반영해 홈 화면 상품 목록을 지역이 바뀔 때만 다시 조회',
                 },
+                {
+                  content:
+                    '이 Kakao 역지오코딩 API 호출은 클라이언트에서 직접 하지 않고 Next.js Route Handler를 통해 서버에서 대신 호출하도록 구성해, 요청 파라미터 검증과 업스트림 에러 처리를 서버 단에서 일괄 관리',
+                },
               ],
             },
             {
@@ -283,15 +218,6 @@ const sideProject: IProject.Payload = {
                 {
                   content:
                     'generateMetadata에서 서버사이드로 상품·스토어 데이터를 조회해 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성하고, HTML 태그 제거 후 160자로 자르는 설명 요약·가격 포맷팅·데이터가 없을 때의 404 메타데이터 폴백을 공통 유틸로 분리',
-                },
-              ],
-            },
-            {
-              content: 'Kakao 역지오코딩 서버 프록시 Route Handler',
-              descriptions: [
-                {
-                  content:
-                    'Kakao 역지오코딩 호출을 클라이언트에서 직접 하지 않고 Next.js Route Handler를 통해 서버에서 대신 호출하도록 구성해, 요청 파라미터 검증과 업스트림 에러 처리를 서버 단에서 일괄 관리',
                 },
               ],
             },
@@ -412,7 +338,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '세 종류의 클라이언트를 하나의 User 테이블과 role 구분이 아닌 완전히 분리된 모델(Consumer/Seller)로 설계하고, JWT에 대상(audience)과 토큰 타입(access/refresh 등)을 함께 서명해 하나의 인증 가드가 대상별·토큰 타입별 접근을 함께 검증하도록 구성',
+                    '세 종류의 클라이언트를 하나의 User 테이블과 role 구분이 아닌 완전히 분리된 모델(Consumer/Seller/Admin)로 설계하고, JWT에 대상(audience)과 토큰 타입(access/refresh 등)을 함께 서명해 하나의 인증 가드가 대상별·토큰 타입별 접근을 함께 검증하도록 구성',
                 },
                 {
                   content:
