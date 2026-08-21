@@ -24,21 +24,7 @@ const sideProject: IProject.Payload = {
         'AWS CloudFront',
         'AWS Route53',
         'GitHub Actions',
-        'Kakao Map',
-        'OAuth',
-        'JWT',
-        'FCM',
-        'Axios',
-        'PM2',
-        'react-error-boundary',
         'Yarn Berry',
-        'Cursor',
-        'Claude Code',
-        'MCP',
-        'Vite',
-        'Shadcn/ui',
-        'Tailwind CSS',
-        'Nginx',
       ],
       descriptions: [
         {
@@ -78,7 +64,7 @@ const sideProject: IProject.Payload = {
           ],
         },
         {
-          content: '기여 내용 - 프론트엔드 (WebView · 앱 연동)',
+          content: '기여 내용 - 프론트엔드 (인증 · 앱 연동)',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -95,11 +81,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '소셜 로그인 버튼 클릭 시 Google/Kakao/Apple 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현. 발급받은 토큰은 아래(인증 상태 Zustand 스토어)에서 설계한 스토어에 저장해 이후 요청의 Authorization 헤더에 포함',
-                },
-                {
-                  content:
-                    '소셜 로그인은 이메일이 아닌 휴대폰 번호를 계정 식별 기준으로 사용해, Kakao/Google/Apple 중 이미 다른 수단으로 가입된 번호로 재가입을 시도하면 백엔드가 409로 기존 가입 수단·이름·번호를 반환하고, 프론트는 이를 파싱해 원래 가입한 소셜 계정으로 바로 로그인할 수 있는 안내 화면을 노출',
+                    '소셜 로그인 버튼 클릭 시 Google/Kakao/Apple 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현. 발급받은 토큰은 Zustand 스토어에 저장해 이후 요청의 Authorization 헤더에 포함',
                 },
               ],
             },
@@ -125,19 +107,6 @@ const sideProject: IProject.Payload = {
                   content:
                     'persist 미들웨어의 partialize로 localStorage에 저장할 값을 토큰 등 필요한 값만으로 제한하고, hasHydrated 플래그로 서버 렌더링과 클라이언트 하이드레이션 사이의 인증 상태 불일치(로그인 화면 깜빡임)를 방지하는 훅을 별도로 구현',
                 },
-                {
-                  content:
-                    'Axios 인터셉터·Socket 서비스 등 React 컴포넌트 밖의 코드에서는 훅 대신 getState()로 스토어에 직접 접근하도록 통일해, 인증 토큰을 참조하는 모든 위치에서 일관된 접근 방식을 유지',
-                },
-              ],
-            },
-            {
-              content: '전역 Alert/Confirm 스토어로 다이얼로그 호출 단순화',
-              descriptions: [
-                {
-                  content:
-                    'Alert·Confirm 모달을 Zustand 스토어로 만들어 어느 컴포넌트에서도 props 전달 없이 호출할 수 있도록 구성하고, 위 인증 스토어와 동일하게 React 컴포넌트가 아닌 코드에서는 getState() 패턴으로 다이얼로그를 띄우도록 통일',
-                },
               ],
             },
             {
@@ -159,19 +128,6 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '무한 스크롤 공통 처리 - 관찰자 훅 재사용 및 경계 데이터 정합성',
-              descriptions: [
-                {
-                  content:
-                    'IntersectionObserver로 목록 하단 도달을 감지해 다음 페이지를 불러오는 훅을 만들어 좋아요·리뷰·채팅·주문·최근 본 상품 등 12곳에서 재사용',
-                },
-                {
-                  content:
-                    '커서 기반 페이지네이션 중 서버에 새 아이템이 추가되어 페이지 경계에서 항목이 밀리는 경우를 대비해, InfiniteData의 여러 페이지를 평탄화한 뒤 id 기준으로 중복 제거하는 유틸을 구현',
-                },
-              ],
-            },
-            {
               content: '위치 기반 지역 필터 - 화면 표시 단위와 쿼리 파라미터 분리 설계',
               descriptions: [
                 {
@@ -189,29 +145,29 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '결제 대기 카운트다운 - ref 기반 파생 상태 관리',
-              descriptions: [
-                {
-                  content:
-                    '입금 대기 주문의 남은 시간을 초 단위로 표시하는 카운트다운을 구현하며, 별도 마감 시각 필드가 없는 주문은 입금 요청 시각+12시간으로 폴백 계산. setInterval 콜백이 stale closure로 오래된 마감 시각을 참조하지 않도록 ref에 최신 마감 시각을 저장해 참조하고, 마감 시각에 도달하면 인터벌을 스스로 정리하도록 구현',
-                },
-              ],
-            },
-            {
               content: 'Socket.io 실시간 이벤트를 TanStack Query 캐시 무효화와 연동',
               descriptions: [
                 {
                   content:
-                    '채팅과는 별개로 주문 알림 전용 Socket.io 채널을 구독해, 수신한 알림 데이터를 소켓 콜백에서 직접 캐시에 patch하는 대신 알림 목록·안읽음 카운트 쿼리 키를 invalidate하는 방식을 선택. 소켓 페이로드와 REST 응답 스키마가 어긋날 가능성을 없애고 항상 서버 응답 기준으로 최신 상태를 유지하도록 트레이드오프를 결정',
+                    '주문 알림 전용 Socket.io 채널을 구독해, 수신한 알림 데이터를 소켓 콜백에서 직접 캐시에 patch하는 대신 알림 목록·안읽음 카운트 쿼리 키를 invalidate하는 방식을 선택. 소켓 페이로드와 REST 응답 스키마가 어긋날 가능성을 없애고 항상 서버 응답 기준으로 최신 상태를 유지하도록 트레이드오프를 결정',
                 },
               ],
             },
           ],
         },
         {
-          content: '기여 내용 - 프론트엔드 (Next.js)',
+          content: '기여 내용 - 프론트엔드 (아키텍처 · 프로덕트 품질)',
           weight: 'MEDIUM',
           descriptions: [
+            {
+              content: 'User/Seller 프레임워크 이원화 - Next.js vs Vite',
+              descriptions: [
+                {
+                  content:
+                    '사용자 웹은 SEO·초기 로딩 성능이 중요해 Next.js(App Router, SSR)로, 판매자 관리 웹은 로그인 후에만 접근하는 내부 도구라 SEO가 불필요해 Vite 기반 React SPA로 의도적으로 프레임워크를 분리. 관리자 도구는 SSR 없이 HMR 기반 개발 속도와 빌드 단순함을 우선하는 트레이드오프를 선택',
+                },
+              ],
+            },
             {
               content: '상품·스토어 상세 페이지 동적 OG/SEO 메타데이터 생성',
               descriptions: [
@@ -221,21 +177,6 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
-            {
-              content: 'Next.js 15 클라이언트 라우터 캐시(staleTimes) 튜닝',
-              descriptions: [
-                {
-                  content:
-                    '기본값(dynamic 0초)으로는 WebView 탭 전환·뒤로가기마다 서버 왕복이 발생해 전환이 느리게 느껴지는 문제를, staleTimes 설정으로 최근 방문 페이지를 캐시에서 즉시 복원하도록 개선(데이터 최신성은 TanStack Query staleTime으로 별도 관리)',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 프론트엔드 (에러 · 로딩 처리)',
-          weight: 'MEDIUM',
-          descriptions: [
             {
               content: '판매자 스토어 등록 3단계 마법사 - 단계별 상태 보존',
               descriptions: [
@@ -249,65 +190,10 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
-            {
-              content: 'Sentry 리포팅 노이즈 필터링',
-              descriptions: [
-                {
-                  content:
-                    '4xx 에러는 사용자 입력에 의한 정상적인 분기로 보고 Sentry에 보내지 않고, 5xx·네트워크 오류만 리포팅하도록 필터링해 노이즈를 줄이고, 이 기준을 백엔드 정책과 동일하게 맞춰 프론트-백엔드 모니터링 일관성을 유지',
-                },
-              ],
-            },
-            {
-              content: '전역 렌더링 에러와 컴포넌트 트리 에러의 이원화 처리',
-              descriptions: [
-                {
-                  content:
-                    'Next.js 루트 레이아웃 렌더링 에러는 global-error.tsx에서, 컴포넌트 트리 내부 에러는 react-error-boundary 기반 ErrorBoundaryProvider에서 각각 캡처해 Sentry로 전송하도록 분리',
-                },
-              ],
-            },
-            {
-              content: 'PostHog 이벤트 텍소노미 정리 및 URL 민감정보 자동 제거',
-              descriptions: [
-                {
-                  content:
-                    'engage_(진입·조작)/success_(완료) 접두어로 이벤트명 규칙을 통일하고, 홈·검색과 지도가 공유하던 필터 이벤트(success_filter_apply, engage_filter_open)를 지도 전용 이벤트(success_map_filter_apply, engage_map_filter_open)로 분리 — 지도는 정렬(sort_type) 개념이 없어 같은 이벤트명 아래 서로 다른 스키마가 섞이는 문제를 방지',
-                },
-                {
-                  content:
-                    'posthog-js가 모든 이벤트에 $current_url/$referrer를 자동으로 붙여, 페이지뷰 캡처 호출만 고쳐서는 OAuth 콜백·가입 화면에 머무는 동안 발생하는 다른 커스텀 이벤트의 URL까지는 막을 수 없다는 점을 확인. before_send 훅으로 전송 직전 모든 이벤트를 가로채 OAuth code·이메일 등 민감 쿼리파라미터를 제거하고 /auth/* 경로는 쿼리스트링 전체를 제거하도록 구성했고, 해당 경로 진입 중에는 세션 리플레이도 함께 비활성화',
-                },
-              ],
-            },
           ],
         },
         {
-          content: '기여 내용 - 프론트엔드 (기술 스택 선택 · 마이그레이션)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: 'User/Seller 프레임워크 이원화 - Next.js vs Vite',
-              descriptions: [
-                {
-                  content:
-                    '사용자 웹은 SEO·초기 로딩 성능이 중요해 Next.js(App Router, SSR)로, 판매자 관리 웹은 로그인 후에만 접근하는 내부 도구라 SEO가 불필요해 Vite 기반 React SPA로 의도적으로 프레임워크를 분리. 관리자 도구는 SSR 없이 HMR 기반 개발 속도와 빌드 단순함을 우선하는 트레이드오프를 선택',
-                },
-              ],
-            },
-            {
-              content: 'Material-UI → Shadcn/ui 전면 마이그레이션',
-              descriptions: [
-                {
-                  content:
-                    '판매자 웹의 UI 라이브러리를 npm 패키지 방식인 Material-UI에서, 컴포넌트 코드를 프로젝트에 직접 복사해 소유권을 갖는 Shadcn/ui(Radix UI + Tailwind CSS)로 전면 교체. 자유로운 커스터마이징과 번들 크기 최적화를 목표로 29개 컴포넌트·페이지(23개 파일, 52회 import)를 마이그레이션 완료',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (전제)',
+          content: '기여 내용 - 백엔드 · 인프라 (인증 · API 아키텍처)',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -316,23 +202,8 @@ const sideProject: IProject.Payload = {
             },
             {
               content:
-                'NestJS + Prisma + PostgreSQL 기반 Consumer/Seller/Admin 3-way API 서버(인증·상품·주문·채팅·알림 등 25개 도메인 모듈)와 AWS(EC2, S3, CloudFront, Route53) 인프라를 구성',
+                'NestJS + Prisma + PostgreSQL 기반 Consumer/Seller/Admin 3-way API 서버(인증·상품·주문·알림 등 25개 도메인 모듈)와 AWS(EC2, S3, CloudFront, Route53) 인프라를 구성',
             },
-            {
-              content: 'Yarn Berry PnP → node_modules 방식 전환',
-              descriptions: [
-                {
-                  content:
-                    'Yarn Berry의 PnP 모드로 모노레포를 시작했으나 Prisma generate가 postinstall 시점에 실패하고 IDE 타입 인식도 불안정해지는 호환성 문제를 겪어, nodeLinker를 node-modules 방식으로 전환. Workspace Hoisting으로 공통 의존성은 루트에, 앱별 고유 의존성은 각 워크스페이스에 설치되도록 정리해 개발 도구 호환성과 빌드 안정성을 확보',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (인증 · API 아키텍처)',
-          weight: 'MEDIUM',
-          descriptions: [
             {
               content: 'Consumer/Seller/Admin 3-way 인증 구조 설계',
               descriptions: [
@@ -358,7 +229,7 @@ const sideProject: IProject.Payload = {
           ],
         },
         {
-          content: '기여 내용 - 백엔드 · 인프라 (데이터 모델링)',
+          content: '기여 내용 - 백엔드 · 인프라 (도메인 설계)',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -380,30 +251,6 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '자동화 배치 쿼리에 맞춘 복합 인덱스 설계',
-              descriptions: [
-                {
-                  content:
-                    '결제 대기 만료 처리, 픽업 리마인더 발송 등 주기 배치가 실제로 사용하는 조회 조건(주문 상태+마감 시각, 주문 상태+픽업일+리마인더 발송 여부)에 맞춰 복합 인덱스를 설계해 범용 인덱스 대신 쿼리 패턴 기준으로 구성',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (주문 · 예약 도메인)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: '주문 상태 전이 허용 규칙(상태 머신) 설계',
-              descriptions: [
-                {
-                  content:
-                    '예약 요청부터 픽업 완료까지 10단계 주문 상태를, 단순 필드 업데이트가 아니라 "각 상태로 전이 가능한 이전 상태 목록"을 명시한 허용 규칙으로 설계(예: 노쇼 처리는 픽업 대기 상태에서만 가능). 판매자가 비즈니스 규칙에 어긋나는 상태 변경을 시도하면 API 단에서 차단',
-                },
-              ],
-            },
-            {
               content: '주문 자동화 배치 설계',
               descriptions: [
                 {
@@ -421,12 +268,6 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (알림 시스템)',
-          weight: 'MEDIUM',
-          descriptions: [
             {
               content: '주문 알림 4채널 폴백 설계',
               descriptions: [
@@ -437,61 +278,6 @@ const sideProject: IProject.Payload = {
                 {
                   content:
                     '카카오 알림톡 발송 실패는 앞선 채널이 이미 성공했으므로 예외를 던지지 않고 로깅만 하도록 결정하고, 알림톡 실패 시 자동으로 유료 SMS로 대체 발송되는 옵션은 의도적으로 비활성화해 예상치 못한 과금을 방지',
-                },
-              ],
-            },
-            {
-              content: 'Socket.io 채팅 게이트웨이 인증 설계',
-              descriptions: [
-                {
-                  content:
-                    'WebSocket 연결 시점에 HTTP 인증과 동일한 JWT 시크릿으로 별도의 검증 로직을 구성하고, 점검 모드 여부를 연결 수락 전에 먼저 확인하도록 구성. 사용자당 여러 기기·탭에서 동시 접속할 수 있도록 커넥션을 Map 구조로 추적',
-                },
-              ],
-            },
-            {
-              content: '채팅 하이브리드 아키텍처 - WebSocket 전송 + REST 영속성',
-              descriptions: [
-                {
-                  content:
-                    '메시지 전송은 WebSocket으로 처리해 실시간성을 확보하되, 저장은 반드시 서버에서 DB 커밋 후 브로드캐스트하도록 설계해 연결이 끊겨도 메시지가 유실되지 않도록 함. 목록 조회·페이지네이션은 REST API로 분리해, 재연결 시 REST로 이전 메시지를 복구할 수 있도록 안정성과 실시간성을 함께 확보',
-                },
-                {
-                  content:
-                    '현재는 서버 인스턴스 1대로 운영 중이라 커넥션 정보를 인메모리 Map으로 관리하지만, 인스턴스를 2대 이상으로 확장하면 서버 간 WebSocket 세션 공유와 메시지 브로드캐스트가 끊기는 문제가 발생한다는 점을 미리 파악해, Redis Pub/Sub 기반 Socket.io Adapter 도입 시점과 방식을 사전에 설계 문서로 정리',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (에러 모니터링 · 로깅)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: 'responseId 기반 에러 추적 체계',
-              descriptions: [
-                {
-                  content:
-                    '모든 에러 응답에 고유 responseId를 부여해 클라이언트 응답과 Sentry 태그에 동일한 값을 함께 실어 보내도록 설계. 사용자 문의가 들어오면 화면에 노출된 responseId 하나만으로 Sentry 대시보드에서 해당 에러를 바로 검색·추적할 수 있도록 구성',
-                },
-              ],
-            },
-            {
-              content: '민감정보 자동 마스킹 유틸(SensitiveDataUtil)',
-              descriptions: [
-                {
-                  content:
-                    '로그·Sentry로 전송되기 전에 이메일·전화번호·인증 토큰 등을 정규식 기반으로 자동 마스킹하는 유틸을 전역 예외 필터에 적용해, 에러 리포팅 과정에서 개인정보가 그대로 노출되지 않도록 구성',
-                },
-              ],
-            },
-            {
-              content: '환경별 로깅 · Sentry 전송 전략 차등 적용',
-              descriptions: [
-                {
-                  content:
-                    'development는 콘솔 로깅만, staging은 콘솔 로깅+Sentry, production은 콘솔 로깅을 꺼서 성능을 최적화하고 Sentry로만 에러를 확인하도록 환경별로 동작을 분리. Sentry는 tracesSampleRate를 0으로 설정해 Transaction 추적은 비활성화하고 에러 이벤트만 전송하도록 구성해 비용을 절감',
                 },
               ],
             },
@@ -515,15 +301,6 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: 'Nginx 리버스 프록시 - WebSocket 업그레이드 · 헬스체크 분리',
-              descriptions: [
-                {
-                  content:
-                    'EC2 앞단에 Nginx를 두어 80/443 포트로 요청을 받아 백엔드로 프록시하도록 구성. Socket.IO 경로는 별도 location 블록으로 분리해 Upgrade/Connection 헤더와 장시간 타임아웃을 전용 설정하고, 헬스체크 경로는 접근 로그에서 제외해 배포 파이프라인의 상태 확인 트래픽이 로그를 채우지 않도록 함',
-                },
-              ],
-            },
-            {
               content: 'staging/production 환경 분리 및 웹 3개 서비스 CI/CD',
               descriptions: [
                 {
@@ -537,11 +314,11 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '운영 안정성을 위한 보조 설계',
+              content: '환경별 로깅 · Sentry 전송 전략 차등 적용',
               descriptions: [
                 {
                   content:
-                    '주문·좋아요·소셜 계정 연동 등 여러 단계로 이뤄지는 쓰기 작업 17개 파일(29곳)에 Prisma 트랜잭션을 적용해 부분 실패를 방지. 헬스체크 엔드포인트는 인증·인터셉터를 우회하도록 별도 등록해 배포 파이프라인의 상태 확인에 안정적으로 응답하도록 구성',
+                    'development는 콘솔 로깅만, staging은 콘솔 로깅+Sentry, production은 콘솔 로깅을 꺼서 성능을 최적화하고 Sentry로만 에러를 확인하도록 환경별로 동작을 분리. Sentry는 tracesSampleRate를 0으로 설정해 Transaction 추적은 비활성화하고 에러 이벤트만 전송하도록 구성해 비용을 절감',
                 },
               ],
             },
