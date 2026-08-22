@@ -24,7 +24,6 @@ const sideProject: IProject.Payload = {
         'AWS CloudFront',
         'AWS Route53',
         'GitHub Actions',
-        'Yarn Berry',
       ],
       descriptions: [
         {
@@ -49,7 +48,7 @@ const sideProject: IProject.Payload = {
           ],
         },
         {
-          content: '기여 내용 - AI 코딩 에이전트 (Claude Code) 활용',
+          content: '기여 내용 - AI 에이전트 활용',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -57,106 +56,14 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'PostHog, Vercel, Sentry, AWS, Firebase, Solapi(알림톡) 등 외부 서비스를 .mcp.json으로 연동해, 반복 업무는 저장소 전용 Skill(슬래시 커맨드)로 표준화해 팀원 누구나 같은 절차로 수행하도록 구성',
+                    'PostHog, Vercel, Sentry, AWS, Firebase, Solapi(알림톡) 등 외부 서비스를 .mcp.json으로 연동해, 반복 업무는 저장소 전용 Skill(슬래시 커맨드)로 표준화해 누구나 같은 절차로 수행하도록 구성',
                 },
               ],
             },
           ],
         },
         {
-          content: '기여 내용 - 프론트엔드 (인증 · 앱 연동)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: '카카오맵 마커 렌더링 성능 최적화',
-              descriptions: [
-                {
-                  content:
-                    '카카오맵 마커는 storeId를 키로 하는 Map 자료구조로 관리해 지도 이동마다 전체 재생성 대신 범위를 벗어난 항목만 제거·새로 들어온 항목만 추가하는 diff 렌더링을 구현하고, 드래그·줌 제스처 중에는 마커 DOM 갱신을 보류했다가 idle 이벤트 발생 시 디바운스 처리해 모바일 환경의 터치 끊김 현상을 해결',
-                },
-              ],
-            },
-            {
-              content: 'Google/Kakao/Apple OAuth 인증 플로우 구현',
-              descriptions: [
-                {
-                  content:
-                    '소셜 로그인 버튼 클릭 시 Google/Kakao/Apple 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현. 발급받은 토큰은 Zustand 스토어에 저장해 이후 요청의 Authorization 헤더에 포함',
-                },
-              ],
-            },
-            {
-              content: 'FCM 푸시 토큰 등록/해제 브릿지 설계',
-              descriptions: [
-                {
-                  content:
-                    '앱에서 발급한 FCM 토큰을 로그인/로그아웃 시점에 네이티브 브릿지로 전달해 서버에 등록·삭제하도록 구현. 로그아웃 직후 등 인증 상태 변경 전후로 네이티브 콜백이 도착할 수 있어, 콜백 핸들러 내부에서 인증 상태를 재검증한 뒤에만 API를 호출하도록 가드를 추가해 인증되지 않은 상태의 불필요한 API 호출을 방지',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 프론트엔드 (상태관리 · 데이터 페칭)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: '인증 상태 Zustand 스토어 설계 (persist + hydration)',
-              descriptions: [
-                {
-                  content:
-                    'persist 미들웨어의 partialize로 localStorage에 저장할 값을 토큰 등 필요한 값만으로 제한하고, hasHydrated 플래그로 서버 렌더링과 클라이언트 하이드레이션 사이의 인증 상태 불일치(로그인 화면 깜빡임)를 방지하는 훅을 별도로 구현',
-                },
-              ],
-            },
-            {
-              content: '알림 설정 변경에 낙관적 업데이트(Optimistic Update) 적용',
-              descriptions: [
-                {
-                  content:
-                    'onMutate에서 진행 중인 쿼리를 취소하고 이전 캐시를 스냅샷한 뒤 낙관적으로 값을 갱신하고, 실패 시 onError에서 스냅샷으로 롤백, 성공 시 서버 응답으로 재조정하는 패턴을 구현해 서버 응답을 기다리지 않고도 즉각적인 UI 반응성을 제공',
-                },
-              ],
-            },
-            {
-              content: '계층형 Query Key 팩토리로 캐시 무효화 구조 설계',
-              descriptions: [
-                {
-                  content:
-                    '도메인별로 전체 → 목록/상세 순으로 하위 키가 상위 키를 포함하도록 구성해, 상위 키 하나만 무효화해도 하위 쿼리가 함께 갱신되는 계단식 무효화 구조를 앱 전반에 일관되게 적용',
-                },
-              ],
-            },
-            {
-              content: '위치 기반 지역 필터 - 화면 표시 단위와 쿼리 파라미터 분리 설계',
-              descriptions: [
-                {
-                  content:
-                    '시/도 → 시/군/구 2단계 지역 선택 UI를 설계하고, 인구가 적은 군 단위는 "화천·양구·철원"처럼 인접 지역끼리 하나의 선택지로 묶어 노출하되, 선택 결과는 백엔드 조회 조건에 맞춰 "시도:시군구" 형식의 문자열로 직렬화해 전달하도록 화면 표시 단위(그룹)와 실제 쿼리 파라미터 포맷을 분리해 설계',
-                },
-                {
-                  content:
-                    'Kakao 역지오코딩으로 사용자 현재 위치를 지역과 자동 매칭하고, 매칭되는 후보가 없으면 Haversine 공식으로 사용자 좌표와 후보 지역 중심 좌표 간 거리를 계산해 가장 가까운 지역을 추천하는 폴백 로직을 구현. 최종 선택된 지역을 TanStack Query 캐시 키에 반영해 홈 화면 상품 목록을 지역이 바뀔 때만 다시 조회',
-                },
-                {
-                  content:
-                    '이 Kakao 역지오코딩 API 호출은 클라이언트에서 직접 하지 않고 Next.js Route Handler를 통해 서버에서 대신 호출하도록 구성해, 요청 파라미터 검증과 업스트림 에러 처리를 서버 단에서 일괄 관리',
-                },
-              ],
-            },
-            {
-              content: 'Socket.io 실시간 이벤트를 TanStack Query 캐시 무효화와 연동',
-              descriptions: [
-                {
-                  content:
-                    '주문 알림 전용 Socket.io 채널을 구독해, 수신한 알림 데이터를 소켓 콜백에서 직접 캐시에 patch하는 대신 알림 목록·안읽음 카운트 쿼리 키를 invalidate하는 방식을 선택. 소켓 페이로드와 REST 응답 스키마가 어긋날 가능성을 없애고 항상 서버 응답 기준으로 최신 상태를 유지하도록 트레이드오프를 결정',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 프론트엔드 (아키텍처 · 프로덕트 품질)',
+          content: '기여 내용 - 프론트엔드',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -169,36 +76,76 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '상품·스토어 상세 페이지 동적 OG/SEO 메타데이터 생성',
+              content: 'OAuth 인증 플로우 및 인증 상태 영속화 설계',
               descriptions: [
                 {
                   content:
-                    'generateMetadata에서 서버사이드로 상품·스토어 데이터를 조회해 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성하고, HTML 태그 제거 후 160자로 자르는 설명 요약·가격 포맷팅·데이터가 없을 때의 404 메타데이터 폴백을 공통 유틸로 분리',
+                    '소셜 로그인 버튼 클릭 시 Google/Kakao/Apple 인가 페이지로 리다이렉트하고, 콜백 페이지에서 인가 코드를 받아 백엔드 로그인/회원가입 API를 호출해 JWT를 발급받는 흐름을 구현',
+                },
+                {
+                  content:
+                    '발급받은 토큰은 새로고침·재방문 후에도 로그인 상태가 유지되도록 persist 미들웨어로 Zustand 스토어를 localStorage에 저장하고, partialize로 저장 대상을 accessToken·isAuthenticated 두 필드로 명시적으로 한정해 이후 상태 필드가 늘어나도 의도치 않은 값이 자동으로 영속화되지 않도록 방지',
                 },
               ],
             },
             {
-              content: '판매자 스토어 등록 3단계 마법사 - 단계별 상태 보존',
+              content: '계층형 Query Key 팩토리로 캐시 무효화 구조 설계',
               descriptions: [
                 {
                   content:
-                    '사업자등록번호 진위확인 API → 통신판매업 등록상세 조회 API → 스토어 정보 입력으로 이어지는 3단계 폼을 설계하고, 각 단계에서 조회한 값은 상태로 보존해 뒤로가기·재시도 시에도 다시 입력하지 않도록 처리. 두 외부 정부 API가 반환하는 서로 다른 실패 코드(등록번호 불일치, 폐업 상태, 조회 결과 없음 등)는 백엔드가 사용자용 메시지로 매핑해 내려주고, 프론트는 이를 그대로 노출',
+                    '주문은 마이페이지 목록·예정 주문 카드·주문 상세 등 여러 화면에서 동시에 조회되는데, 결제완료·취소·환불 등 주문 상태가 바뀌는 뮤테이션마다 관련 화면의 쿼리 키를 일일이 나열해 무효화하면 하나라도 빠뜨렸을 때 특정 화면만 낡은 데이터를 보여주는 문제가 있었음',
                 },
                 {
                   content:
-                    '마지막 단계인 스토어 정보 입력에는 카카오 우편번호 검색 API를 연동해 도로명·지번 주소와 위도·경도를 함께 저장하도록 구성, 이후 사용자 웹의 거리 표시·지역 필터가 참조하는 위치 데이터의 원천으로 사용',
+                    '도메인별로 전체(all) → 상세(detail)/목록(mypage) 순으로 하위 키가 상위 키를 포함하도록 쿼리 키 팩토리를 구성해, 뮤테이션 성공 시 상위 키 하나만 무효화해도 하위 쿼리가 함께 갱신되는 계단식 무효화 구조를 앱 전반에 일관되게 적용',
+                },
+              ],
+            },
+            {
+              content: '카카오맵 마커 렌더링 성능 최적화',
+              descriptions: [
+                {
+                  content:
+                    '카카오맵 마커는 storeId를 키로 하는 Map 자료구조로 관리해 지도 이동마다 전체 재생성 대신 범위를 벗어난 항목만 제거·새로 들어온 항목만 추가하는 diff 렌더링을 구현하고, 드래그·줌 제스처 중에는 마커 DOM 갱신을 보류했다가 idle 이벤트 발생 시 디바운스 처리해 모바일 환경의 터치 끊김 현상을 해결',
+                },
+              ],
+            },
+            {
+              content: '지도 스토어 카드에 사용자 위치 기반 거리 표시',
+              descriptions: [
+                {
+                  content:
+                    '지도에서 스토어를 고를 때 실제로 얼마나 가까운지 판단할 근거가 없어, 사용자 현재 좌표와 각 스토어 좌표 간 거리를 Haversine 공식으로 계산해 스토어 카드에 표시',
+                },
+              ],
+            },
+            {
+              content: '판매자 스토어 위치 조회 API 설계',
+              descriptions: [
+                {
+                  content:
+                    'Daum(카카오) 우편번호 검색 팝업으로 도로명·지번 주소와 우편번호를 받은 뒤, 선택된 주소 문자열을 Kakao 주소-좌표 변환 API로 다시 조회해 위도·경도까지 함께 저장',
+                },
+              ],
+            },
+            {
+              content: '상품·스토어 상세 페이지 동적 OG/SEO 메타데이터 생성',
+              descriptions: [
+                {
+                  content:
+                    'generateMetadata에서 서버사이드로 상품·스토어 데이터를 조회해 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성',
                 },
               ],
             },
           ],
         },
         {
-          content: '기여 내용 - 백엔드 · 인프라 (인증 · API 아키텍처)',
+          content: '기여 내용 - 백엔드 · 인프라',
           weight: 'MEDIUM',
           descriptions: [
             {
               content:
-                '프론트엔드가 핵심 역할이라, 백엔드·인프라는 AI 코딩 에이전트(Cursor, Claude Code)를 적극 활용해 아키텍처·데이터 모델·운영 정책 등 방향성 결정에 집중하고 세부 구현은 AI로 진행(AI 에이전트 활용 방식 자체는 위 "AI 코딩 에이전트 (Claude Code) 활용" 참고). 아래 항목들은 그 판단 기준과 설계 의도를 정리한 것',
+                '백엔드·인프라는 AI 에이전트를 활용해 아키텍처·데이터 모델·운영 정책 등 방향성 결정에 집중하고 세부 구현은 AI로 진행.',
             },
             {
               content:
@@ -218,53 +165,15 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '전역 점검 모드(Maintenance Guard) 설계',
+              content: '사업자등록번호·통신판매업 진위확인 외부 공공데이터 API 연동',
               descriptions: [
                 {
                   content:
-                    '환경변수 하나로 API·WebSocket 트래픽 전체를 즉시 503으로 차단할 수 있는 전역 가드를 Rate Limit 가드보다 앞순위로 배치해, 장애·긴급 점검 시 배포 없이 즉시 서비스를 내릴 수 있는 운영 레버를 마련',
+                    '판매자가 스토어를 개설할 때 사업자등록번호·통신판매업 신고 여부를 검증하지 않으면, 실제 존재하지 않거나 이미 휴·폐업한 사업자도 스토어를 열 수 있어 플랫폼 신뢰도와 법적 리스크(전자상거래법상 통신판매업 신고 의무)로 이어지는 문제가 있었음',
                 },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (도메인 설계)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: '영업 캘린더·상품 옵션 데이터를 JSON으로 모델링',
-              descriptions: [
                 {
                   content:
-                    '판매자가 자유롭게 수정하는 영업 캘린더 예외(날짜별 휴무/영업시간)와 상품의 사이즈·맛 옵션을, 카디널리티가 낮고 관계형 조회 필요성이 크지 않다고 판단해 별도 테이블 대신 JSON 컬럼으로 모델링해 스키마 변경 없이 옵션 구성을 유연하게 확장',
-                },
-              ],
-            },
-            {
-              content: '주문 스냅샷 패턴으로 주문 이력 불변성 확보',
-              descriptions: [
-                {
-                  content:
-                    '주문 시점의 스토어명·상품명·상품 이미지·선택한 사이즈/맛 옵션명과 가격을 주문 데이터에 그대로 복사해 저장하도록 설계해, 이후 판매자가 상품·옵션을 수정·삭제해도 과거 주문 내역이 바뀌지 않도록 함',
-                },
-              ],
-            },
-            {
-              content: '주문 자동화 배치 설계',
-              descriptions: [
-                {
-                  content:
-                    '결제 대기 시간 초과 시 자동 취소, 픽업 시각 도래 시 상태 전환, 픽업 24시간 전 리마인더 발송을 주기 배치로 자동화하도록 설계해 판매자·운영자의 수동 상태 관리 부담을 제거',
-                },
-              ],
-            },
-            {
-              content: '영업 캘린더 변경 시 주문 충돌 방지 정책 설계 (백엔드 권한 소스)',
-              descriptions: [
-                {
-                  content:
-                    '판매자가 영업시간·휴무일을 저장하기 전에, 예약~픽업 대기 상태의 모든 주문을 대상으로 변경될 캘린더에서도 픽업 시각이 유효한지 검증하고, 충돌하는 주문이 하나라도 있으면 구조화된 에러 코드와 함께 저장 자체를 거부하도록 설계. 프론트에서는 동일 규칙으로 저장 전 미리 안내하지만, 최종 판단 권한은 백엔드에 두는 것으로 결정',
+                    '국세청 사업자등록정보 진위확인 API와 공정거래위원회 통신판매사업자 등록상세조회 API를 연동해, 사업자등록번호 불일치·휴폐업 상태·조회 결과 없음 등의 사유로 정상 영업 상태가 아니면 스토어 등록 자체를 차단하도록 설계',
                 },
               ],
             },
@@ -275,50 +184,18 @@ const sideProject: IProject.Payload = {
                   content:
                     '주문 상태가 바뀔 때마다 인앱 알림 저장 → Socket.io 실시간 푸시(포그라운드) → FCM 푸시(백그라운드) → 카카오 알림톡(앱 미설치·미연동 사용자) 순으로 도달 채널을 계층화하도록 설계',
                 },
-                {
-                  content:
-                    '카카오 알림톡 발송 실패는 앞선 채널이 이미 성공했으므로 예외를 던지지 않고 로깅만 하도록 결정하고, 알림톡 실패 시 자동으로 유료 SMS로 대체 발송되는 옵션은 의도적으로 비활성화해 예상치 못한 과금을 방지',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          content: '기여 내용 - 백엔드 · 인프라 (배포 · 운영)',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: '자동 롤백을 포함한 배포 파이프라인 설계',
-              descriptions: [
-                {
-                  content:
-                    'GitHub Actions 태그 트리거로 EC2에 배포하며, 마이그레이션 전 DB 백업 → PM2 프로세스 재시작 → 로컬/공인 도메인 헬스체크 순차 확인 → 실패 시 직전 백업으로 자동 롤백하는 흐름을 설계. 디스크 여유에 따라 백업 보관 개수를 조절하도록 함',
-                },
-                {
-                  content:
-                    'Prisma 마이그레이션이 배포 중 실패(P3009)하는 경우를 대비해, 실패한 마이그레이션을 자동으로 감지하고 롤백 처리한 뒤 재시도하도록 배포 스크립트에 복구 로직을 포함. SSL 인증서 만료 여부까지 배포 파이프라인에서 함께 점검하고 Discord로 결과를 통지',
-                },
               ],
             },
             {
-              content: 'staging/production 환경 분리 및 웹 3개 서비스 CI/CD',
+              content: '백엔드(EC2)·프론트엔드(Vercel) 특성에 맞춘 배포 파이프라인 이원화',
               descriptions: [
                 {
                   content:
-                    'GitHub Actions 기반 태그 트리거 CI/CD로 백엔드(EC2)·3개 웹 서비스(Vercel)의 staging/production 배포를 환경별로 분리해 자동화',
+                    'NestJS 백엔드는 GitHub Actions 태그 트리거로 EC2에 배포하며, DB·서버 백업 → Prisma 마이그레이션(배포 중 실패(P3009) 시 자동 감지·롤백 처리 후 재시도) → PM2 재시작 → 로컬/공인 도메인 헬스체크 순으로 진행하고, trap으로 배포 스크립트 실패를 감지해 직전 백업으로 자동 롤백. SSL 인증서 만료 여부까지 함께 점검해 결과를 Discord로 통지',
                 },
                 {
                   content:
-                    'Vercel의 기본 Git 연동 자동배포는 비활성화하고, GitHub Actions에서 Vercel CLI(vercel pull → vercel build --prod → vercel deploy --prebuilt --prod)를 태그 푸시 시 직접 실행하는 방식으로 전환해 웹 3개 서비스의 배포 트리거를 백엔드와 동일한 태그 기반 흐름으로 통일. 모노레포 구조상 앱 서브디렉토리에서 CLI를 실행하면 rootDirectory 경로가 중복되어 빌드가 실패하는 문제를 겪어, 저장소 루트에서 실행하도록 조정',
-                },
-              ],
-            },
-            {
-              content: '환경별 로깅 · Sentry 전송 전략 차등 적용',
-              descriptions: [
-                {
-                  content:
-                    'development는 콘솔 로깅만, staging은 콘솔 로깅+Sentry, production은 콘솔 로깅을 꺼서 성능을 최적화하고 Sentry로만 에러를 확인하도록 환경별로 동작을 분리. Sentry는 tracesSampleRate를 0으로 설정해 Transaction 추적은 비활성화하고 에러 이벤트만 전송하도록 구성해 비용을 절감',
+                    '3개 웹 서비스는 Vercel의 기본 Git 연동 자동배포를 끄고, GitHub Actions에서 태그(예: web-user/production)를 파싱해 프로젝트·환경에 맞는 Vercel 프로젝트로 CLI 배포(vercel pull → build → deploy --prebuilt)하도록 구성해 백엔드와 동일한 태그 기반 흐름으로 배포 트리거를 통일. 모노레포 구조상 앱 서브디렉토리에서 CLI를 실행하면 rootDirectory 경로가 중복되어 빌드가 실패하는 문제를 겪어, 저장소 루트에서 실행하도록 조정',
                 },
               ],
             },
