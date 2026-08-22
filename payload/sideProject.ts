@@ -56,7 +56,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'PostHog, Vercel, Sentry, AWS, Firebase, Solapi(알림톡) 등 외부 서비스를 .mcp.json으로 연동해, 반복 업무는 저장소 전용 Skill(슬래시 커맨드)로 표준화해 누구나 같은 절차로 수행하도록 구성',
+                    'PostHog, Vercel, Sentry, AWS, Firebase, Solapi(알림톡) 등 외부 서비스를 MCP로 연동해, 반복 업무는 저장소 전용 Skill(슬래시 커맨드)로 표준화해 같은 절차로 수행하도록 구성',
                 },
               ],
             },
@@ -67,11 +67,20 @@ const sideProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'User/Seller 프레임워크 이원화 - Next.js vs Vite',
+              content:
+                'User/Seller 프레임워크 이원화 및 동적 OG/SEO 메타데이터 생성 - Next.js vs Vite',
               descriptions: [
                 {
                   content:
-                    '사용자 웹은 SEO·초기 로딩 성능이 중요해 Next.js(App Router, SSR)로, 판매자 관리 웹은 로그인 후에만 접근하는 내부 도구라 SEO가 불필요해 Vite 기반 React SPA로 의도적으로 프레임워크를 분리. 관리자 도구는 SSR 없이 HMR 기반 개발 속도와 빌드 단순함을 우선하는 트레이드오프를 선택',
+                    '사용자 웹은 SEO·초기 로딩 성능이 중요해 SSR이 필요하다고 판단했고, 국내 프론트엔드 생태계에서 가장 널리 쓰여 레퍼런스·생태계가 두터운 Next.js를 채택. 판매자 관리 웹은 로그인 후에만 접근하는 내부 도구라 SEO가 불필요해 Vite 기반 React SPA로 의도적으로 프레임워크를 분리. 관리자 도구는 SSR 없이 HMR 기반 개발 속도와 빌드 단순함을 우선하는 트레이드오프를 선택',
+                },
+                {
+                  content:
+                    '이 SSR 선택이 실제로 필요했던 이유 중 하나가 상품·스토어 링크 공유 시나리오였음 - 카카오톡·SNS로 링크를 공유하면 실제 상품 이미지·이름 등 최신 데이터가 미리보기에 정확히 노출되어야 클릭률에 영향을 주는데, 메신저의 링크 미리보기 크롤러는 JS를 실행하지 않고 응답 HTML의 메타 태그만 읽어가므로 클라이언트에서 그리는 메타데이터로는 정확한 미리보기를 보장할 수 없었음',
+                },
+                {
+                  content:
+                    'Next.js App Router가 제공하는 generateMetadata(페이지 요청마다 서버에서 실행되는 비동기 메타데이터 함수)를 상품·스토어 상세 페이지에 구현해, 서버사이드에서 실제 상품·스토어 데이터를 조회한 뒤 그 값으로 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성해 응답 HTML에 포함',
                 },
               ],
             },
@@ -119,24 +128,11 @@ const sideProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '판매자가 Daum(카카오) 우편번호 검색 팝업으로 도로명·지번 주소를 등록할 때 주소 문자열만 저장하면 지도에서 거리 계산에 쓸 수 없어, 등록 시점에 Kakao 주소-좌표 변환 API로 해당 주소를 위도·경도로 미리 변환해 DB에 함께 저장. 사용자가 지도를 조회할 때마다 외부 API를 호출하지 않고 저장된 좌표만으로 즉시 거리 계산이 가능하도록 사전 변환·저장 방식을 선택',
+                    '판매자가 카카오 우편번호 검색 팝업으로 도로명·지번 주소를 등록할 때 주소 문자열만 저장하면 지도에서 거리 계산에 쓸 수 없어, 등록 시점에 Kakao 주소-좌표 변환 API로 해당 주소를 위도·경도로 미리 변환해 DB에 함께 저장. 사용자가 지도를 조회할 때마다 외부 API를 호출하지 않고 저장된 좌표만으로 즉시 거리 계산이 가능하도록 사전 변환·저장 방식을 선택',
                 },
                 {
                   content:
                     '두 좌표 간 최단 거리는 지구를 평면이 아닌 구로 가정해 위도·경도 차이로부터 거리를 구하는 Haversine 공식으로 계산해 스토어 카드에 노출',
-                },
-              ],
-            },
-            {
-              content: '상품·스토어 상세 페이지 동적 OG/SEO 메타데이터 생성',
-              descriptions: [
-                {
-                  content:
-                    '상품·스토어 링크를 카카오톡·SNS로 공유할 때 실제 상품 이미지·이름 등 최신 데이터가 미리보기에 그대로 노출되어야 클릭률에 영향을 주는데, 메신저의 링크 미리보기 크롤러는 JS를 실행하지 않고 응답 HTML의 메타 태그만 읽어가므로 클라이언트에서 그리는 메타데이터로는 정확한 미리보기를 보장할 수 없었음. 이 점이 사용자 웹을 CSR이 아닌 서버에서 완성된 HTML을 내려주는 Next.js(App Router, SSR)로 선택한 이유 중 하나이기도 함',
-                },
-                {
-                  content:
-                    'Next.js App Router가 제공하는 generateMetadata(페이지 요청마다 서버에서 실행되는 비동기 메타데이터 함수)를 상품·스토어 상세 페이지에 구현해, 서버사이드에서 실제 상품·스토어 데이터를 조회한 뒤 그 값으로 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성해 응답 HTML에 포함',
                 },
               ],
             },
@@ -146,10 +142,6 @@ const sideProject: IProject.Payload = {
           content: '기여 내용 - 백엔드 · 인프라',
           weight: 'MEDIUM',
           descriptions: [
-            {
-              content:
-                'NestJS + Prisma + PostgreSQL 기반 Consumer/Seller/Admin 3-way API 서버(인증·상품·주문·알림 등 25개 도메인 모듈)와 AWS(EC2, S3, CloudFront, Route53) 인프라를 구성',
-            },
             {
               content: 'Consumer/Seller/Admin 3-way 인증 구조 설계',
               descriptions: [
