@@ -84,7 +84,7 @@ const sideProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '발급받은 토큰은 새로고침·재방문 후에도 로그인 상태가 유지되도록 persist 미들웨어로 Zustand 스토어를 localStorage에 저장하고, partialize로 저장 대상을 accessToken·isAuthenticated 두 필드로 명시적으로 한정해 이후 상태 필드가 늘어나도 의도치 않은 값이 자동으로 영속화되지 않도록 방지',
+                    '발급받은 토큰은 새로고침·재방문 후에도 로그인 상태가 유지되도록 persist 미들웨어로 Zustand 스토어를 localStorage에 저장',
                 },
               ],
             },
@@ -115,16 +115,15 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '지도에서 스토어를 고를 때 실제로 얼마나 가까운지 판단할 근거가 없어, 사용자 현재 좌표와 각 스토어 좌표 간 거리를 Haversine 공식으로 계산해 스토어 카드에 표시',
+                    '지도에서 스토어를 고를 때 실제로 얼마나 가까운지 판단할 근거가 없어, 사용자 현재 좌표와 스토어 좌표 간 실거리를 계산해 스토어 카드에 노출하기로 결정',
                 },
-              ],
-            },
-            {
-              content: '판매자 스토어 위치 조회 API 설계',
-              descriptions: [
                 {
                   content:
-                    'Daum(카카오) 우편번호 검색 팝업으로 도로명·지번 주소와 우편번호를 받은 뒤, 선택된 주소 문자열을 Kakao 주소-좌표 변환 API로 다시 조회해 위도·경도까지 함께 저장',
+                    '판매자가 Daum(카카오) 우편번호 검색 팝업으로 도로명·지번 주소를 등록할 때 주소 문자열만 저장하면 지도에서 거리 계산에 쓸 수 없어, 등록 시점에 Kakao 주소-좌표 변환 API로 해당 주소를 위도·경도로 미리 변환해 DB에 함께 저장. 사용자가 지도를 조회할 때마다 외부 API를 호출하지 않고 저장된 좌표만으로 즉시 거리 계산이 가능하도록 사전 변환·저장 방식을 선택',
+                },
+                {
+                  content:
+                    '두 좌표 간 최단 거리는 지구를 평면이 아닌 구로 가정해 위도·경도 차이로부터 거리를 구하는 Haversine 공식으로 계산해 스토어 카드에 노출',
                 },
               ],
             },
@@ -133,7 +132,11 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'generateMetadata에서 서버사이드로 상품·스토어 데이터를 조회해 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성',
+                    '상품·스토어 링크를 카카오톡·SNS로 공유할 때 실제 상품 이미지·이름 등 최신 데이터가 미리보기에 그대로 노출되어야 클릭률에 영향을 주는데, 메신저의 링크 미리보기 크롤러는 JS를 실행하지 않고 응답 HTML의 메타 태그만 읽어가므로 클라이언트에서 그리는 메타데이터로는 정확한 미리보기를 보장할 수 없었음. 이 점이 사용자 웹을 CSR이 아닌 서버에서 완성된 HTML을 내려주는 Next.js(App Router, SSR)로 선택한 이유 중 하나이기도 함',
+                },
+                {
+                  content:
+                    'Next.js App Router가 제공하는 generateMetadata(페이지 요청마다 서버에서 실행되는 비동기 메타데이터 함수)를 상품·스토어 상세 페이지에 구현해, 서버사이드에서 실제 상품·스토어 데이터를 조회한 뒤 그 값으로 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성해 응답 HTML에 포함',
                 },
               ],
             },
@@ -143,10 +146,6 @@ const sideProject: IProject.Payload = {
           content: '기여 내용 - 백엔드 · 인프라',
           weight: 'MEDIUM',
           descriptions: [
-            {
-              content:
-                '백엔드·인프라는 AI 에이전트를 활용해 아키텍처·데이터 모델·운영 정책 등 방향성 결정에 집중하고 세부 구현은 AI로 진행.',
-            },
             {
               content:
                 'NestJS + Prisma + PostgreSQL 기반 Consumer/Seller/Admin 3-way API 서버(인증·상품·주문·알림 등 25개 도메인 모듈)와 AWS(EC2, S3, CloudFront, Route53) 인프라를 구성',
