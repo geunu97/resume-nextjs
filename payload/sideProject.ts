@@ -16,13 +16,10 @@ const sideProject: IProject.Payload = {
         'NestJS',
         'Prisma',
         'PostgreSQL',
-        'Socket.io',
         'Sentry',
         'PostHog',
         'AWS EC2',
-        'AWS S3',
-        'AWS CloudFront',
-        'AWS Route53',
+        'AWS S3/CloudFront/Route53',
         'GitHub Actions',
       ],
       descriptions: [
@@ -67,16 +64,11 @@ const sideProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content:
-                'User/Seller 프레임워크 이원화 및 동적 OG/SEO 메타데이터 생성 - Next.js vs Vite',
+              content: 'User/Seller 프레임워크 이원화 - Next.js vs Vite',
               descriptions: [
                 {
                   content:
                     '사용자 웹은 SEO·초기 로딩 성능이 필요해 Next.js(SSR)로, 판매자 관리 웹은 로그인 후에만 쓰는 내부 도구라 SEO가 불필요해 Vite 기반 SPA로 프레임워크를 분리. 관리자 도구는 HMR 기반 개발 속도와 빌드 단순함을 우선하는 트레이드오프를 선택',
-                },
-                {
-                  content:
-                    '이 SSR 선택은 상품·스토어 링크를 카카오톡·SNS로 공유할 때도 이어짐 - JS를 실행하지 않는 메신저 크롤러도 정확한 미리보기를 그리도록, generateMetadata로 서버사이드에서 상품·스토어 데이터를 조회해 OpenGraph/Twitter 카드 메타데이터를 동적으로 생성',
                 },
               ],
             },
@@ -103,19 +95,15 @@ const sideProject: IProject.Payload = {
               ],
             },
             {
-              content: '지도 스토어 카드에 사용자 위치 기반 거리 표시',
+              content: '지도 스토어 카드에 사용자-스토어 간 거리 표시',
               descriptions: [
                 {
                   content:
-                    '지도에서 스토어를 고를 때 실제로 얼마나 가까운지 판단할 근거가 없어, 사용자 현재 좌표와 스토어 좌표 간 실거리를 계산해 스토어 카드에 노출하기로 결정',
+                    '판매자가 스토어 도로명·지번 주소를 등록할 때 주소 문자열만 저장하면 지도에서 거리 계산에 쓸 수 없어, 등록 시점에 Kakao 주소-좌표 변환 API로 해당 주소를 위도·경도로 미리 변환해 DB에 함께 저장',
                 },
                 {
                   content:
-                    '판매자가 카카오 우편번호 검색 팝업으로 도로명·지번 주소를 등록할 때 주소 문자열만 저장하면 지도에서 거리 계산에 쓸 수 없어, 등록 시점에 Kakao 주소-좌표 변환 API로 해당 주소를 위도·경도로 미리 변환해 DB에 함께 저장. 사용자가 지도를 조회할 때마다 외부 API를 호출하지 않고 저장된 좌표만으로 즉시 거리 계산이 가능하도록 사전 변환·저장 방식을 선택',
-                },
-                {
-                  content:
-                    '두 좌표 간 최단 거리는 지구를 평면이 아닌 구로 가정해 위도·경도 차이로부터 거리를 구하는 Haversine 공식으로 계산해 스토어 카드에 노출',
+                    '이렇게 미리 저장해둔 스토어 좌표와 사용자 현재 좌표 간 실거리를 계산해 스토어 카드에 표시 - 지구를 평면이 아닌 구로 가정해 위도·경도 차이로부터 거리를 구하는 Haversine 공식을 사용하여 계산',
                 },
               ],
             },
@@ -130,11 +118,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '세 종류의 클라이언트를 하나의 User 테이블과 role 구분이 아닌 완전히 분리된 모델(Consumer/Seller/Admin)로 설계하고, JWT에 대상(audience)과 토큰 타입(access/refresh 등)을 함께 서명해 하나의 인증 가드가 대상별·토큰 타입별 접근을 함께 검증하도록 구성',
-                },
-                {
-                  content:
-                    'JWT 페이로드는 최소 정보만 서명하고, 요청마다 계정 활성 상태·판매자 인증 상태 등을 DB에서 다시 조회하도록 판단. 완전한 무상태(stateless) 대신 약간의 조회 비용을 감수해 계정 정지·권한 변경이 토큰 만료를 기다리지 않고 즉시 반영되도록 트레이드오프를 결정',
+                    'role 필드 하나로 세 클라이언트를 구분하는 단일 User 테이블 방식은 사용자·판매자·관리자별로 다른 스키마와 정책이 한 테이블에 뒤섞이고 role 검증을 모든 엔드포인트마다 개별적으로 챙겨야 해 실수로 다른 대상의 토큰이 통과할 위험이 있어, 세 종류의 클라이언트를 하나의 User 테이블이 아닌 완전히 분리된 모델(Consumer/Seller/Admin)로 설계',
                 },
               ],
             },
@@ -151,25 +135,28 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
-            {
-              content: '주문 알림 4채널 폴백 설계',
-              descriptions: [
-                {
-                  content:
-                    '주문 상태가 바뀔 때마다 인앱 알림 저장 → Socket.io 실시간 푸시(포그라운드) → FCM 푸시(백그라운드) → 카카오 알림톡(앱 미설치·미연동 사용자) 순으로 도달 채널을 계층화하도록 설계',
-                },
-              ],
-            },
+            // {
+            //   content: '주문 알림 4채널 폴백 설계',
+            //   descriptions: [
+            //     {
+            //       content:
+            //         'Socket.io 연결은 앱이 백그라운드로 전환되면 끊기고, 알림 미동의·앱 미설치 사용자는 푸시 자체가 닿지 않아 주문 상태 변경을 못 받는 사각지대가 있었음',
+            //     },
+            //     {
+            //       content:
+            //         '주문 상태가 바뀔 때마다 인앱 알림 저장 → Socket.io 실시간 푸시(포그라운드) → FCM 푸시(백그라운드) → 카카오 알림톡 순으로 도달 채널을 계층화하도록 설계',
+            //     },
+            //   ],
+            // },
             {
               content: '백엔드(EC2)·프론트엔드(Vercel) 특성에 맞춘 배포 파이프라인 이원화',
               descriptions: [
                 {
-                  content:
-                    'NestJS 백엔드는 GitHub Actions 태그 트리거로 EC2에 배포하며, DB·서버 백업 → Prisma 마이그레이션(배포 중 실패(P3009) 시 자동 감지·롤백 처리 후 재시도) → PM2 재시작 → 로컬/공인 도메인 헬스체크 순으로 진행하고, trap으로 배포 스크립트 실패를 감지해 직전 백업으로 자동 롤백. SSL 인증서 만료 여부까지 함께 점검해 결과를 Discord로 통지',
+                  content: 'NestJS 백엔드는 GitHub Actions 태그 트리거로 EC2에 배포',
                 },
                 {
                   content:
-                    '3개 웹 서비스는 Vercel의 기본 Git 연동 자동배포를 끄고, GitHub Actions에서 태그(예: web-user/production)를 파싱해 프로젝트·환경에 맞는 Vercel 프로젝트로 CLI 배포(vercel pull → build → deploy --prebuilt)하도록 구성해 백엔드와 동일한 태그 기반 흐름으로 배포 트리거를 통일. 모노레포 구조상 앱 서브디렉토리에서 CLI를 실행하면 rootDirectory 경로가 중복되어 빌드가 실패하는 문제를 겪어, 저장소 루트에서 실행하도록 조정',
+                    '3개 웹 서비스는 GitHub Actions에서 태그를 파싱해 프로젝트·환경에 맞는 Vercel 프로젝트로 CLI 배포하도록 구성해 백엔드와 동일한 태그 기반 흐름으로 배포 트리거를 통일',
                 },
               ],
             },
@@ -184,11 +171,11 @@ const sideProject: IProject.Payload = {
               href: 'https://github.com/ServicePlayground/picake',
             },
             {
-              content: '판매자 웹 (로그인 필요)',
+              content: '판매자 웹',
               href: 'https://seller.picakes.com',
             },
             {
-              content: '관리자 웹 (로그인 필요)',
+              content: '관리자 웹',
               href: 'https://admin.picakes.com',
             },
           ],
