@@ -8,7 +8,7 @@ const companyProject: IProject.Payload = {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
       where: '(폴라리스오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
-      skillKeywords: ['WebAssembly', 'TypeScript', 'React', 'Redux', 'Sass'],
+      skillKeywords: ['TypeScript', 'WebAssembly', 'React', 'Redux', 'Sass'],
       descriptions: [
         {
           content: '소개',
@@ -32,7 +32,7 @@ const companyProject: IProject.Payload = {
               content: '2025년 연간 사내 프로젝트 평가에서 최우수 프로젝트(1위) 선정',
             },
             {
-              content: '웹오피스 상용화 레퍼런스 확대 - 60여개 고객사 납품 및 상용화',
+              content: '웹오피스 상용화 레퍼런스 확대 - 60여 개 고객사 납품 및 상용화',
             },
             {
               content: '웹오피스 매출 실적 483% 달성(2024년 4.1억 → 2025년 19.8억)',
@@ -53,7 +53,7 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '나눔기술(삼성생명), IBK기업은행, 한국도로공사 등 20여 개 고객사를 직접 담당해 기술 지원과 라이센스 갱신·관리를 수행',
+                    '나눔기술(삼성생명), IBK기업은행, 한국도로공사 등 20여 개 고객사를 직접 담당해 기술 지원과 라이선스 갱신·관리를 수행',
                 },
                 {
                   content:
@@ -85,15 +85,15 @@ const companyProject: IProject.Payload = {
                   descriptions: [
                     {
                       content:
-                        '파트너사의 SDK 문의는 Outlook 메일로 접수돼 전부 수작업으로 처리됐음 — 이슈 신고는 메일 확인 후 Jira 수동 등록과 코드 레벨 원인 파악·수정까지 이어졌고, 단순 사용법 문의는 매번 직접 답변을 새로 작성해야 했음. 라이선스 발급, 배포 산출물 준비, 문서 버전 관리 같은 반복 운영 업무도 마찬가지로 수작업이었음',
+                        '파트너사의 SDK 문의는 Outlook 메일로 접수돼 전부 수작업으로 처리됐음 - 이슈 신고는 메일 확인 후 Jira 수동 등록과 코드 레벨 원인 파악·수정까지 이어졌고, 단순 사용법 문의는 매번 직접 답변을 새로 작성해야 했음. 라이선스 발급, 배포 산출물 준비, 문서 버전 관리 같은 반복 운영 업무도 마찬가지로 수작업이었음',
                     },
                     {
                       content:
-                        '문의 대응 — 이슈 신고는 정해진 템플릿으로 Jira 이슈 등록, 사용법 문의는 SDK MCP 지식베이스 우선 검색 후 답변 재사용(없으면 SDK API 소스 주석 근거로 답변 초안 작성해 Outlook 임시보관함에 저장)으로 자동 분기',
+                        '문의 대응 - 이슈 신고는 정해진 템플릿으로 Jira 이슈 등록, 사용법 문의는 SDK MCP 지식베이스 우선 검색 후 답변 재사용(없으면 SDK API 소스 주석 근거로 답변 초안 작성해 Outlook 임시보관함에 저장)으로 자동 분기',
                     },
                     {
                       content:
-                        '코드 수정 — Jira 코멘트 스레드에서 합의된 내용만 근거로 SDK 저장소 코드를 조사·수정',
+                        '코드 수정 - Jira 코멘트 스레드에서 합의된 내용만 근거로 SDK 저장소 코드를 조사·수정',
                       descriptions: [
                         {
                           content:
@@ -103,7 +103,7 @@ const companyProject: IProject.Payload = {
                     },
                     {
                       content:
-                        '배포·라이선스 운영 — 라이선스 발급부터 고객 안내, 배포 산출물 준비까지 이어서 처리',
+                        '배포·라이선스 운영 - 라이선스 발급부터 고객 안내, 배포 산출물 준비까지 이어서 처리',
                       descriptions: [
                         {
                           content:
@@ -194,6 +194,20 @@ const companyProject: IProject.Payload = {
             },
           ],
         },
+        {
+          content: '관련 링크',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: '제품 소개',
+              href: 'https://polarisoffice-enterprise.com/ko/product/web-ko/',
+            },
+            {
+              content: '고객 사례',
+              href: 'https://polarisoffice-enterprise.com/ko/case/',
+            },
+          ],
+        },
       ],
     },
     {
@@ -201,7 +215,7 @@ const companyProject: IProject.Payload = {
       startedAt: '2024-06',
       where:
         '(폴라리스오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
-      skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled Components'],
+      skillKeywords: ['TypeScript', 'React', 'Redux', 'styled-components'],
       descriptions: [
         {
           content: '소개',
@@ -329,7 +343,7 @@ const companyProject: IProject.Payload = {
       title: 'FindBack',
       startedAt: '2026-04',
       where: '(폴라리스오피스) 전사 AI 바이브코딩 공모전 개인 출품작 (자유주제)',
-      skillKeywords: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API'],
+      skillKeywords: ['TypeScript', 'Next.js', 'Supabase', 'OpenAI API'],
       descriptions: [
         {
           content: '소개',

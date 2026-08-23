@@ -36,7 +36,7 @@ const etc: IEtc.Payload = {
     // },
     {
       title: '만기 전역',
-      subTitle: '의무경찰 복무 ',
+      subTitle: '의무경찰 복무',
       startedAt: '2017-08',
       endedAt: '2019-04',
     },

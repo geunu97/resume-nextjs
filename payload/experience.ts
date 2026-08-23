@@ -55,7 +55,7 @@ const experience: IExperience.Payload = {
       title: '한류뱅크',
       positions: [
         {
-          title: 'Fantoo 프론트엔드 개발 \n 한류 컨텐츠 기반 스타트업 (40~60명, 개발팀 15~20명)',
+          title: 'Fantoo 프론트엔드 개발 \n 한류 콘텐츠 기반 스타트업 (40~60명, 개발팀 15~20명)',
           startedAt: '2023-04',
           endedAt: '2023-12',
           // skillKeywords: [

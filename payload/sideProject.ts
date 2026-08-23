@@ -8,9 +8,9 @@ const sideProject: IProject.Payload = {
       startedAt: '2025-09',
       where: '디저트 전문점 주문·예약 O2O 플랫폼 - 프론트엔드·백엔드·인프라 개발',
       skillKeywords: [
-        'Next.js',
-        'React',
         'TypeScript',
+        'React',
+        'Next.js',
         'Zustand',
         'TanStack Query',
         'NestJS',
@@ -110,7 +110,7 @@ const sideProject: IProject.Payload = {
           ],
         },
         {
-          content: '기여 내용 - 백엔드 · 인프라',
+          content: '기여 내용 - 백엔드·인프라',
           weight: 'MEDIUM',
           descriptions: [
             {
