@@ -33,7 +33,7 @@ const sideProject: IProject.Payload = {
             },
             {
               content:
-                '기획 1명, 디자이너 1명, 프론트엔드 개발자 1명, 앱 개발자 1명과 함께한 5인 사이드 프로젝트로, 출시를 앞두고 앱 심사 진행 중',
+                '기획 1명, 디자이너 1명, 프론트엔드 개발자 1명, 앱 개발자 1명과 함께한 5인 사이드 프로젝트로, iOS 앱스토어 출시 완료',
             },
             {
               content: '3개 웹 서비스(User/Seller/Admin)의 프론트엔드를 분담해 함께 개발',
@@ -103,7 +103,7 @@ const sideProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '이렇게 미리 저장해둔 스토어 좌표와 사용자 현재 좌표 간 실거리를 계산해 스토어 카드에 표시 - 지구를 평면이 아닌 구로 가정해 위도·경도 차이로부터 거리를 구하는 Haversine 공식을 사용하여 계산',
+                    '이렇게 미리 저장해둔 스토어 좌표와 사용자 현재 좌표 간 실거리를 계산해 스토어 카드에 표시 - 지구를 완전한 구로 가정해 위도·경도 차이로부터 거리를 구하는 Haversine 공식을 사용하여 계산',
                 },
               ],
             },
@@ -156,7 +156,7 @@ const sideProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '3개 웹 서비스는 GitHub Actions에서 태그를 파싱해 프로젝트·환경에 맞는 Vercel 프로젝트로 CLI 배포하도록 구성해 백엔드와 동일한 태그 기반 흐름으로 배포 트리거를 통일',
+                    '3개 웹 서비스는 Vercel이 빌드·배포를 대신 처리하는 관리형 환경인 특성에 맞춰, GitHub Actions에서 태그를 파싱해 프로젝트·환경에 맞는 Vercel 프로젝트로 CLI 배포하도록 구성해 백엔드와 동일한 태그 기반 흐름으로 배포 트리거를 통일',
                 },
               ],
             },
@@ -169,6 +169,10 @@ const sideProject: IProject.Payload = {
             {
               content: 'GitHub 저장소',
               href: 'https://github.com/ServicePlayground/picake',
+            },
+            {
+              content: 'iOS 앱스토어',
+              href: 'https://apps.apple.com/kr/app/picake/id6787681984',
             },
             {
               content: '판매자 웹',
@@ -266,7 +270,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'TypeScript로 Button·Label·Loading·ProgressBar(atoms), Toast·Alert·Pagination(molecules), Header(organisms) 등 UI 컴포넌트를 개발하고 Storybook으로 문서화. 각 컴포넌트는 props 인터페이스를 정의해 커스터마이징이 쉽도록 설계',
+                    'TypeScript로 Button·Label·Loading·ProgressBar(atoms), Toast·Alert·Pagination(molecules), Header(organisms) 등 UI 컴포넌트를 개발하고 Storybook으로 문서화',
                 },
                 {
                   content:
@@ -279,7 +283,7 @@ const sideProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    'GitHub Actions에 semantic-release를 연동해 Conventional Commits 기반으로 버전을 자동 산정하고 npm 배포까지 자동화(main=정식 버전, dev=@dev 프리릴리즈). 이 자동화 파이프라인을 통해 v2.2.7까지 버전을 배포했고, 최근 1년 1,300+ 다운로드를 기록',
+                    'GitHub Actions에 semantic-release를 연동해 Conventional Commits 기반으로 버전을 자동 산정하고 npm 배포까지 자동화(main=정식 버전, dev=@dev 프리릴리즈). 이 자동화 파이프라인을 통해 v2.2.7까지 버전을 배포했고, 최근 1년 1,500+ 다운로드를 기록',
                 },
               ],
             },

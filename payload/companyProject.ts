@@ -200,7 +200,7 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content: '제품 소개',
-              href: 'https://polarisoffice-enterprise.com/ko/product/web-ko/',
+              href: 'https://polarisoffice-enterprise.com/ko/product/web-office/',
             },
             {
               content: '고객 사례',
@@ -215,7 +215,7 @@ const companyProject: IProject.Payload = {
       startedAt: '2024-06',
       where:
         '(폴라리스오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
-      skillKeywords: ['TypeScript', 'React', 'Redux', 'styled-components'],
+      skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled-components'],
       descriptions: [
         {
           content: '소개',
@@ -253,10 +253,6 @@ const companyProject: IProject.Payload = {
                   content:
                     '호스트 → 웹뷰는 cmd/body 구조의 JSON 메시지로 전달하고, 웹뷰 → 호스트는 Android(window.Native[handler])와 iOS(window.webkit.messageHandlers[handler].postMessage)를 하나의 인터페이스로 추상화한 브릿지 계층을 통해 호출하도록 설계. 이 명세를 문서화하고 앱 개발 담당자와 지속적으로 협의하며 완성',
                 },
-                {
-                  content:
-                    '웹뷰 초기화 완료를 앱에 알리는 핸드셰이크를 도입해 앱이 리스너 등록 전에 메시지를 보내 유실되는 레이스 컨디션을 방지하고, 플랫폼별 브릿지 API 지원 여부를 먼저 확인한 뒤에만 호출하도록 가드를 두어 미지원 환경에서의 예외를 방지',
-                },
               ],
             },
             // {
@@ -277,7 +273,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '앱이 플랫폼·통신사·버전 정보를 User-Agent에 실어 전달하는 규약을 설계하고, 웹에서 이를 파싱해 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현(예: LGU+ PASS 자동연결 해제 안내 팝업은 해당 기능이 검증된 Android 앱 버전 이상에서만 노출). 통신사·버전 값은 선택 항목으로 설계해, 조건이 없거나 맞지 않아도 나머지 기능은 정상 동작하도록 안전하게 처리',
+                    '앱이 플랫폼·통신사·버전 정보를 User-Agent에 실어 전달하는 규약을 설계하고, 웹에서 이를 파싱해 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현(예: LGU+ PASS 자동연결 해제 안내 팝업은 해당 기능이 검증된 Android 앱 버전 이상에서만 노출)',
                 },
               ],
             },
@@ -387,12 +383,11 @@ const companyProject: IProject.Payload = {
               ],
             },
             {
-              content:
-                'AI 코딩 에이전트를 활용해 약 1주일 만에 Next.js·Supabase·OpenAI API 기반 풀스택 서비스를 완성',
+              content: 'AI 코딩 에이전트를 활용해 Next.js·Supabase·OpenAI API 기반 서비스를 완성',
               descriptions: [
                 {
                   content:
-                    'TraceAI 대화형 기억 복원, 사진 기반 이미지 자동 분석, 소유자 인증 질문 자동 생성, 반대 유형 게시글 유사 매칭 알림, 리포트 완료 후 유사 게시글 자동 추천까지 5종의 AI 기능을 모두 실제 동작하는 API로 구현',
+                    'TraceAI 대화형 기억 복원, 사진 기반 이미지 분석, 소유자 인증 질문 생성, 게시글 유사 매칭 알림까지 4종의 AI 기능을 모두 실제 동작하도록 구현',
                 },
                 {
                   content:
@@ -419,9 +414,9 @@ const companyProject: IProject.Payload = {
       ],
     },
     {
-      title: '사내 근무시간 계산기 Chrome Extension 개발',
+      title: '근무시간 계산기',
       startedAt: '2024-06',
-      where: '(폴라리스오피스) 업무 외 개인 시간을 활용한 사내용 Chrome Extension 개발',
+      where: '(폴라리스오피스) 사내용 근무시간 계산기 Chrome Extension 개발',
       skillKeywords: ['JavaScript'],
       descriptions: [
         {
@@ -488,7 +483,7 @@ const companyProject: IProject.Payload = {
         'React',
         'Next.js',
         'React Query',
-        'styled-components',
+        'Styled-components',
       ],
       descriptions: [
         {
