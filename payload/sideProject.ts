@@ -39,8 +39,7 @@ const sideProject: IProject.Payload = {
               content: '3개 웹 서비스(User/Seller/Admin)의 프론트엔드를 분담해 함께 개발',
             },
             {
-              content:
-                'AI 코딩 에이전트를 활용해 백엔드·AWS 인프라 설계·구축을 전담하며 전체 커밋의 약 75%를 작성',
+              content: 'AI 코딩 에이전트를 활용해 백엔드·AWS 인프라를 구축',
             },
           ],
         },
