@@ -13,3 +13,12 @@
    - **레인 B**: `resume-bullet-writer` → `resume-tailor` → `resume-formatter` 조합 — 마스터 이력서를 정교하게 관리
 
 4개 외부 스킬(resume-formatter, resume-bullet-writer, resume-tailor, tailored-resume-generator)은 이 저장소의 `.claude/skills/`에 프로젝트 전용으로 설치되어 있다(2026-08-13). 설치 여부는 시간이 지나면 바뀔 수 있으니 확실하지 않으면 `ls .claude/skills/`로 먼저 확인한다.
+
+## 그 외 이 저장소에서 쓰는 스킬
+
+이력서 콘텐츠(위 스킬들) 외에도 `.claude/skills/`에 아래 스킬들이 있다. 관련 요청이 오면 먼저 확인한다.
+
+- `commit-workflow` — 이 저장소에서 커밋을 요청받았을 때
+- `picake-reference` — picake 프로젝트 참고를 요청받았을 때
+- `sdk-reference` — Polaris WebOffice SDK 업무 사실을 참고해야 할 때
+- `job-playbook` — "이직 플레이북" Artifact를 조회·수정할 때. 이력서는 이 저장소가 다루는 더 큰 이직 준비 여정의 한 조각이고, 전체 로드맵·기업 리서치·지원 전략은 이 스킬이 관리한다.
