@@ -56,6 +56,15 @@ const sideProject: IProject.Payload = {
                 },
               ],
             },
+            {
+              content: 'PostHog·DB 통계를 매일 대조 확인하는 사용성 데이터 리포트 클로드 루틴 개발',
+              descriptions: [
+                {
+                  content:
+                    'PostHog와 관리자 페이지를 매번 직접 접속해 확인하는 게 번거로워, 두 지표를 매일 자동 조회해 Artifact 대시보드·Discord 리포트로 발행하는 클로드 루틴으로 구성',
+                },
+              ],
+            },
           ],
         },
         {
