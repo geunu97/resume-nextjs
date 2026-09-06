@@ -22,3 +22,4 @@
 - `picake-reference` — picake 프로젝트 참고를 요청받았을 때
 - `sdk-reference` — Polaris WebOffice SDK 업무 사실을 참고해야 할 때
 - `job-playbook` — "이직 플레이북" Artifact를 조회·수정할 때. 이력서는 이 저장소가 다루는 더 큰 이직 준비 여정의 한 조각이고, 전체 로드맵·기업 리서치·지원 전략은 이 스킬이 관리한다.
+- `job-scouting` — 매일 실행되는 채용공고 스카우팅 클라우드 루틴(claude.ai/code/routines)이 따르는 절차. 애그리게이터·회사별 채용페이지 대상 목록, SPA 폴백 전략, 적합도 판단 기준, 디스코드 보고 형식을 담고 있다. **주의**: 이 저장소는 public이므로 디스코드 웹훅 URL 등 민감정보는 이 스킬 파일에 절대 커밋하지 않는다(루틴 프롬프트 쪽에만 보관).
