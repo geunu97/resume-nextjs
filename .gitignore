@@ -104,3 +104,9 @@ dist
 .tern-port
 
 .DS_Store
+
+# Claude Code local-only config/skills — may contain sensitive info
+# (job-search strategy, current-employer internal workflow notes).
+# Kept on disk and used normally by Claude Code; just not pushed to
+# this public repo. See CLAUDE.md for details.
+.claude/
