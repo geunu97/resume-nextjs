@@ -7,11 +7,11 @@ const companyProject: IProject.Payload = {
     {
       title: 'Polaris WebOffice SDK',
       startedAt: '2024-06',
-      where: '(폴라리스오피스) WebOffice B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
+      where: '(폴라리스오피스) 웹오피스 SDK B2B 파트너사 연동 및 서비스 고도화 프론트엔드 개발',
       skillKeywords: ['TypeScript', 'WebAssembly', 'React', 'Redux', 'Sass'],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -20,7 +20,7 @@ const companyProject: IProject.Payload = {
             },
             {
               content:
-                'WebAssembly 기반 JavaScript SDK로 제공되어 그룹웨어, 기안기 등 다양한 환경에 통합/연동 가능',
+                'WebAssembly 기반 JavaScript SDK로 제공되어 그룹웨어, 전자결재(기안) 시스템 등 다양한 환경에 통합/연동 가능',
             },
           ],
         },
@@ -32,10 +32,10 @@ const companyProject: IProject.Payload = {
               content: '2025년 연간 사내 프로젝트 평가에서 최우수 프로젝트(1위) 선정',
             },
             {
-              content: '웹오피스 상용화 레퍼런스 확대 - 60여 개 고객사 납품 및 상용화',
+              content: '웹오피스 SDK 상용화 레퍼런스 확대 - 60여 개 고객사 납품 및 상용화',
             },
             {
-              content: '웹오피스 매출 실적 483% 달성(2024년 4.1억 → 2025년 19.8억)',
+              content: '웹오피스 SDK 매출 실적 483% 달성(2024년 4.1억 → 2025년 19.8억)',
             },
 
             {
@@ -128,7 +128,7 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '외부 파트너사로부터 웹오피스 로딩이 느리다는 문의를 받아 확인한 결과, SDK가 기본 제공하는 TTF 폰트의 다운로드 지연이 원인이었음(Chrome 개발자도구 네트워크 탭 측정 기준 폰트당 평균 약 7.7MB, 약 1.03초 소요)',
+                    '외부 파트너사로부터 웹오피스 SDK 로딩이 느리다는 문의를 받아 확인한 결과, SDK가 기본 제공하는 TTF 폰트의 다운로드 지연이 원인이었음(Chrome 개발자도구 네트워크 탭 측정 기준 폰트당 평균 약 7.7MB, 약 1.03초 소요)',
                 },
                 {
                   content:
@@ -214,11 +214,11 @@ const companyProject: IProject.Payload = {
       title: 'PASS Office 부가서비스 (LGU+, KT, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스오피스) WebOffice SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
+        '(폴라리스오피스) 웹오피스 SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled-components'],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -342,7 +342,7 @@ const companyProject: IProject.Payload = {
       skillKeywords: ['TypeScript', 'Next.js', 'Supabase', 'OpenAI API'],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -420,7 +420,7 @@ const companyProject: IProject.Payload = {
       skillKeywords: ['JavaScript'],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -487,7 +487,7 @@ const companyProject: IProject.Payload = {
       ],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {

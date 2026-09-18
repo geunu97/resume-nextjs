@@ -24,7 +24,7 @@ const sideProject: IProject.Payload = {
       ],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {
@@ -260,7 +260,7 @@ const sideProject: IProject.Payload = {
       skillKeywords: ['TypeScript', 'React', 'Rollup', 'Storybook'],
       descriptions: [
         {
-          content: '소개',
+          content: '프로젝트 소개',
           weight: 'MEDIUM',
           descriptions: [
             {
