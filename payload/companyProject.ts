@@ -45,22 +45,23 @@ const companyProject: IProject.Payload = {
           ],
         },
         {
-          content: '기여 내용',
+          content: '역할',
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'B2B 파트너사 SDK 납품 및 기술 지원을 통한 고객사 확대 기여',
-              descriptions: [
-                {
-                  content:
-                    '나눔기술(삼성생명), IBK기업은행, 한국도로공사 등 20여 개 고객사를 직접 담당해 기술 지원과 라이선스 갱신·관리를 수행',
-                },
-                {
-                  content:
-                    'MG새마을금고·국가철도공단 등 주요 고객사는 기술 미팅과 현장 방문 지원을 직접 진행하며 관계를 관리',
-                },
-              ],
+              content:
+                '60여 개 파트너사 중 나눔기술(삼성생명)·IBK기업은행·한국도로공사 등 20여 개 고객사의 기술 지원 및 라이선스 갱신·관리를 직접 담당',
             },
+            {
+              content:
+                'MG새마을금고·국가철도공단 등 주요 고객사는 기술 미팅과 현장 방문까지 진행하며 관계 관리',
+            },
+          ],
+        },
+        {
+          content: '기여 내용',
+          weight: 'MEDIUM',
+          descriptions: [
             {
               content:
                 'SDK MCP 도구 구축을 시작으로, 문의 대응·코드 수정·라이선스 발급/배포 운영까지 Claude Code 스킬 13개로 자동화 확장',
