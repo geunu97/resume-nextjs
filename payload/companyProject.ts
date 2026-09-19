@@ -170,7 +170,7 @@ const companyProject: IProject.Payload = {
       title: 'PASS Office 부가서비스 (LGU+, KT, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스오피스) 웹오피스 SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발 (LGU+ PASS 2024.11 런칭, KT PASS 2025.10 런칭, SKT PASS 2026.06 런칭)',
+        '(폴라리스오피스) 웹오피스 SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled-components'],
       descriptions: [
         {
@@ -179,10 +179,7 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                'LGU+·KT·SKT 이동통신사 사용자 대상 문서 열람·편집 기반 B2C 부가서비스로, PASS 계정 하나로 웹/모바일 환경에서 동일하게 이용 가능',
-            },
-            {
-              content: 'PASS App(모바일 앱)과 PASS Web Editor(웹)로 구성',
+                'LGU+·KT·SKT 이동통신사 가입자가 문서를 열람·편집할 수 있는 B2C 부가서비스로, PASS App(모바일)과 PASS Web Editor(웹)에서 PASS 계정 하나로 동일하게 이용 가능',
             },
           ],
         },
@@ -194,7 +191,8 @@ const companyProject: IProject.Payload = {
               content: 'LGU+ PASS 유료 출시 후, 8개월 만에 유료 구독 30,000명 확보',
             },
             {
-              content: 'LGU+·KT에 이어 SKT PASS까지 2026년 6월 오픈하며 이동통신 3사 채널 확보',
+              content:
+                'LGU+(2024.12)·KT(2025.10)에 이어 SKT PASS(2026.06)까지 오픈하며 이동통신 3사 채널 확보',
             },
           ],
         },
@@ -203,11 +201,44 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '앱-웹 브릿지 프로토콜 설계',
+              content: '구버전 앱에서 신규 기능이 노출되지 않도록 통신사·앱 버전별 기능 노출 제어',
               descriptions: [
                 {
                   content:
-                    '호스트 → 웹뷰는 cmd/body 구조의 JSON 메시지로 전달하고, 웹뷰 → 호스트는 Android(window.Native[handler])와 iOS(window.webkit.messageHandlers[handler].postMessage)를 하나의 인터페이스로 추상화한 브릿지 계층을 통해 호출하도록 설계. 이 명세를 문서화하고 앱 개발 담당자와 지속적으로 협의하며 완성',
+                    '신규 기능(자동연결 해제 팝업)은 출시 직전 앱에서 먼저 확인해야 했지만, 서비스 중인 구버전 앱과 같은 상용 도메인을 쓰고 있어 도메인만으로는 앱 버전별로 기능 노출을 나눌 수 없었음',
+                },
+                {
+                  content:
+                    '앱 개발 담당자와 플랫폼·통신사·버전 정보를 User-Agent에 담아 전달하는 규약을 정하고, 웹에서 이를 읽어 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현해 상용 도메인에 배포해도 구버전 앱에는 기능이 노출되지 않게 함',
+                },
+              ],
+            },
+            {
+              content:
+                '도메인이 분리된 환경에서도 에디터 로그인이 유지되도록 팝업 기반 로그인 연동 구현',
+              descriptions: [
+                {
+                  content:
+                    '로그인 도메인이 여러 도메인·통신사에서 공통으로 쓰이도록 에디터 도메인과 분리되어 있어, 로그인 쿠키를 에디터와 공유할 수 없어 에디터 화면에서 그대로 로그인할 수 없었음',
+                },
+                {
+                  content:
+                    '에디터에서 팝업으로 로그인 페이지를 띄우고, 로그인 완료 후 postMessage로 토큰을 에디터에 전달하면 에디터가 서버 검증 API를 호출해, 검증에 성공하면 서버가 설정하는 쿠키로 로그인이 유지되도록 연동',
+                },
+                {
+                  content: '검증이 끝나면 팝업을 닫고 원래 열람하려던 에디터 화면으로 자동 진입',
+                },
+              ],
+            },
+            {
+              content: 'LGU+·KT·SKT 3사 공통 앱-웹 브릿지 기능 확장 및 명세 작성',
+              descriptions: [
+                {
+                  content:
+                    'window 함수 호출 방식과 cmd/body JSON 메시지 형식을 따르는 기존 브릿지 구조에 맞춰, 웹이 앱에 정보를 요청하고 앱이 응답하는 기능별 브릿지를 추가 구현(예: 사용자의 취약계층 여부에 따른 팝업 노출)',
+                },
+                {
+                  content: '명세를 작성·문서화하고 앱 개발 담당자와 지속적으로 협의해 완성',
                 },
               ],
             },
@@ -221,50 +252,25 @@ const companyProject: IProject.Payload = {
             //   ],
             // },
             {
-              content: 'User-Agent 기반 통신사·앱 버전별 기능 게이팅 설계',
+              content:
+                '실제 앱 없이도 WebView 브릿지를 테스트할 수 있도록 Chrome Extension 기반 Mock 환경 구축',
               descriptions: [
                 {
                   content:
-                    '웹은 배포 즉시 반영되지만 앱은 스토어 심사와 사용자 업데이트로 버전 보급 속도가 느려, 검증되지 않은 구버전 앱에 신규 기능이 그대로 노출되는 문제가 있었음',
+                    'KT PASS WebView 무료 가입 플로우를 개발하며, 브릿지를 테스트할 때마다 실제 PASS 앱을 설치·실행해야 하는 불편이 있었음',
                 },
                 {
                   content:
-                    '앱이 플랫폼·통신사·버전 정보를 User-Agent에 실어 전달하는 규약을 설계하고, 웹에서 이를 파싱해 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현(예: LGU+ PASS 자동연결 해제 안내 팝업은 해당 기능이 검증된 Android 앱 버전 이상에서만 노출)',
+                    '앱이 window에 노출하는 것과 같은 핸들러를 Chrome Extension이 미리 주입해, 웹이 호출하면 사용자 정보 등 앱 응답을 대신 돌려주도록 구현',
                 },
               ],
             },
             {
-              content: 'PASS Web Editor 팝업 기반 로그인 및 세션 유지 구현',
+              content: 'SKT PASS 신규 채널 WebView·웹 화면 구현',
               descriptions: [
                 {
                   content:
-                    '로그인 도메인과 에디터 도메인이 달라 쿠키(세션)를 공유할 수 없는 환경이라, 에디터 화면에서 그대로 로그인을 처리할 수 없었음',
-                },
-                {
-                  content:
-                    '에디터 화면에서 별도 팝업으로 로그인 페이지를 띄우고, 로그인 완료 후 postMessage로 토큰을 에디터 도메인에 전달. 전달받은 토큰으로 서버 검증 API를 호출하고 결과를 쿠키에 저장해 세션을 유지하도록 구현하며, 검증 완료 후 팝업을 닫고 원래 열람하려던 에디터 화면으로 자동 진입하도록 처리',
-                },
-              ],
-            },
-            {
-              content: 'KT PASS WebView 브릿지 테스트용 Mock 환경 구축',
-              descriptions: [
-                {
-                  content:
-                    'KT PASS 앱 내 WebView를 통한 무료 가입 플로우를 구현하는 과정에서, 앱과 WebView 간의 네이티브 브릿지 통신을 테스트하기 위해 매번 실제 PASS 앱을 설치하고 실행해야 하는 불편함이 있었음',
-                },
-                {
-                  content:
-                    'Chrome Extension을 활용하여 PASS 앱의 네이티브 API를 모킹하는 개발 환경을 구축. WebView에서 호출하는 브릿지 메서드를 Extension에서 인터셉트하여 실제 앱 없이도 전체 플로우를 검증할 수 있도록 개선',
-                },
-              ],
-            },
-            {
-              content: 'SKT PASS 신규 채널 런칭 대응',
-              descriptions: [
-                {
-                  content:
-                    'LGU+·KT에서 구축한 브릿지 프로토콜·User-Agent 게이팅·팝업 로그인 구조를 그대로 재사용해, 별도 아키텍처 설계 없이 웹 가입/해지·인트로/약관 웹뷰 구현과 통신사 선택 분기만으로 SKT PASS 신규 채널을 빠르게 확보',
+                    'LGU+·KT에서 쓰던 브릿지, 팝업 로그인 등의 구조를 재사용해 앱 내 인트로/약관 WebView 화면과 웹 로그인, 웹 가입/해지 화면을 구현',
                 },
               ],
             },
@@ -277,16 +283,6 @@ const companyProject: IProject.Payload = {
             //     },
             //   ],
             // },
-          ],
-        },
-        {
-          content: '관련 링크',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: 'PASS Web Editor',
-              href: 'https://editor.passoh.io/',
-            },
           ],
         },
       ],
