@@ -265,7 +265,7 @@ const sideProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                'React 기반 UI 컴포넌트를 atoms/molecules/organisms 계층 구조로 설계해 Rollup으로 번들링하고 npm에 배포한 개인 UI 라이브러리',
+                '컴포넌트 라이브러리 구축·배포 경험을 쌓기 위한 학습 프로젝트로, UI 컴포넌트를 Atomic Design 기반 구조(atoms·molecules·organisms)로 설계해 npm에 배포',
             },
           ],
         },
@@ -274,26 +274,12 @@ const sideProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '재사용 가능한 UI 컴포넌트 라이브러리 설계 및 개발',
-              descriptions: [
-                {
-                  content:
-                    'TypeScript로 Button·Label·Loading·ProgressBar(atoms), Toast·Alert·Pagination(molecules), Header(organisms) 등 UI 컴포넌트를 개발하고 Storybook으로 문서화',
-                },
-                {
-                  content:
-                    'CommonJS는 동적 require 구조라 정적 분석이 불가능해 트리쉐이킹이 되지 않는 반면 ESM은 정적 import/export 구조로 트리쉐이킹이 가능해, Rollup으로 ESM 전용 번들을 구성해 사용하지 않는 컴포넌트는 최종 번들에서 제외되도록 배포',
-                },
-              ],
+              content:
+                '정적 import/export 구조인 ESM으로 번들해, 사용하지 않는 컴포넌트를 소비 측에서 제외(트리쉐이킹)할 수 있도록 구성',
             },
             {
-              content: 'CI/CD 파이프라인 구축을 통한 배포 프로세스 자동화',
-              descriptions: [
-                {
-                  content:
-                    'GitHub Actions에 semantic-release를 연동해 Conventional Commits 기반으로 버전을 자동 산정하고 npm 배포까지 자동화(main=정식 버전, dev=@dev 프리릴리즈). 이 자동화 파이프라인을 통해 v2.2.7까지 버전을 배포했고, 최근 1년 1,500+ 다운로드를 기록',
-                },
-              ],
+              content:
+                'GitHub Actions와 semantic-release로 버전 산정부터 npm 배포까지 자동화 (v2.2.7까지 배포, 최근 1년 1,500+ 다운로드)',
             },
           ],
         },
