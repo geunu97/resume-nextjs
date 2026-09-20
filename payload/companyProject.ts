@@ -298,12 +298,11 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content:
-                '분실 직후 흐릿해진 기억을 대화형 AI가 질문을 통해 되살려주고, 사진 한 장으로 등록하면 AI가 분실물과 습득물을 자동으로 매칭해주는 통합 플랫폼',
+              content: '기존 분실물 시스템의 한계를 보완하는 AI 분실물·습득물 통합 플랫폼',
             },
             {
               content:
-                '2주간(2026.04.20~04.30) 진행된 폴라리스오피스 전사 AI 바이브코딩 공모전에 자유주제로 개인 출품',
+                '검색 부담 → 사진 기반 자동 매칭, 흐릿한 기억 → AI 질문으로 떠올리기, 약한 신고 동기 → 사례금 금액 표시, 주인 확인의 어려움 → 습득자만 아는 정보 기반 소유자 인증 질문',
             },
           ],
         },
@@ -312,7 +311,8 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '전사 임직원 160여 명이 참가한 공모전에서 최우수상(1위) 수상',
+              content:
+                "전사 임직원 160여 명이 참가한 2주간의 공모전에서 '문제 해결력과 창의적인 아이디어'로 최우수상(1위) 수상",
             },
           ],
         },
@@ -321,29 +321,11 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content:
-                '"분실은 사용자가 가장 인지적으로 취약해지는 순간"이라는 문제 인식으로 대화형 AI 인터뷰 "TraceAI"를 기획',
+              content: 'AI 코딩 에이전트를 활용해 기획부터 구현까지 개인으로 수행',
               descriptions: [
                 {
                   content:
-                    '국내에서 매년 보고되는 분실물은 1,000만 건이 넘지만 주인에게 돌아가는 비율은 30~40%대에 그치는데, 기존 분실물 시스템(LOST112, 지하철 유실물센터 등)은 이용자가 직접 게시판을 검색해야 하는 단방향 구조이고 습득자에게는 신고할 유인이 없어 분실자·습득자 모두에게 불편한 구조라는 점을 문제로 정의',
-                },
-                {
-                  content:
-                    '검색 결과를 곧바로 보여주는 대신, TraceAI가 질문을 하나씩 던져 분실 당시의 동선과 기억을 스스로 복원하도록 만드는 진입 지점을 설계',
-                },
-              ],
-            },
-            {
-              content: 'AI 코딩 에이전트를 활용해 Next.js·Supabase·OpenAI API 기반 서비스를 완성',
-              descriptions: [
-                {
-                  content:
-                    'TraceAI 대화형 기억 복원, 사진 기반 이미지 분석, 소유자 인증 질문 생성, 게시글 유사 매칭 알림까지 4종의 AI 기능을 모두 실제 동작하도록 구현',
-                },
-                {
-                  content:
-                    '유사 매칭 알림은 제목 50%·태그 35%·설명 15% 가중치의 키워드 유사도로 점수를 계산해, 임계값을 넘는 경우에만 자동 발송',
+                    '직접 기획하고 Next.js·Supabase·OpenAI API 기반으로 대화형 기억 떠올리기, 사진 기반 이미지 분석, 소유자 인증 질문 생성, 제목·태그·설명 가중치 기반 유사 매칭 알림까지 AI 기능 4종을 모두 실제 동작하도록 구현',
                 },
               ],
             },
@@ -354,11 +336,7 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '수상 소감 유튜브 쇼츠',
-              href: 'https://youtube.com/shorts/0HRJuQGnL3E',
-            },
-            {
-              content: '수상 인증샷',
+              content: '최우수상 상장',
               href: findbackAward,
             },
           ],
@@ -377,7 +355,7 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                '유연근무제 환경에서 매일 인트라넷 페이지에서 근무시간을 확인하고 기준 시간(8시간) 대비 초과/미달을 수동으로 계산하는 번거로움을 직접 느껴 Chrome Extension을 제작',
+                '유연근무제 환경에서 월 필수 근로시간 대비 초과·부족 시간을 매번 수동으로 계산하는 번거로움을 직접 느껴 Chrome Extension을 제작',
             },
           ],
         },
@@ -387,22 +365,10 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                '인트라넷 페이지의 근무시간 데이터를 자동으로 파싱해 기준 시간과 비교한 초과/미달 시간을 실시간으로 계산·표시',
+                '인트라넷 근무시간 표 읽기(content script) → 저장(service worker) → 팝업 표시(popup)로 구성해, 남은 영업일을 하루 8시간으로 채웠을 때의 월 필수 근로시간 대비 초과·부족 시간을 계산·표시',
             },
             {
-              content:
-                '반복적인 수동 계산 작업을 없애고, 같은 불편을 겪던 주변 동료들에게 공유해 함께 사용',
-            },
-          ],
-        },
-        {
-          content: '관련 링크',
-          weight: 'MEDIUM',
-          descriptions: [
-            {
-              content: 'GitHub 저장소',
-              href:
-                'https://github.com/geunu97/pub-po-side/tree/main/Intranet-Working-Hours-Calculator',
+              content: '같은 불편을 겪던 동료들과 공유해 함께 사용',
             },
           ],
         },
