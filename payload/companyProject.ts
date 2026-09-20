@@ -35,7 +35,7 @@ const companyProject: IProject.Payload = {
               content: '웹오피스 SDK 상용화 레퍼런스 확대 - 60여 개 고객사 납품 및 상용화',
             },
             {
-              content: '웹오피스 SDK 매출 실적 483% 달성(2024년 4.1억 → 2025년 19.8억)',
+              content: '웹오피스 SDK 매출 약 4.8배 성장(2024년 4.1억 → 2025년 19.8억)',
             },
 
             {

@@ -17,7 +17,7 @@ const openSource: IOpenSource.Payload = {
           href: 'https://github.com/facebookexperimental/Recoil/pull/2002',
         },
         {
-          content: 'Github Stars: ',
+          content: 'GitHub Stars: ',
           postImage:
             'https://img.shields.io/github/stars/facebookexperimental/Recoil.svg?style=popout',
         },
