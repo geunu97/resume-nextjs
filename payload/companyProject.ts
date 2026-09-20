@@ -409,8 +409,7 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content:
-                'K-POP 아티스트와 전세계 한류 팬을 잇는 글로벌 팬덤 플랫폼으로, 175개국에 출시되어 한국 엔터테인먼트 콘텐츠(K-팝, 드라마, 영화 등)의 최신 소식과 영상을 제공',
+              content: "175개국에 출시된 모바일 앱 '팬투'의 웹 전용 버전 (오픈 전 종료)",
             },
           ],
         },
@@ -419,10 +418,11 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: '운영사 한류홀딩스(HRYU), 국내 스타트업 최초 나스닥 직상장 성공',
+              content: '운영사 한류홀딩스(HRYU), 국내 스타트업 최초 나스닥 직상장(2023.08)',
+              href: 'https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02007366635703712',
             },
             {
-              content: "'대한민국 문화연예대상' K-POP 해외 공로상 수상",
+              content: "한류뱅크 팬투, '대한민국 문화연예대상' K-POP 해외 공로상 수상(2023.11)",
               href: 'https://www.e2news.com/news/articleView.html?idxno=303553',
             },
           ],
@@ -432,32 +432,28 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'next-i18next 기반 다국어 지원 구현',
-              descriptions: [
-                {
-                  content:
-                    'URL Path 기준으로 언어를 구분하는 next-i18next를 도입해 접속 경로에 따라 자동으로 언어가 전환되도록 구현해 글로벌 서비스의 다국어 요구사항을 충족',
-                },
-              ],
+              content: 'Figma 기반 커뮤니티 목록·상세 페이지 UI 개발',
             },
             {
-              content: '메타데이터 최적화를 통한 Lighthouse SEO 점수 향상 (74점 → 86점)',
-              descriptions: [
-                {
-                  content:
-                    '<meta>, <title>, <description> 태그 미최적화와 이미지 alt 속성 누락으로 낮았던 SEO 점수를, 태그 최적화와 전체 이미지 alt 속성 적용으로 개선해 검색엔진 인식도와 웹 접근성을 강화',
-                },
-              ],
+              content: '관리자 페이지 UI 개발 및 Swagger 명세 기반 API 연동',
             },
             {
-              content: '에러 핸들링 중앙화를 통한 코드 품질 및 유지보수성 개선',
-              descriptions: [
-                {
-                  content:
-                    '컴포넌트마다 개별 try-catch로 에러를 처리해 중복 코드와 일관되지 않은 에러 UX가 발생하던 것을, react-query의 useErrorBoundary를 활용한 ErrorBoundary 패턴으로 중앙화해 중복 코드를 제거하고 일관된 에러 경험과 유지보수성을 확보',
-                },
-              ],
+              content:
+                'Next.js i18n 라우팅과 next-i18next로 URL 경로(/en 등) 기반 다국어 지원 구현',
             },
+            {
+              content:
+                'Lighthouse 경고 항목 중 점수 영향이 큰 페이지별 title·meta description과 이미지 alt를 수정해 SEO 74점 → 86점 개선',
+            },
+            // {
+            //   content: '에러 핸들링 중앙화를 통한 코드 품질 및 유지보수성 개선',
+            //   descriptions: [
+            //     {
+            //       content:
+            //         '컴포넌트마다 개별 try-catch로 에러를 처리해 중복 코드와 일관되지 않은 에러 UX가 발생하던 것을, react-query의 useErrorBoundary를 활용한 ErrorBoundary 패턴으로 중앙화해 중복 코드를 제거하고 일관된 에러 경험과 유지보수성을 확보',
+            //     },
+            //   ],
+            // },
           ],
         },
       ],
