@@ -283,6 +283,7 @@ const companyProject: IProject.Payload = {
     {
       title: 'FindBack',
       startedAt: '2026-04',
+      endedAt: '2026-04',
       where: '(폴라리스오피스) 전사 AI 바이브코딩 공모전 개인 출품작 (자유주제)',
       skillKeywords: ['TypeScript', 'Next.js', 'Supabase', 'OpenAI API'],
       descriptions: [
