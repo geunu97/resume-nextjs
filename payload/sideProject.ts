@@ -240,7 +240,7 @@ const sideProject: IProject.Payload = {
       title: '@geunwoo/react-design-system',
       startedAt: '2023-06',
       endedAt: '2023-08',
-      where: 'React 기반 UI 컴포넌트 NPM 라이브러리 개발',
+      where: 'React 기반 UI 컴포넌트 npm 라이브러리 개발',
       skillKeywords: ['TypeScript', 'React', 'Rollup', 'Storybook'],
       descriptions: [
         {

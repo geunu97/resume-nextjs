@@ -32,7 +32,7 @@ const companyProject: IProject.Payload = {
               content: '2025년 연간 사내 프로젝트 평가에서 최우수 프로젝트(1위) 선정',
             },
             {
-              content: '웹오피스 SDK 상용화 레퍼런스 확대 - 60여 개 고객사 납품 및 상용화',
+              content: '웹오피스 SDK 상용화 레퍼런스 확대 - 60여 개 파트너사 납품 및 상용화',
             },
             {
               content: '웹오피스 SDK 매출 약 4.8배 성장(2024년 4.1억 → 2025년 19.8억)',
@@ -50,11 +50,11 @@ const companyProject: IProject.Payload = {
           descriptions: [
             {
               content:
-                '60여 개 파트너사 중 나눔기술(삼성생명)·IBK기업은행·한국도로공사 등 20여 개 고객사의 기술 지원 및 라이선스 갱신·관리를 직접 담당',
+                '60여 개 파트너사 중 나눔기술(삼성생명)·IBK기업은행·한국도로공사 등 20여 곳의 기술 지원 및 라이선스 갱신·관리를 직접 담당',
             },
             {
               content:
-                'MG새마을금고·국가철도공단 등 주요 고객사는 기술 미팅과 현장 방문까지 진행하며 관계 관리',
+                'MG새마을금고·국가철도공단 등 주요 파트너사는 기술 미팅과 현장 방문까지 진행하며 관계 관리',
             },
           ],
         },
@@ -75,11 +75,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '메일은 초안 작성까지만, main push는 금지, PR 머지·라이선스 발급은 승인 후에만 진행하도록 제한',
-                },
-                {
-                  content:
-                    '동시에 몰리는 문의·발급 같은 단순 반복 요청은 여러 터미널 세션에서 병렬로 처리해, 복잡한 개발 작업에 시간을 투자할 수 있게 됨',
+                    '메일은 초안 작성까지만, main push는 금지, PR 머지·라이선스 발급은 승인 후에만 진행하도록 제한하고, 단순 반복 요청은 여러 터미널 세션에서 병렬로 처리해 복잡한 개발 작업에 시간을 투자할 수 있도록 개선',
                 },
               ],
             },
@@ -107,7 +103,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '사내 SDK 빌드·배포 플랫폼에 Jira Open API 연동 기능을 개발해, 배포가 끝나면 프로젝트·버전별 티켓을 생성하고 배포 로그와 이슈를 연결, 이력 누락을 막고 버전별로 이슈를 추적할 수 있게 함',
+                    '사내 SDK 빌드·배포 플랫폼에 Jira Open API 연동 기능을 개발해, 배포가 끝나면 프로젝트·버전별 티켓을 생성하고 배포 로그와 이슈를 연결, 이력 누락을 막고 버전별로 이슈를 추적할 수 있도록 구현',
                 },
               ],
             },
@@ -131,7 +127,7 @@ const companyProject: IProject.Payload = {
               descriptions: [
                 {
                   content:
-                    '고객사 요청으로, 표 폭이 넓어지는 등 레이아웃이 깨지던 붙여넣기 문제를 엔진팀의 변환(WASM) 모듈을 SDK에 연동하고 복사한 HTML 데이터를 모듈에 전달해 반환된 XML로 붙여넣도록 구현해 해결',
+                    '파트너사 요청으로, 표 폭이 넓어지는 등 레이아웃이 깨지던 붙여넣기 문제를 엔진팀의 변환(WASM) 모듈을 SDK에 연동하고 복사한 HTML 데이터를 모듈에 전달해 반환된 XML로 붙여넣도록 구현해 해결',
                 },
               ],
             },
@@ -170,7 +166,7 @@ const companyProject: IProject.Payload = {
       title: 'PASS Office 부가서비스 (LGU+, KT, SKT)',
       startedAt: '2024-06',
       where:
-        '(폴라리스오피스) 웹오피스 SDK 기반 B2C 이동통신사 PASS 부가서비스의 App 내 WebView 및 Web 프론트엔드 개발',
+        '(폴라리스오피스) 웹오피스 SDK 기반 B2C 이동통신사 PASS 부가서비스의 앱 내 WebView 및 웹 프론트엔드 개발',
       skillKeywords: ['TypeScript', 'React', 'Redux', 'Styled-components'],
       descriptions: [
         {
@@ -188,11 +184,11 @@ const companyProject: IProject.Payload = {
           weight: 'MEDIUM',
           descriptions: [
             {
-              content: 'LGU+ PASS 유료 출시 후, 8개월 만에 유료 구독 30,000명 확보',
+              content: 'LGU+ PASS Office 유료 출시 후, 8개월 만에 유료 구독 3만 명 확보',
             },
             {
               content:
-                'LGU+(2024.12)·KT(2025.10)에 이어 SKT PASS(2026.06)까지 오픈하며 이동통신 3사 채널 확보',
+                'LGU+(2024.12)·KT(2025.10)에 이어 SKT PASS Office(2026.06)까지 오픈하며 이동통신 3사 채널 확보',
             },
           ],
         },
@@ -209,7 +205,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '앱 개발 담당자와 플랫폼·통신사·버전 정보를 User-Agent에 담아 전달하는 규약을 정하고, 웹에서 이를 읽어 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현해 상용 도메인에 배포해도 구버전 앱에는 기능이 노출되지 않게 함',
+                    '앱 개발 담당자와 플랫폼·통신사·버전 정보를 User-Agent에 담아 전달하는 규약을 정하고, 웹에서 이를 읽어 특정 통신사의 특정 버전 이상에서만 기능을 노출하도록 구현해 상용 도메인에 배포해도 구버전 앱에는 기능이 노출되지 않도록 차단',
                 },
               ],
             },
@@ -223,10 +219,7 @@ const companyProject: IProject.Payload = {
                 },
                 {
                   content:
-                    '에디터에서 팝업으로 로그인 페이지를 띄우고, 로그인 완료 후 postMessage로 토큰을 에디터에 전달하면 에디터가 서버 검증 API를 호출해, 검증에 성공하면 서버가 설정하는 쿠키로 로그인이 유지되도록 연동',
-                },
-                {
-                  content: '검증이 끝나면 팝업을 닫고 원래 열람하려던 에디터 화면으로 자동 진입',
+                    '에디터에서 팝업으로 로그인 페이지를 띄우고, 로그인 완료 후 postMessage로 토큰을 에디터에 전달하면 에디터가 서버 검증 API를 호출해, 검증에 성공하면 서버가 설정하는 쿠키로 로그인이 유지되도록 연동하고 팝업을 닫아 원래 열람하려던 에디터 화면으로 자동 진입',
                 },
               ],
             },
@@ -394,7 +387,7 @@ const companyProject: IProject.Payload = {
       title: 'Fantoo',
       startedAt: '2023-04',
       endedAt: '2023-12',
-      where: '(한류뱅크) 글로벌 K-POP 팬덤 플랫폼 Web 프론트엔드 개발',
+      where: '(한류뱅크) 글로벌 K-POP 팬덤 플랫폼 웹 프론트엔드 개발',
       skillKeywords: [
         'JavaScript',
         'TypeScript',
