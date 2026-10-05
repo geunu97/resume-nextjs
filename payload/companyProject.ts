@@ -339,7 +339,8 @@ const companyProject: IProject.Payload = {
     },
     {
       title: '근무시간 계산기',
-      startedAt: '2024-06',
+      startedAt: '2025-09',
+      endedAt: '2025-09',
       where: '(폴라리스오피스) 사내용 근무시간 계산기 Chrome Extension 개발',
       skillKeywords: ['JavaScript'],
       descriptions: [
