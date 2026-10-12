@@ -258,15 +258,15 @@ const companyProject: IProject.Payload = {
                 },
               ],
             },
-            {
-              content: 'SKT PASS 신규 채널 WebView·웹 화면 구현',
-              descriptions: [
-                {
-                  content:
-                    'LGU+·KT에서 쓰던 브릿지, 팝업 로그인 등의 구조를 재사용해 앱 내 인트로/약관 WebView 화면과 웹 로그인, 웹 가입/해지 화면을 구현',
-                },
-              ],
-            },
+            // {
+            //   content: 'SKT PASS 신규 채널 WebView·웹 화면 구현',
+            //   descriptions: [
+            //     {
+            //       content:
+            //         'LGU+·KT에서 쓰던 브릿지, 팝업 로그인 등의 구조를 재사용해 앱 내 인트로/약관 WebView 화면과 웹 로그인, 웹 가입/해지 화면을 구현',
+            //     },
+            //   ],
+            // },
             // {
             //   content: 'PASS Web Info 유료 구독 및 약관 확인 화면 구현',
             //   descriptions: [
